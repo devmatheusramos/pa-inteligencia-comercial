@@ -1,0 +1,72 @@
+{
+  "id": "c14",
+  "segmento": "material de construção",
+  "vendedor": {
+    "id": "v1",
+    "nome": "Ana Paula"
+  },
+  "cliente": {
+    "nome": "Rogério Lima",
+    "telefone": "+55 81 98123-4521"
+  },
+  "dificil": false,
+  "mensagens": [
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T08:40:00-03:00",
+      "texto": "Bom dia! Aqui é a Ana Paula, da Casa Forte Materiais de Construção 😊 Vi que o senhor se cadastrou no nosso site semana passada. Posso ajudar em alguma coisa?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T09:27:00-03:00",
+      "texto": "bom dia. cadastrei sim mas nem lembro pq kkk"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T09:31:00-03:00",
+      "texto": "Kkkk acontece! O senhor tá pensando em alguma obra ou reforma?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T09:53:00-03:00",
+      "texto": "talvez, to vendo ainda com minha esposa"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T09:56:00-03:00",
+      "texto": "Entendi! Fica à vontade. Quando vocês decidirem, posso passar uma lista de preço do que precisar"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T11:01:00-03:00",
+      "texto": "blz. semana q vem te falo"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T11:03:00-03:00",
+      "texto": "Combinado! Vou te chamar na segunda então, tá bom?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T11:18:00-03:00",
+      "texto": "👍"
+    }
+  ],
+  "gabarito": {
+    "etapa": "prospeccao",
+    "pendencias": [
+      {
+        "responsavel": "vendedor",
+        "descricao": "Chamar o cliente na segunda-feira",
+        "origem_msg": 6
+      },
+      {
+        "responsavel": "cliente",
+        "descricao": "Decidir com a esposa sobre a reforma e dar retorno",
+        "origem_msg": 5
+      }
+    ],
+    "proximo_passo": "Vendedor retomar contato na segunda e descobrir o tipo de obra",
+    "observacao": ""
+  }
+}

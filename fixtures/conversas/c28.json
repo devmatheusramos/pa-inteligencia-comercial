@@ -1,0 +1,67 @@
+{
+  "id": "c28",
+  "segmento": "material de construção",
+  "vendedor": {
+    "id": "v1",
+    "nome": "Ana Paula"
+  },
+  "cliente": {
+    "nome": "Vera Lúcia Campos",
+    "telefone": "+55 81 94475-2953"
+  },
+  "dificil": false,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-02T13:15:00-03:00",
+      "texto": "Ana, pode fechar o porcelanato aquele 60x60 acetinado. 45m²"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T13:19:00-03:00",
+      "texto": "Oi, Dona Vera! Fecho sim 😊 Confirmando: 45 m² porcelanato 60x60 acetinado, R$ 69,90/m² = R$ 3.145,50 + 30 sacos de argamassa AC-III R$ 1.050,00. Total R$ 4.195,50"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T13:25:00-03:00",
+      "texto": "isso. vou mandar o pix"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T13:34:00-03:00",
+      "texto": "[imagem: comprovante PIX R$ 4.195,50]"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T13:37:00-03:00",
+      "texto": "Recebido! Obrigada, Dona Vera 🙏 Qual o melhor dia pra entrega?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T13:49:00-03:00",
+      "texto": "quinta de manhã"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T13:51:00-03:00",
+      "texto": "Agendado pra quinta (05/11) pela manhã. O motorista liga meia hora antes"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T13:52:00-03:00",
+      "texto": "obrigada"
+    }
+  ],
+  "gabarito": {
+    "etapa": "fechado_ganho",
+    "pendencias": [
+      {
+        "responsavel": "vendedor",
+        "descricao": "Entregar o pedido na quinta (05/11) pela manhã",
+        "origem_msg": 6
+      }
+    ],
+    "proximo_passo": "Garantir a entrega na quinta e fazer pós-venda",
+    "observacao": ""
+  }
+}

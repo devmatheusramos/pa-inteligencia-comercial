@@ -1,0 +1,82 @@
+{
+  "id": "c16",
+  "segmento": "móveis planejados",
+  "vendedor": {
+    "id": "v2",
+    "nome": "Bruno"
+  },
+  "cliente": {
+    "nome": "Patrícia Gouveia",
+    "telefone": "+55 81 93681-9399"
+  },
+  "dificil": false,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-04T17:00:00-03:00",
+      "texto": "Bruno, vi o projeto e amei, mas o prazo de 45 dias nao da"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T17:11:00-03:00",
+      "texto": "Oi, Patrícia! Que bom que gostou 😍 Qual seria o prazo ideal pra vocês?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T17:18:00-03:00",
+      "texto": "a gente muda dia 10 de dezembro, precisava pelo menos o quarto do bebe pronto antes"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T17:22:00-03:00",
+      "texto": "Entendi, quarto do bebê é prioridade mesmo. Uma opção é dividir em duas entregas: quarto do bebê primeiro e o resto depois"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T17:25:00-03:00",
+      "texto": "isso seria perfeito"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T17:26:00-03:00",
+      "texto": "e o valor muda?"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T17:41:00-03:00",
+      "texto": "O valor total se mantém R$ 23.400, só a montagem em duas etapas. Vou confirmar com a fábrica se o quarto sai até 05/12"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T17:50:00-03:00",
+      "texto": "ok. e se fechar à vista tem desconto?"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T17:55:00-03:00",
+      "texto": "Tem 5% no PIX. Te mando a confirmação da fábrica amanhã junto com a condição atualizada"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T17:58:00-03:00",
+      "texto": "beleza"
+    }
+  ],
+  "gabarito": {
+    "etapa": "negociacao",
+    "pendencias": [
+      {
+        "responsavel": "vendedor",
+        "descricao": "Confirmar com a fábrica a entrega do quarto do bebê até 05/12",
+        "origem_msg": 6
+      },
+      {
+        "responsavel": "vendedor",
+        "descricao": "Enviar condição atualizada com desconto à vista",
+        "origem_msg": 8
+      }
+    ],
+    "proximo_passo": "Vendedor enviar confirmação da fábrica e nova condição amanhã",
+    "observacao": ""
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "id": "c12",
+  "segmento": "software B2B",
+  "vendedor": {
+    "id": "v2",
+    "nome": "Bruno"
+  },
+  "cliente": {
+    "nome": "Marcelo Andrade",
+    "telefone": "+55 81 98520-6298"
+  },
+  "dificil": false,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-04T14:10:00-03:00",
+      "texto": "Boa tarde, vi o anúncio de vcs no Instagram"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T14:22:00-03:00",
+      "texto": "Boa tarde! Aqui é o Bruno, da GestorPro. Que bom que chegou até a gente! Com quem eu falo?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T14:28:00-03:00",
+      "texto": "Marcelo"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T14:30:00-03:00",
+      "texto": "Prazer, Marcelo! Sua empresa é de qual ramo?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T15:01:00-03:00",
+      "texto": "distribuidora de bebidas. mas agora to no meio de um carregamento, consigo falar mais tarde?"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T15:04:00-03:00",
+      "texto": "Claro! Que horário fica melhor pra você?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T15:08:00-03:00",
+      "texto": "depois das 18h"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T15:10:00-03:00",
+      "texto": "Fechado, te chamo às 18h então"
+    }
+  ],
+  "gabarito": {
+    "etapa": "prospeccao",
+    "pendencias": [
+      {
+        "responsavel": "vendedor",
+        "descricao": "Chamar o cliente depois das 18h",
+        "origem_msg": 7
+      }
+    ],
+    "proximo_passo": "Vendedor ligar após as 18h para entender a necessidade",
+    "observacao": ""
+  }
+}

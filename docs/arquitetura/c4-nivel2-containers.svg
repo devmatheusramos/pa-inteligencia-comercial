@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="860" viewBox="0 0 1400 860" font-family="Segoe UI, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker></defs>
+<rect width="1400" height="860" fill="#fff"/>
+<text x="20" y="34" font-size="22" font-weight="700" fill="#222">C4 Nível 2 — Containers (hospedagem AWS)</text>
+<rect x="20" y="230" width="1060" height="560" fill="none" stroke="#666" stroke-dasharray="8 5" rx="8"/>
+<text x="32" y="778" font-size="14" font-weight="600" fill="#444">Conta AWS — us-east-1 (VPC privada para Lambdas de dados e RDS)</text>
+<rect x="40" y="70" width="230" height="100" rx="4" fill="#8a8a8a" stroke="#6b6b6b"/>
+<text x="155.0" y="92" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">WhatsApp Cloud API</text>
+<text x="155.0" y="112" text-anchor="middle" font-size="11" font-weight="400" fill="#fff">[Meta]</text>
+<text x="155.0" y="128" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">Envia webhooks</text>
+<circle cx="1240.0" cy="78" r="18" fill="#08427b"/>
+<rect x="1130" y="90" width="220" height="80" rx="18" fill="#08427b"/>
+<text x="1240.0" y="104" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Gestor / Vendedor</text>
+<text x="1240.0" y="124" text-anchor="middle" font-size="11" font-weight="400" fill="#fff">[Pessoa]</text>
+<text x="1240.0" y="140" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">Usam os painéis</text>
+<rect x="1120" y="250" width="240" height="110" rx="4" fill="#438dd5" stroke="#2e6295"/>
+<text x="1240.0" y="272" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Painéis Web</text>
+<text x="1240.0" y="292" text-anchor="middle" font-size="11" font-weight="400" fill="#fff">[React + Vite, S3 + CloudFront]</text>
+<text x="1240.0" y="308" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">Painel do gestor e visão do</text>
+<text x="1240.0" y="325" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">vendedor</text>
+<rect x="380" y="70" width="260" height="100" rx="4" fill="#438dd5" stroke="#2e6295"/>
+<text x="510.0" y="92" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">API Gateway</text>
+<text x="510.0" y="112" text-anchor="middle" font-size="11" font-weight="400" fill="#fff">[HTTP API]</text>
+<text x="510.0" y="128" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">Rotas do webhook e da API</text>
+<rect x="60" y="260" width="230" height="110" rx="4" fill="#438dd5" stroke="#2e6295"/>
+<text x="175.0" y="282" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Webhook</text>
+<text x="175.0" y="302" text-anchor="middle" font-size="11" font-weight="400" fill="#fff">[Lambda Node.js]</text>
+<text x="175.0" y="318" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">Valida assinatura</text>
+<text x="175.0" y="335" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">X-Hub-Signature-256 e enfileira</text>
+<rect x="60" y="450" width="230" height="90" rx="22" fill="#438dd5" stroke="#2e6295"/>
+<text x="175.0" y="472" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Fila mensagens</text>
+<text x="175.0" y="492" text-anchor="middle" font-size="11" font-weight="400" fill="#fff">[Amazon SQS + DLQ]</text>
+<text x="175.0" y="508" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">Mensagens brutas, efêmeras</text>
+<rect x="380" y="430" width="260" height="130" rx="4" fill="#438dd5" stroke="#2e6295"/>
+<text x="510.0" y="452" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Processador</text>
+<text x="510.0" y="472" text-anchor="middle" font-size="11" font-weight="400" fill="#fff">[Lambda Node.js (VPC)]</text>
+<text x="510.0" y="488" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">Mascara dados pessoais, vincula ao</text>
+<text x="510.0" y="505" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">vendedor, calcula tempo de resposta</text>
+<rect x="380" y="650" width="260" height="90" rx="4" fill="#438dd5" stroke="#2e6295"/>
+<text x="510.0" y="672" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Agendador</text>
+<text x="510.0" y="692" text-anchor="middle" font-size="11" font-weight="400" fill="#fff">[EventBridge Scheduler]</text>
+<text x="510.0" y="708" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">A cada 15 min: conversas paradas há</text>
+<text x="510.0" y="725" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">30 min</text>
+<rect x="730" y="620" width="270" height="130" rx="4" fill="#438dd5" stroke="#2e6295"/>
+<text x="865.0" y="642" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Analisador</text>
+<text x="865.0" y="662" text-anchor="middle" font-size="11" font-weight="400" fill="#fff">[Lambda Node.js (VPC)]</text>
+<text x="865.0" y="678" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">Monta prompt, chama o LLM, valida</text>
+<text x="865.0" y="695" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">JSON e grava etapa e pendências</text>
+<rect x="780" y="250" width="240" height="110" rx="4" fill="#438dd5" stroke="#2e6295"/>
+<text x="900.0" y="272" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">API dos painéis</text>
+<text x="900.0" y="292" text-anchor="middle" font-size="11" font-weight="400" fill="#fff">[Lambda Node.js + Fastify (VPC)]</text>
+<text x="900.0" y="308" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">Indicadores filtrados por perfil</text>
+<path d="M780,432 v116 a120.0,12 0 0 0 240,0 v-116 a120.0,12 0 0 0 -240,0 a120.0,12 0 0 0 240,0" fill="#438dd5" stroke="#2e6295"/>
+<text x="900.0" y="442" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Banco</text>
+<text x="900.0" y="462" text-anchor="middle" font-size="11" font-weight="400" fill="#fff">[RDS PostgreSQL]</text>
+<text x="900.0" y="478" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">Conversas mascaradas, análises,</text>
+<text x="900.0" y="495" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">indicadores. RLS por vendedor</text>
+<rect x="1110" y="640" width="240" height="100" rx="4" fill="#8a8a8a" stroke="#6b6b6b"/>
+<text x="1230.0" y="662" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Amazon Bedrock</text>
+<text x="1230.0" y="682" text-anchor="middle" font-size="11" font-weight="400" fill="#fff">[LLM via VPC endpoint]</text>
+<text x="1230.0" y="698" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">Claude (modelo pequeno)</text>
+<rect x="1120" y="440" width="230" height="90" rx="4" fill="#8a8a8a" stroke="#6b6b6b"/>
+<text x="1235.0" y="462" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Amazon Cognito</text>
+<text x="1235.0" y="482" text-anchor="middle" font-size="11" font-weight="400" fill="#fff">[Autenticação]</text>
+<text x="1235.0" y="498" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">Grupos gestor e vendedor</text>
+<line x1="270" y1="120" x2="380" y2="120" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="253" y="110" width="144" height="21" fill="#fff" opacity="0.92"/>
+<text x="325" y="124" text-anchor="middle" font-size="12" fill="#333">POST webhook [HTTPS]</text>
+<line x1="424" y1="170" x2="269" y2="260" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="321" y="204" width="52" height="21" fill="#fff" opacity="0.92"/>
+<text x="347" y="220" text-anchor="middle" font-size="12" fill="#333">Invoca</text>
+<line x1="175" y1="370" x2="175" y2="450" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="139" y="400" width="71" height="21" fill="#fff" opacity="0.92"/>
+<text x="175" y="414" text-anchor="middle" font-size="12" fill="#333">Enfileira</text>
+<line x1="290" y1="495" x2="380" y2="495" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="289" y="484" width="91" height="21" fill="#fff" opacity="0.92"/>
+<text x="335" y="500" text-anchor="middle" font-size="12" fill="#333">Consome lote</text>
+<line x1="640" y1="493" x2="780" y2="492" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="635" y="482" width="151" height="21" fill="#fff" opacity="0.92"/>
+<text x="710" y="497" text-anchor="middle" font-size="12" fill="#333">Grava texto mascarado</text>
+<line x1="640" y1="691" x2="730" y2="689" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="656" y="680" width="58" height="21" fill="#fff" opacity="0.92"/>
+<text x="685" y="695" text-anchor="middle" font-size="12" fill="#333">Dispara</text>
+<line x1="877" y1="620" x2="887" y2="560" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="787" y="580" width="190" height="21" fill="#fff" opacity="0.92"/>
+<text x="882" y="594" text-anchor="middle" font-size="12" fill="#333">Lê conversa / grava análise</text>
+<line x1="1000" y1="687" x2="1110" y2="688" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="990" y="677" width="131" height="21" fill="#fff" opacity="0.92"/>
+<text x="1055" y="692" text-anchor="middle" font-size="12" fill="#333">Conversa mascarada</text>
+<line x1="1240" y1="170" x2="1240" y2="250" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="1198" y="200" width="85" height="21" fill="#fff" opacity="0.92"/>
+<text x="1240" y="214" text-anchor="middle" font-size="12" fill="#333">Usa [HTTPS]</text>
+<line x1="1120" y1="275" x2="640" y2="153" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="824" y="203" width="111" height="21" fill="#fff" opacity="0.92"/>
+<text x="880" y="218" text-anchor="middle" font-size="12" fill="#333">Chama API [JWT]</text>
+<line x1="615" y1="170" x2="784" y2="250" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="601" y="200" width="197" height="21" fill="#fff" opacity="0.92"/>
+<text x="700" y="214" text-anchor="middle" font-size="12" fill="#333">Invoca (autorizador Cognito)</text>
+<line x1="900" y1="360" x2="900" y2="420" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="848" y="380" width="104" height="21" fill="#fff" opacity="0.92"/>
+<text x="900" y="394" text-anchor="middle" font-size="12" fill="#333">Consulta [SQL]</text>
+<line x1="1238" y1="360" x2="1236" y2="440" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="1215" y="390" width="45" height="21" fill="#fff" opacity="0.92"/>
+<text x="1237" y="404" text-anchor="middle" font-size="12" fill="#333">Login</text>
+</svg>

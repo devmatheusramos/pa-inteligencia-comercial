@@ -1,0 +1,62 @@
+{
+  "id": "c21",
+  "segmento": "buffet",
+  "vendedor": {
+    "id": "v2",
+    "nome": "Bruno"
+  },
+  "cliente": {
+    "nome": "Simone Duarte",
+    "telefone": "+55 81 94872-4730"
+  },
+  "dificil": false,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-03T08:50:00-03:00",
+      "texto": "Bruno, bom dia. A diretoria aprovou o coffee break pro treinamento do dia 12"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T08:56:00-03:00",
+      "texto": "Bom dia, Simone! Que ótimo 🙌 Então confirmando: coffee break pra 40 pessoas, 2 intervalos, dia 12/11 às 9h e 15h, R$ 1.680,00"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T09:00:00-03:00",
+      "texto": "isso mesmo. Preciso da nota fiscal no CNPJ da empresa"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T09:02:00-03:00",
+      "texto": "Claro. Me manda o cartão CNPJ por favor"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T09:17:00-03:00",
+      "texto": "[documento: cartao_cnpj_metalurgica_sao_jose.pdf]"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T09:22:00-03:00",
+      "texto": "Recebido! Te mando o boleto ainda hoje e a NF sai depois do evento"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T09:25:00-03:00",
+      "texto": "perfeito, obrigada!"
+    }
+  ],
+  "gabarito": {
+    "etapa": "fechado_ganho",
+    "pendencias": [
+      {
+        "responsavel": "vendedor",
+        "descricao": "Enviar o boleto ao cliente",
+        "origem_msg": 5
+      }
+    ],
+    "proximo_passo": "Vendedor enviar o boleto hoje e emitir a NF após o evento",
+    "observacao": ""
+  }
+}

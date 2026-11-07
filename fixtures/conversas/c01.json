@@ -1,0 +1,77 @@
+{
+  "id": "c01",
+  "segmento": "energia solar",
+  "vendedor": {
+    "id": "v2",
+    "nome": "Bruno"
+  },
+  "cliente": {
+    "nome": "Lúcia Barbosa",
+    "telefone": "+55 81 92887-5845"
+  },
+  "dificil": false,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-02T16:00:00-03:00",
+      "texto": "Boa tarde, recebi o orçamento do sistema solar"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T16:04:00-03:00",
+      "texto": "Boa tarde, Dona Lúcia! Bruno da SolarPE. Alguma dúvida sobre a proposta?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T16:14:00-03:00",
+      "texto": "achei caro. 18.900 ta puxado"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T16:15:00-03:00",
+      "texto": "a outra empresa me passou 16.500 no mesmo tamanho"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T16:21:00-03:00",
+      "texto": "Entendo! Sabe me dizer a marca dos painéis e do inversor deles? Os nossos são tier 1 e o inversor tem 10 anos de garantia"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T16:40:00-03:00",
+      "texto": "nao sei, vou ver no orçamento deles"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T16:42:00-03:00",
+      "texto": "Se puder me mandar foto do orçamento, comparo item a item pra você. E vou ver com meu gerente uma condição melhor no à vista"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T17:27:00-03:00",
+      "texto": "vou procurar aqui e te mando"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T17:28:00-03:00",
+      "texto": "Fico no aguardo!"
+    }
+  ],
+  "gabarito": {
+    "etapa": "negociacao",
+    "pendencias": [
+      {
+        "responsavel": "cliente",
+        "descricao": "Enviar foto do orçamento do concorrente",
+        "origem_msg": 7
+      },
+      {
+        "responsavel": "vendedor",
+        "descricao": "Ver com o gerente condição melhor à vista",
+        "origem_msg": 6
+      }
+    ],
+    "proximo_passo": "Vendedor trazer condição à vista e comparar com o concorrente",
+    "observacao": ""
+  }
+}

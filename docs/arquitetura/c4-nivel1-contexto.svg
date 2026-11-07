@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="700" viewBox="0 0 1100 700" font-family="Segoe UI, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker></defs>
+<rect width="1100" height="700" fill="#fff"/>
+<text x="20" y="34" font-size="22" font-weight="700" fill="#222">C4 Nível 1 — Contexto do sistema</text>
+<circle cx="170.0" cy="88" r="18" fill="#08427b"/>
+<rect x="60" y="100" width="220" height="90" rx="18" fill="#08427b"/>
+<text x="170.0" y="114" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Gestor comercial</text>
+<text x="170.0" y="134" text-anchor="middle" font-size="11" font-weight="400" fill="#fff">[Pessoa]</text>
+<text x="170.0" y="150" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">Acompanha a equipe sem ler</text>
+<text x="170.0" y="167" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">conversa por conversa</text>
+<circle cx="930.0" cy="88" r="18" fill="#08427b"/>
+<rect x="820" y="100" width="220" height="90" rx="18" fill="#08427b"/>
+<text x="930.0" y="114" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Vendedor</text>
+<text x="930.0" y="134" text-anchor="middle" font-size="11" font-weight="400" fill="#fff">[Pessoa]</text>
+<text x="930.0" y="150" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">Atende clientes pelo WhatsApp</text>
+<text x="930.0" y="167" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">do número comercial</text>
+<rect x="400" y="290" width="300" height="140" rx="4" fill="#1168bd" stroke="#2e6295"/>
+<text x="550.0" y="312" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Plataforma de Inteligência Comercial</text>
+<text x="550.0" y="332" text-anchor="middle" font-size="11" font-weight="400" fill="#fff">[Sistema de software]</text>
+<text x="550.0" y="348" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">Lê as conversas, mascara dados pessoais,</text>
+<text x="550.0" y="365" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">identifica etapa, pendências e tempo de</text>
+<text x="550.0" y="382" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">resposta</text>
+<circle cx="960.0" cy="548" r="18" fill="#08427b"/>
+<rect x="860" y="560" width="200" height="80" rx="18" fill="#08427b"/>
+<text x="960.0" y="574" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Cliente</text>
+<text x="960.0" y="594" text-anchor="middle" font-size="11" font-weight="400" fill="#fff">[Pessoa externa]</text>
+<text x="960.0" y="610" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">Negocia com o vendedor</text>
+<rect x="860" y="300" width="210" height="120" rx="4" fill="#8a8a8a" stroke="#6b6b6b"/>
+<text x="965.0" y="322" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">WhatsApp Business Platform</text>
+<text x="965.0" y="342" text-anchor="middle" font-size="11" font-weight="400" fill="#fff">[Sistema externo — Meta]</text>
+<text x="965.0" y="358" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">Cloud API + app Business</text>
+<text x="965.0" y="375" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">(coexistência)</text>
+<rect x="30" y="300" width="200" height="120" rx="4" fill="#8a8a8a" stroke="#6b6b6b"/>
+<text x="130.0" y="322" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Amazon Bedrock</text>
+<text x="130.0" y="342" text-anchor="middle" font-size="11" font-weight="400" fill="#fff">[Sistema externo — LLM]</text>
+<text x="130.0" y="358" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">Modelo de linguagem da</text>
+<text x="130.0" y="375" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">família Claude</text>
+<rect x="420" y="540" width="260" height="100" rx="4" fill="#8a8a8a" stroke="#6b6b6b"/>
+<text x="550.0" y="562" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Amazon Cognito</text>
+<text x="550.0" y="582" text-anchor="middle" font-size="11" font-weight="400" fill="#fff">[Sistema externo]</text>
+<text x="550.0" y="598" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">Login e perfis gestor/vendedor</text>
+<line x1="269" y1="190" x2="434" y2="290" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="263" y="222" width="177" height="36" fill="#fff" opacity="0.92"/>
+<text x="352" y="237" text-anchor="middle" font-size="12" fill="#333">Consulta painel da equipe</text>
+<text x="352" y="252" text-anchor="middle" font-size="12" fill="#333">[HTTPS]</text>
+<line x1="831" y1="190" x2="666" y2="290" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="653" y="222" width="190" height="36" fill="#fff" opacity="0.92"/>
+<text x="748" y="237" text-anchor="middle" font-size="12" fill="#333">Consulta a própria carteira</text>
+<text x="748" y="252" text-anchor="middle" font-size="12" fill="#333">[HTTPS]</text>
+<line x1="939" y1="190" x2="956" y2="300" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="852" y="234" width="190" height="21" fill="#fff" opacity="0.92"/>
+<text x="948" y="250" text-anchor="middle" font-size="12" fill="#333">Conversa com clientes [app]</text>
+<line x1="961" y1="530" x2="964" y2="420" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="907" y="464" width="111" height="21" fill="#fff" opacity="0.92"/>
+<text x="962" y="480" text-anchor="middle" font-size="12" fill="#333">Envia mensagens</text>
+<line x1="860" y1="360" x2="700" y2="360" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="711" y="350" width="137" height="21" fill="#fff" opacity="0.92"/>
+<text x="780" y="364" text-anchor="middle" font-size="12" fill="#333">Webhook, só leitura</text>
+<line x1="400" y1="360" x2="230" y2="360" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="226" y="350" width="177" height="21" fill="#fff" opacity="0.92"/>
+<text x="315" y="364" text-anchor="middle" font-size="12" fill="#333">Conversa mascarada [JSON]</text>
+<line x1="550" y1="430" x2="550" y2="540" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="455" y="474" width="190" height="21" fill="#fff" opacity="0.92"/>
+<text x="550" y="490" text-anchor="middle" font-size="12" fill="#333">Valida login e perfil [JWT]</text>
+</svg>

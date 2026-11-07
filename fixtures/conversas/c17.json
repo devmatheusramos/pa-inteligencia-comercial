@@ -1,0 +1,67 @@
+{
+  "id": "c17",
+  "segmento": "escola de idiomas",
+  "vendedor": {
+    "id": "v1",
+    "nome": "Ana Paula"
+  },
+  "cliente": {
+    "nome": "Rodrigo Albuquerque",
+    "telefone": "+55 81 94078-1176"
+  },
+  "dificil": false,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-05T08:30:00-03:00",
+      "texto": "Bom dia Ana. Recebemos a proposta das aulas in company pros nossos 12 funcionários"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T08:37:00-03:00",
+      "texto": "Bom dia, Rodrigo! Que bom. O que acharam?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T08:50:00-03:00",
+      "texto": "a diretoria gostou mas pediu pra reduzir pra 2 aulas por semana em vez de 3"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T08:51:00-03:00",
+      "texto": "e queria saber se o valor cai proporcional"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T08:55:00-03:00",
+      "texto": "Dá pra fazer sim. Com 2 aulas semanais o valor mensal cai, mas o curso fica mais longo, de 12 pra 18 meses"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T09:17:00-03:00",
+      "texto": "hm, 18 meses é muito. Tem como manter 12 meses com 2x?"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T09:23:00-03:00",
+      "texto": "Aí teria que aumentar cada aula pra 1h30. Vou recalcular as duas opções e te mando à tarde"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T09:26:00-03:00",
+      "texto": "perfeito"
+    }
+  ],
+  "gabarito": {
+    "etapa": "negociacao",
+    "pendencias": [
+      {
+        "responsavel": "vendedor",
+        "descricao": "Enviar recálculo das duas opções de carga horária",
+        "origem_msg": 6
+      }
+    ],
+    "proximo_passo": "Vendedor enviar as duas opções recalculadas à tarde",
+    "observacao": ""
+  }
+}

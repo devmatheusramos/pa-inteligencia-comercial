@@ -1,0 +1,56 @@
+{
+  "id": "c08",
+  "segmento": "buffet",
+  "vendedor": {
+    "id": "v1",
+    "nome": "Ana Paula"
+  },
+  "cliente": {
+    "nome": "Bianca Correia",
+    "telefone": "+55 81 97254-5392"
+  },
+  "dificil": false,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-05T16:20:00-03:00",
+      "texto": "Ana, boa tarde. Decidimos não fazer festa no casamento"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T16:21:00-03:00",
+      "texto": "vamos só no cartório e usar o dinheiro na viagem"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T16:43:00-03:00",
+      "texto": "Boa tarde, Bianca! Que decisão linda também, viagem é memória pra vida toda ✈️"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T16:44:00-03:00",
+      "texto": "Posso te perguntar se o orçamento pesou?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T16:58:00-03:00",
+      "texto": "um pouco, mas foi mais escolha nossa mesmo"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T17:01:00-03:00",
+      "texto": "Entendi! Se mudarem de ideia ou quiserem um almoço pequeno pra família, me chama"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T17:10:00-03:00",
+      "texto": "pode deixar, obrigada por tudo"
+    }
+  ],
+  "gabarito": {
+    "etapa": "perdido",
+    "pendencias": [],
+    "proximo_passo": "Registrar desistência do evento e encerrar",
+    "observacao": ""
+  }
+}

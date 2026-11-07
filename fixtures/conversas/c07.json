@@ -1,0 +1,51 @@
+{
+  "id": "c07",
+  "segmento": "escola de idiomas",
+  "vendedor": {
+    "id": "v1",
+    "nome": "Ana Paula"
+  },
+  "cliente": {
+    "nome": "Mariana Leal",
+    "telefone": "+55 81 96460-1838"
+  },
+  "dificil": false,
+  "mensagens": [
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T18:10:00-03:00",
+      "texto": "Oi, Mariana! Tudo bem? Passando pra saber se você conseguiu pensar sobre a matrícula no espanhol 😊"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T19:45:00-03:00",
+      "texto": "oi Ana, tudo sim"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T19:46:00-03:00",
+      "texto": "pensei sim, mas vou deixar pra ano que vem. apertou aqui as contas"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T19:50:00-03:00",
+      "texto": "Entendo perfeitamente. Se quiser, consigo segurar o valor promocional até janeiro"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T20:08:00-03:00",
+      "texto": "obrigada, mas nao vou fazer agora mesmo nao. desisti por enquanto"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T20:11:00-03:00",
+      "texto": "Sem problemas! Fica à vontade pra chamar quando quiser 💛"
+    }
+  ],
+  "gabarito": {
+    "etapa": "perdido",
+    "pendencias": [],
+    "proximo_passo": "Registrar desistência por orçamento; eventual recontato no próximo ano",
+    "observacao": ""
+  }
+}

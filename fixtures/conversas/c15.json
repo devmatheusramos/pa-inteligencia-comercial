@@ -1,0 +1,72 @@
+{
+  "id": "c15",
+  "segmento": "uniformes profissionais",
+  "vendedor": {
+    "id": "v1",
+    "nome": "Ana Paula"
+  },
+  "cliente": {
+    "nome": "Edson Farias",
+    "telefone": "+55 81 97651-7169"
+  },
+  "dificil": true,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-02T09:10:00-03:00",
+      "texto": "Bom dia! Preciso de camisa polo bordada pra equipe da minha oficina"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T09:17:00-03:00",
+      "texto": "Bom dia! Ana Paula da Vestir Uniformes. Quantas peças e quais tamanhos?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T09:32:00-03:00",
+      "texto": "12 pecas. 4 M, 6 G e 2 GG"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T09:35:00-03:00",
+      "texto": "Bordado só na frente ou nas costas também?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T09:40:00-03:00",
+      "texto": "so a logo no peito"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T10:20:00-03:00",
+      "texto": "Fica assim:\n12 polos piquet cinza com bordado da logo no peito\nR$ 59,90 cada = R$ 718,80\nPrazo de 10 dias úteis após aprovação da arte. 50% de entrada."
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T10:48:00-03:00",
+      "texto": "eita, ta salgado hein kkkk"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T10:49:00-03:00",
+      "texto": "mas vou ver aqui"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T10:53:00-03:00",
+      "texto": "Qualquer coisa me chama 😊"
+    }
+  ],
+  "gabarito": {
+    "etapa": "negociacao",
+    "pendencias": [
+      {
+        "responsavel": "cliente",
+        "descricao": "Avaliar o orçamento e dar retorno",
+        "origem_msg": 7
+      }
+    ],
+    "proximo_passo": "Vendedor perguntar se o valor é impeditivo e oferecer alternativa (malha mais simples ou menos peças)",
+    "observacao": "(a) Ambígua entre proposta e negociacao: após o orçamento o cliente comenta que está caro ('ta salgado'), mas em tom de brincadeira e sem pedir ajuste, e diz que vai avaliar. Pela regra, menção a preço alto conta como objeção de preço, por isso negociacao; leitura como proposta é defensável."
+  }
+}

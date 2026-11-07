@@ -1,0 +1,77 @@
+{
+  "id": "c11",
+  "segmento": "ar-condicionado",
+  "vendedor": {
+    "id": "v2",
+    "nome": "Bruno"
+  },
+  "cliente": {
+    "nome": "Gustavo Pires",
+    "telefone": "+55 81 92490-4068"
+  },
+  "dificil": false,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-05T13:10:00-03:00",
+      "texto": "boa tarde quanto fica pra instalar um split de 12 mil"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T13:15:00-03:00",
+      "texto": "Boa tarde! Bruno da FrioMax. O aparelho você já tem?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T13:18:00-03:00",
+      "texto": "ja comprei, chega amanha"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T13:20:00-03:00",
+      "texto": "Show. É casa ou apartamento? Qual andar?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T13:28:00-03:00",
+      "texto": "apto 3 andar, a condensadora fica na varanda"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T13:30:00-03:00",
+      "texto": "A distância entre a evaporadora e a condensadora fica em torno de quantos metros?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T13:36:00-03:00",
+      "texto": "uns 3 metros acho"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T13:40:00-03:00",
+      "texto": "Então fica assim:\nInstalação split 12.000 BTUs com até 3m de tubulação: R$ 450,00\nMetro adicional, se precisar: R$ 90,00\nGarantia de 90 dias na instalação. PIX ou cartão.\nTenho agenda segunda ou terça."
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T14:05:00-03:00",
+      "texto": "blz, vou esperar o aparelho chegar pra ver certinho e te chamo"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T14:06:00-03:00",
+      "texto": "Fechado, fico no aguardo 👍"
+    }
+  ],
+  "gabarito": {
+    "etapa": "proposta",
+    "pendencias": [
+      {
+        "responsavel": "cliente",
+        "descricao": "Confirmar chegada do aparelho e escolher dia da instalação",
+        "origem_msg": 8
+      }
+    ],
+    "proximo_passo": "Vendedor cobrar o cliente quando o aparelho chegar",
+    "observacao": ""
+  }
+}

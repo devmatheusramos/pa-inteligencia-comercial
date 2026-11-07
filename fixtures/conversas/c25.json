@@ -1,0 +1,72 @@
+{
+  "id": "c25",
+  "segmento": "segurança eletrônica",
+  "vendedor": {
+    "id": "v2",
+    "nome": "Bruno"
+  },
+  "cliente": {
+    "nome": "Wagner Freitas",
+    "telefone": "+55 81 99636-6054"
+  },
+  "dificil": true,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-05T09:00:00-03:00",
+      "texto": "Bom dia Bruno. Recebi a proposta das câmeras. Achei o preço ok mas preciso parcelar em 10x, vcs fazem?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T10:35:00-03:00",
+      "texto": "??"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T12:35:00-03:00",
+      "texto": "Bruno?"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T14:45:00-03:00",
+      "texto": "Seu Wagner, desculpa, tava numa instalação sem sinal. Vi agora"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T14:49:00-03:00",
+      "texto": "rapaz, to esperando desde as 9h. se for demorar assim pra responder imagina depois pra dar suporte"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T14:52:00-03:00",
+      "texto": "O senhor tem toda razão, peço desculpas. Sobre o parcelamento: hoje fazemos em até 6x sem juros no cartão. Em 10x tem os juros da maquininha, uns 8%"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T15:07:00-03:00",
+      "texto": "6x nao da. e 10x sem juros? a outra empresa faz"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T18:07:00-03:00",
+      "texto": "Vou ver com o dono se a gente absorve os juros. Te dou retorno ainda hoje"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T18:57:00-03:00",
+      "texto": "ta, mas responde mesmo dessa vez né"
+    }
+  ],
+  "gabarito": {
+    "etapa": "negociacao",
+    "pendencias": [
+      {
+        "responsavel": "vendedor",
+        "descricao": "Retornar se a empresa absorve os juros do 10x",
+        "origem_msg": 7
+      }
+    ],
+    "proximo_passo": "Vendedor responder hoje sobre o 10x sem juros e retomar a confiança",
+    "observacao": "(f) Vendedor leva 5h45 para a primeira resposta e 3h para a seguinte; cliente reclama explicitamente da demora. Objeção de forma de pagamento com menção a concorrente, conversa aberta: negociacao."
+  }
+}

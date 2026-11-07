@@ -1,0 +1,82 @@
+{
+  "id": "c13",
+  "segmento": "buffet",
+  "vendedor": {
+    "id": "v2",
+    "nome": "Bruno"
+  },
+  "cliente": {
+    "nome": "Priscila Nunes",
+    "telefone": "+55 81 91696-0514"
+  },
+  "dificil": false,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-02T10:00:00-03:00",
+      "texto": "Oi, queria orçamento pra aniversário de 1 ano do meu filho"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T10:08:00-03:00",
+      "texto": "Oi! Aqui é o Bruno do Buffet Sabor & Festa 🎉 Parabéns pelo pequeno! Pra quantas pessoas e qual a data?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T10:22:00-03:00",
+      "texto": "uns 60 convidados, sabado 28 de novembro"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T10:25:00-03:00",
+      "texto": "Seria no nosso salão ou em outro lugar?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T10:30:00-03:00",
+      "texto": "no salao de festas do meu predio"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T10:32:00-03:00",
+      "texto": "Perfeito. Fazemos buffet completo no local: salgados, docinhos, bolo, bebidas e garçons. Já tem tema?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T10:43:00-03:00",
+      "texto": "tema safari"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T11:30:00-03:00",
+      "texto": "Segue a proposta:\nPacote Safari 60 pessoas — 4h de festa\n• 25 salgados por pessoa\n• 6 docinhos por pessoa\n• Bolo 4kg decorado tema safari\n• Refrigerante e suco à vontade\n• 2 garçons\nValor: R$ 3.900,00\nSinal de 30% pra reservar a data, restante até 3 dias antes."
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T11:31:00-03:00",
+      "texto": "Sábado 28 ainda tá livre, mas tem mais 2 famílias perguntando essa data 😬"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T11:57:00-03:00",
+      "texto": "vou mostrar pro meu marido e te respondo amanha"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T11:59:00-03:00",
+      "texto": "Combinado!"
+    }
+  ],
+  "gabarito": {
+    "etapa": "proposta",
+    "pendencias": [
+      {
+        "responsavel": "cliente",
+        "descricao": "Responder sobre a proposta após conversar com o marido",
+        "origem_msg": 9
+      }
+    ],
+    "proximo_passo": "Vendedor cobrar resposta no dia seguinte, reforçando a disputa pela data",
+    "observacao": ""
+  }
+}

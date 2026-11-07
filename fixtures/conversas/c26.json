@@ -1,0 +1,56 @@
+{
+  "id": "c26",
+  "segmento": "móveis planejados",
+  "vendedor": {
+    "id": "v2",
+    "nome": "Bruno"
+  },
+  "cliente": {
+    "nome": "Rafael Monteiro",
+    "telefone": "+55 81 96063-0061"
+  },
+  "dificil": false,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-02T11:30:00-03:00",
+      "texto": "Oi Bruno, tudo bem? Passando pra avisar que a gente fechou com outra marcenaria"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T11:39:00-03:00",
+      "texto": "Oi, Rafael! Poxa, que pena. Posso perguntar o que pesou na decisão?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T11:53:00-03:00",
+      "texto": "preço mesmo, ficou uns 4 mil mais barato"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T11:56:00-03:00",
+      "texto": "Entendo. Se quiser, ainda consigo rever os valores"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T12:16:00-03:00",
+      "texto": "agradeço mas ja assinei o contrato com eles"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T12:18:00-03:00",
+      "texto": "Tranquilo, Rafael. Sucesso na obra! Qualquer coisa estamos por aqui 🤝"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T12:23:00-03:00",
+      "texto": "valeu"
+    }
+  ],
+  "gabarito": {
+    "etapa": "perdido",
+    "pendencias": [],
+    "proximo_passo": "Registrar perda por preço (concorrente) e encerrar",
+    "observacao": ""
+  }
+}

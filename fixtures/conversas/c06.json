@@ -1,0 +1,82 @@
+{
+  "id": "c06",
+  "segmento": "clínica de estética",
+  "vendedor": {
+    "id": "v1",
+    "nome": "Ana Paula"
+  },
+  "cliente": {
+    "nome": "Fernanda Rocha",
+    "telefone": "+55 81 90108-3406"
+  },
+  "dificil": false,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-02T19:30:00-03:00",
+      "texto": "Oi boa noite, queria saber sobre harmonização facial"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T19:31:00-03:00",
+      "texto": "quanto ta?"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T20:41:00-03:00",
+      "texto": "Boa noite! Aqui é a Ana Paula, da Clínica Bella Pele ✨ Desculpa a demora, estava em atendimento."
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T20:42:00-03:00",
+      "texto": "Pra te passar o valor certinho preciso entender o que você quer tratar. Seria lábio, bigode chinês, mandíbula...?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T20:57:00-03:00",
+      "texto": "queria mais o bigode chines e a olheira"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T21:00:00-03:00",
+      "texto": "Entendi! Você já fez algum procedimento antes?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T21:06:00-03:00",
+      "texto": "nunca fiz nada"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T21:08:00-03:00",
+      "texto": "Então o ideal é passar por uma avaliação gratuita com a Dra. Renata, ela vê o volume que precisa. Você teria disponibilidade essa semana?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T21:17:00-03:00",
+      "texto": "so posso sabado de manha"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T21:21:00-03:00",
+      "texto": "Vou ver a agenda de sábado e te confirmo amanhã cedo, tá?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T21:23:00-03:00",
+      "texto": "ok obgda"
+    }
+  ],
+  "gabarito": {
+    "etapa": "qualificacao",
+    "pendencias": [
+      {
+        "responsavel": "vendedor",
+        "descricao": "Confirmar horário da avaliação no sábado",
+        "origem_msg": 9
+      }
+    ],
+    "proximo_passo": "Vendedor confirmar o horário da avaliação de sábado",
+    "observacao": ""
+  }
+}

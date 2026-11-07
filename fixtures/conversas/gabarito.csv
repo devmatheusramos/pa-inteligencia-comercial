@@ -1,0 +1,31 @@
+id,vendedor_id,segmento,etapa,qtd_pendencias,dificil
+c01,v2,energia solar,negociacao,2,false
+c02,v1,material de construção,proposta,1,false
+c03,v2,escola de idiomas,qualificacao,2,false
+c04,v1,buffet,prospeccao,1,false
+c05,v1,loja de móveis,fechado_ganho,1,true
+c06,v1,clínica de estética,qualificacao,1,false
+c07,v1,escola de idiomas,perdido,0,false
+c08,v1,buffet,perdido,0,false
+c09,v1,escola infantil,qualificacao,2,true
+c10,v2,gráfica,qualificacao,2,false
+c11,v2,ar-condicionado,proposta,1,false
+c12,v2,software B2B,prospeccao,1,false
+c13,v2,buffet,proposta,1,false
+c14,v1,material de construção,prospeccao,2,false
+c15,v1,uniformes profissionais,negociacao,1,true
+c16,v2,móveis planejados,negociacao,2,false
+c17,v1,escola de idiomas,negociacao,1,false
+c18,v2,contabilidade,proposta,1,true
+c19,v1,gráfica,fechado_ganho,1,false
+c20,v1,clínica de estética,negociacao,1,false
+c21,v2,buffet,fechado_ganho,1,false
+c22,v2,dedetização,perdido,0,false
+c23,v2,software B2B,fechado_ganho,1,false
+c24,v1,móveis planejados,qualificacao,1,false
+c25,v2,segurança eletrônica,negociacao,1,true
+c26,v2,móveis planejados,perdido,0,false
+c27,v2,pintura residencial,perdido,0,true
+c28,v1,material de construção,fechado_ganho,1,false
+c29,v1,software B2B,proposta,2,false
+c30,v2,ar-condicionado,prospeccao,0,false

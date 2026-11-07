@@ -1,0 +1,67 @@
+{
+  "id": "c19",
+  "segmento": "gráfica",
+  "vendedor": {
+    "id": "v1",
+    "nome": "Ana Paula"
+  },
+  "cliente": {
+    "nome": "Thiago Brandão",
+    "telefone": "+55 81 95269-6507"
+  },
+  "dificil": false,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-04T10:05:00-03:00",
+      "texto": "Oi Ana! Aprovado o layout dos cartões de visita"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T10:08:00-03:00",
+      "texto": "Oba! Então confirmo: 1.000 cartões couchê 300g, 4x4 cores, verniz localizado, R$ 189,00. Prazo 3 dias úteis"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T10:15:00-03:00",
+      "texto": "pode rodar"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T10:17:00-03:00",
+      "texto": "Vou mandar pra produção. Pagamento é PIX ou na retirada?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T10:21:00-03:00",
+      "texto": "pix agr"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T10:27:00-03:00",
+      "texto": "[imagem: comprovante PIX R$ 189,00]"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T10:29:00-03:00",
+      "texto": "Recebido, obrigada! Fica pronto segunda (09/11), te aviso quando liberar pra retirada"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T10:30:00-03:00",
+      "texto": "show 👏"
+    }
+  ],
+  "gabarito": {
+    "etapa": "fechado_ganho",
+    "pendencias": [
+      {
+        "responsavel": "vendedor",
+        "descricao": "Avisar quando os cartões estiverem prontos para retirada",
+        "origem_msg": 6
+      }
+    ],
+    "proximo_passo": "Vendedor avisar a retirada na segunda",
+    "observacao": ""
+  }
+}

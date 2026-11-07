@@ -1,0 +1,62 @@
+{
+  "id": "c23",
+  "segmento": "software B2B",
+  "vendedor": {
+    "id": "v2",
+    "nome": "Bruno"
+  },
+  "cliente": {
+    "nome": "Henrique Valença",
+    "telefone": "+55 81 95666-8284"
+  },
+  "dificil": false,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-05T14:00:00-03:00",
+      "texto": "Bruno, conversei com meus sócios. Vamos fechar o plano Pro anual"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T14:03:00-03:00",
+      "texto": "Que notícia boa, Henrique! 🚀 Plano Pro anual, 15 usuários: R$ 9.612,00 à vista ou 12x de R$ 801,00 no boleto. Qual prefere?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T14:11:00-03:00",
+      "texto": "12x no boleto"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T14:13:00-03:00",
+      "texto": "Perfeito. Te mandei o contrato pra assinatura digital no e-mail cadastrado"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T14:39:00-03:00",
+      "texto": "assinado ✅"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T14:43:00-03:00",
+      "texto": "Recebi aqui! Bem-vindo à GestorPro 🎉 Amanhã nosso time de implantação entra em contato pra agendar o onboarding"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T14:45:00-03:00",
+      "texto": "top, valeu"
+    }
+  ],
+  "gabarito": {
+    "etapa": "fechado_ganho",
+    "pendencias": [
+      {
+        "responsavel": "vendedor",
+        "descricao": "Time de implantação contatar o cliente para agendar o onboarding",
+        "origem_msg": 5
+      }
+    ],
+    "proximo_passo": "Acionar a implantação para o onboarding",
+    "observacao": ""
+  }
+}

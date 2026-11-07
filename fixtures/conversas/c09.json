@@ -1,0 +1,102 @@
+{
+  "id": "c09",
+  "segmento": "escola infantil",
+  "vendedor": {
+    "id": "v1",
+    "nome": "Ana Paula"
+  },
+  "cliente": {
+    "nome": "Tatiane Lopes",
+    "telefone": "+55 81 99239-4277"
+  },
+  "dificil": true,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-04T13:00:00-03:00",
+      "texto": "oii boa tarde"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T13:01:00-03:00",
+      "texto": "[figurinha]"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T13:02:00-03:00",
+      "texto": "[áudio] oi, tudo bem? então, eu queria saber como funciona aí a escolinha, se tem integral, se a comida é feita aí mesmo, e se tem vaga pra janeiro, meu filho tem 2 aninhos. ah e quanto é também, tá?"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T13:20:00-03:00",
+      "texto": "Boa tarde! Aqui é a Ana Paula, do Espaço Crescer 🌻 Vou te responder tudo, pode deixar!"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T13:21:00-03:00",
+      "texto": "Temos sim integral (7h às 18h) e meio período. A alimentação é toda feita aqui, com cardápio de nutricionista"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T13:22:00-03:00",
+      "texto": "Qual o nome do seu pequeno? E você precisaria de integral ou meio período?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T13:34:00-03:00",
+      "texto": "Theo"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T13:35:00-03:00",
+      "texto": "acho q integral, mas talvez meio periodo da tarde. depende do meu trabalho novo"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T13:36:00-03:00",
+      "texto": "vcs tem camera pra gente ver?? e a fralda é vcs que fornecem?"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T13:42:00-03:00",
+      "texto": "Temos câmeras sim, com acesso pelo app dos pais 📱 A fralda é a família que manda"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T13:43:00-03:00",
+      "texto": "Sobre vaga pra janeiro: pra turma de 2 anos ainda temos. O valor muda conforme o período, então assim que você definir integral ou meio, te passo certinho. Quer agendar uma visita pra conhecer?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T14:08:00-03:00",
+      "texto": "[áudio] quero sim, pode ser semana que vem? eu só sei o horário do trabalho segunda, aí te falo se é integral"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T14:09:00-03:00",
+      "texto": "[figurinha]"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T14:12:00-03:00",
+      "texto": "Claro! Te aguardo segunda com o período e já marcamos a visita 😊"
+    }
+  ],
+  "gabarito": {
+    "etapa": "qualificacao",
+    "pendencias": [
+      {
+        "responsavel": "vendedor",
+        "descricao": "Passar o valor após a definição do período",
+        "origem_msg": 10
+      },
+      {
+        "responsavel": "cliente",
+        "descricao": "Informar na segunda se precisa de integral ou meio período",
+        "origem_msg": 11
+      }
+    ],
+    "proximo_passo": "Na segunda, confirmar o período, passar o valor e agendar a visita",
+    "observacao": "(e) Várias perguntas misturadas (integral, alimentação, vaga, valor, câmera, fralda), áudios transcritos '[áudio]' e figurinhas '[figurinha]'. O valor foi pedido mas não enviado, então a etapa é qualificacao."
+  }
+}

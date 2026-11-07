@@ -1,0 +1,56 @@
+{
+  "id": "c30",
+  "segmento": "ar-condicionado",
+  "vendedor": {
+    "id": "v2",
+    "nome": "Bruno"
+  },
+  "cliente": {
+    "nome": "Antônio Ferraz",
+    "telefone": "+55 81 99314-9852"
+  },
+  "dificil": false,
+  "mensagens": [
+    {
+      "de": "vendedor",
+      "em": "2026-11-06T08:05:00-03:00",
+      "texto": "Bom dia, Seu Antônio! Aqui é o Bruno da FrioMax Climatização. O senhor foi indicado pela Dona Célia, cliente nossa. Tudo bem?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-06T08:57:00-03:00",
+      "texto": "bom dia. tudo e vc"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-06T09:00:00-03:00",
+      "texto": "Tudo ótimo! A gente trabalha com instalação, manutenção e higienização de ar-condicionado. Posso te ajudar com alguma coisa?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-06T10:35:00-03:00",
+      "texto": "no momento nao, mas a celia falou bem de vcs"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-06T10:39:00-03:00",
+      "texto": "Que bom! Fico à disposição. Posso salvar seu contato e te mandar nossas promoções de vez em quando?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-06T10:59:00-03:00",
+      "texto": "pode sim"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-06T11:00:00-03:00",
+      "texto": "Obrigado, Seu Antônio! Bom fim de semana"
+    }
+  ],
+  "gabarito": {
+    "etapa": "prospeccao",
+    "pendencias": [],
+    "proximo_passo": "Vendedor manter contato com promoções e recontatar no próximo mês",
+    "observacao": ""
+  }
+}

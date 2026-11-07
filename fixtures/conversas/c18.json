@@ -1,0 +1,77 @@
+{
+  "id": "c18",
+  "segmento": "contabilidade",
+  "vendedor": {
+    "id": "v2",
+    "nome": "Bruno"
+  },
+  "cliente": {
+    "nome": "Kátia Ramalho",
+    "telefone": "+55 81 98048-8946"
+  },
+  "dificil": true,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-02T14:30:00-03:00",
+      "texto": "Boa tarde! Tô abrindo uma empresa (ME) e preciso de contador. Vcs atendem?"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T14:40:00-03:00",
+      "texto": "Boa tarde! Atendemos sim. Bruno, da Contabiliza Recife. Qual o ramo da empresa?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T14:48:00-03:00",
+      "texto": "comercio de roupas, loja fisica"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T14:51:00-03:00",
+      "texto": "Vai ter funcionário?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T14:57:00-03:00",
+      "texto": "1 vendedora"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-02T15:01:00-03:00",
+      "texto": "Perfeito. Pra Simples Nacional, comércio, com 1 funcionário: abertura da empresa R$ 600 (pagamento único) + mensalidade R$ 450. Inclui folha, guias e declarações."
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-02T15:36:00-03:00",
+      "texto": "certo, vou analisar"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T10:06:00-03:00",
+      "texto": "Oi, Kátia! Bom dia. Conseguiu analisar a proposta? Qualquer dúvida estou aqui"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T10:08:00-03:00",
+      "texto": "Oi Kátia, tudo bem? A condição da abertura vale até sexta, viu? 😊"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T10:23:00-03:00",
+      "texto": "Kátia, vou deixar sua proposta reservada aqui. Quando quiser retomar é só me chamar!"
+    }
+  ],
+  "gabarito": {
+    "etapa": "proposta",
+    "pendencias": [
+      {
+        "responsavel": "cliente",
+        "descricao": "Dar retorno sobre a proposta de contabilidade",
+        "origem_msg": 6
+      }
+    ],
+    "proximo_passo": "Vendedor fazer um último contato após a sexta e depois pausar o follow-up",
+    "observacao": "(b) Cliente some após a proposta: 3 follow-ups do vendedor em dias seguidos sem resposta. Silêncio não é recusa explícita, então a etapa continua proposta, com pendência do cliente."
+  }
+}

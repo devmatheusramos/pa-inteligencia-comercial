@@ -1,0 +1,56 @@
+{
+  "id": "c22",
+  "segmento": "dedetização",
+  "vendedor": {
+    "id": "v2",
+    "nome": "Bruno"
+  },
+  "cliente": {
+    "nome": "Jorge Siqueira",
+    "telefone": "+55 81 96857-3615"
+  },
+  "dificil": false,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-04T09:00:00-03:00",
+      "texto": "bom dia, sobre a dedetização"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T09:05:00-03:00",
+      "texto": "Bom dia, Seu Jorge! Bruno da LimpPrag. Conseguiu ver a proposta de R$ 380 pra casa toda?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T09:17:00-03:00",
+      "texto": "vi sim. mas meu cunhado trabalha com isso e vai fazer pra mim de graça"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T09:20:00-03:00",
+      "texto": "Ah, aí não tem como competir né kkk"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T09:24:00-03:00",
+      "texto": "kkkk pois é"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T09:26:00-03:00",
+      "texto": "Mas fica o contato, se precisar de certificado pra condomínio ou empresa a gente emite"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T09:56:00-03:00",
+      "texto": "blz obrigado"
+    }
+  ],
+  "gabarito": {
+    "etapa": "perdido",
+    "pendencias": [],
+    "proximo_passo": "Registrar perda e encerrar",
+    "observacao": ""
+  }
+}

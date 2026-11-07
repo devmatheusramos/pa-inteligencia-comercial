@@ -1,0 +1,87 @@
+{
+  "id": "c10",
+  "segmento": "gráfica",
+  "vendedor": {
+    "id": "v2",
+    "nome": "Bruno"
+  },
+  "cliente": {
+    "nome": "Diego Sampaio",
+    "telefone": "+55 81 99711-1629"
+  },
+  "dificil": false,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-03T09:20:00-03:00",
+      "texto": "Bom dia, vcs fazem panfleto?"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T09:26:00-03:00",
+      "texto": "Bom dia! Fazemos sim 😄 Aqui é o Bruno da Gráfica Impacto. É pra qual tipo de divulgação?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T09:35:00-03:00",
+      "texto": "inauguração da minha lanchonete, dia 20"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T09:37:00-03:00",
+      "texto": "Que massa, parabéns! Quantas unidades você tá pensando?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T09:51:00-03:00",
+      "texto": "uns 2 mil? nao sei qnto se usa"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T09:54:00-03:00",
+      "texto": "Pra bairro, 2 mil costuma dar bem. Vai ser frente e verso? Colorido?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T10:01:00-03:00",
+      "texto": "colorido, frente só"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T10:03:00-03:00",
+      "texto": "Show. E a arte você já tem pronta ou precisa que a gente crie?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T10:28:00-03:00",
+      "texto": "nao tenho nao. tenho só a logo"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T10:31:00-03:00",
+      "texto": "Tranquilo, a gente cria. Me manda a logo em boa qualidade e o endereço da lanchonete que eu monto o orçamento com a arte inclusa"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T10:42:00-03:00",
+      "texto": "mando a noite, a logo ta no pc"
+    }
+  ],
+  "gabarito": {
+    "etapa": "qualificacao",
+    "pendencias": [
+      {
+        "responsavel": "vendedor",
+        "descricao": "Enviar orçamento com arte inclusa",
+        "origem_msg": 9
+      },
+      {
+        "responsavel": "cliente",
+        "descricao": "Enviar logo e endereço da lanchonete",
+        "origem_msg": 10
+      }
+    ],
+    "proximo_passo": "Cliente enviar a logo; vendedor montar e enviar o orçamento",
+    "observacao": ""
+  }
+}

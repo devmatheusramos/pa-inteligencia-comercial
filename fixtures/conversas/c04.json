@@ -1,0 +1,57 @@
+{
+  "id": "c04",
+  "segmento": "buffet",
+  "vendedor": {
+    "id": "v1",
+    "nome": "Ana Paula"
+  },
+  "cliente": {
+    "nome": "Juliana Macedo",
+    "telefone": "+55 81 98917-8075"
+  },
+  "dificil": false,
+  "mensagens": [
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T10:15:00-03:00",
+      "texto": "Oi, Juliana! Tudo bem? Aqui é a Ana Paula do Buffet Pirlimpimpim 🎈 Você deixou seu contato no nosso stand na feira de festas do shopping. Posso te mandar nosso catálogo?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T10:53:00-03:00",
+      "texto": "oi! deixei sim"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T10:54:00-03:00",
+      "texto": "pode mandar"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T10:59:00-03:00",
+      "texto": "[documento: Catalogo_Espacos_e_Cardapios.pdf] Aqui está! Trabalhamos com festa infantil, 15 anos e casamento"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T13:19:00-03:00",
+      "texto": "obg, vou dar uma olhada com calma e te falo"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T13:22:00-03:00",
+      "texto": "Imagina! Qualquer dúvida é só chamar 😊"
+    }
+  ],
+  "gabarito": {
+    "etapa": "prospeccao",
+    "pendencias": [
+      {
+        "responsavel": "cliente",
+        "descricao": "Olhar o catálogo e dar retorno",
+        "origem_msg": 4
+      }
+    ],
+    "proximo_passo": "Vendedor fazer follow-up perguntando tipo de festa e data",
+    "observacao": ""
+  }
+}

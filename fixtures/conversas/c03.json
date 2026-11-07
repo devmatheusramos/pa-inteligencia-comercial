@@ -1,0 +1,92 @@
+{
+  "id": "c03",
+  "segmento": "escola de idiomas",
+  "vendedor": {
+    "id": "v2",
+    "nome": "Bruno"
+  },
+  "cliente": {
+    "nome": "Sandra Moura",
+    "telefone": "+55 81 90505-5183"
+  },
+  "dificil": false,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-04T11:00:00-03:00",
+      "texto": "Olá! Quero informações do curso de inglês"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T11:04:00-03:00",
+      "texto": "Olá! Aqui é o Bruno, da Speak Up Idiomas 🇺🇸 O curso seria pra você mesmo?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T11:22:00-03:00",
+      "texto": "pra minha filha, ela tem 12 anos"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T11:24:00-03:00",
+      "texto": "Legal! Ela já estudou inglês antes ou começaria do zero?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T11:29:00-03:00",
+      "texto": "teve na escola, mas é bem fraquinha"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T11:32:00-03:00",
+      "texto": "Entendi. A gente faz um teste de nivelamento online, rapidinho, pra colocar ela na turma certa. Qual turno ela estuda na escola?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T11:44:00-03:00",
+      "texto": "de manha"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T11:46:00-03:00",
+      "texto": "Então pra ela temos turmas à tarde, seg/qua ou ter/qui. Prefere alguma?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T12:26:00-03:00",
+      "texto": "ter e qui seria melhor. e o valor?"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T12:29:00-03:00",
+      "texto": "Vou te mandar o link do nivelamento, depois que ela fizer te passo valor e turma certinha, porque depende do nível 😊"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T12:30:00-03:00",
+      "texto": "https://speakup.exemplo.com.br/nivelamento"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T12:39:00-03:00",
+      "texto": "ta bom, ela faz hj a noite"
+    }
+  ],
+  "gabarito": {
+    "etapa": "qualificacao",
+    "pendencias": [
+      {
+        "responsavel": "vendedor",
+        "descricao": "Passar valor e turma após o nivelamento",
+        "origem_msg": 9
+      },
+      {
+        "responsavel": "cliente",
+        "descricao": "Filha fazer o teste de nivelamento",
+        "origem_msg": 11
+      }
+    ],
+    "proximo_passo": "Aguardar o nivelamento e enviar valor e turma",
+    "observacao": ""
+  }
+}

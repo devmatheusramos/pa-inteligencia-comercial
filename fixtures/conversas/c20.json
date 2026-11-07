@@ -1,0 +1,72 @@
+{
+  "id": "c20",
+  "segmento": "clínica de estética",
+  "vendedor": {
+    "id": "v1",
+    "nome": "Ana Paula"
+  },
+  "cliente": {
+    "nome": "Carla Menezes",
+    "telefone": "+55 81 93284-7622"
+  },
+  "dificil": false,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-03T10:40:00-03:00",
+      "texto": "oi Ana, sobre aquele pacote de 10 sessões de drenagem que vc mandou"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T10:43:00-03:00",
+      "texto": "Oi, Carla! Me diga 😊"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T10:45:00-03:00",
+      "texto": "queria pagar em mais vezes, 4x fica pesado pra mim"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T10:49:00-03:00",
+      "texto": "Entendo. Hoje o pacote de R$ 1.200 a gente parcela em até 4x sem juros no cartão. Em quantas vezes ficaria bom pra você?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T10:55:00-03:00",
+      "texto": "6x dava"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T10:58:00-03:00",
+      "texto": "Deixa eu ver com a gerente se libera 6x. Te retorno até o fim da tarde"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T11:00:00-03:00",
+      "texto": "ok, aguardo"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T14:00:00-03:00",
+      "texto": "e ai conseguiu?"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T14:25:00-03:00",
+      "texto": "Oi Carla! Ela ainda tá em reunião, assim que sair eu te falo, prometo"
+    }
+  ],
+  "gabarito": {
+    "etapa": "negociacao",
+    "pendencias": [
+      {
+        "responsavel": "vendedor",
+        "descricao": "Confirmar com a gerente o parcelamento em 6x",
+        "origem_msg": 5
+      }
+    ],
+    "proximo_passo": "Vendedor dar resposta sobre o 6x ainda hoje",
+    "observacao": ""
+  }
+}

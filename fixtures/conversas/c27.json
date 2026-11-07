@@ -1,0 +1,71 @@
+{
+  "id": "c27",
+  "segmento": "pintura residencial",
+  "vendedor": {
+    "id": "v2",
+    "nome": "Bruno"
+  },
+  "cliente": {
+    "nome": "Cláudio Teixeira",
+    "telefone": "+55 81 98842-2500"
+  },
+  "dificil": true,
+  "mensagens": [
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T08:00:00-03:00",
+      "texto": "Bom dia, Seu Cláudio! Conseguiu ver o orçamento da pintura? Externa + interna, R$ 7.800, 12 dias de serviço"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T08:34:00-03:00",
+      "texto": "bom dia bruno. vi sim, pode fechar"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T08:35:00-03:00",
+      "texto": "começa quando?"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T08:40:00-03:00",
+      "texto": "Show! Consigo começar segunda, dia 9. Pra reservar a equipe peço 20% de sinal, R$ 1.560 no PIX"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T08:52:00-03:00",
+      "texto": "beleza, mando hj a tarde"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T15:52:00-03:00",
+      "texto": "Seu Cláudio, boa tarde! Só lembrando do sinal pra garantir a segunda 😊"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T06:52:00-03:00",
+      "texto": "Bruno, bom dia. Desculpa, conversei com minha esposa e vamos adiar a pintura. Surgiu um gasto com o carro"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T07:00:00-03:00",
+      "texto": "Poxa, entendo. Quer que eu deixe agendado pra dezembro ou janeiro?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T07:20:00-03:00",
+      "texto": "nao, melhor cancelar mesmo. depois se for fazer eu te procuro"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T07:23:00-03:00",
+      "texto": "Tudo bem, Seu Cláudio. Fico à disposição 🤝"
+    }
+  ],
+  "gabarito": {
+    "etapa": "perdido",
+    "pendencias": [],
+    "proximo_passo": "Registrar perda (cancelamento após aceite) e liberar a agenda da equipe",
+    "observacao": "(d) Cliente aceita na msg 1 ('pode fechar') mas não paga o sinal e no dia seguinte cancela. A etapa final é perdido, não fechado_ganho; o sinal prometido deixa de ser pendência porque o negócio foi cancelado."
+  }
+}

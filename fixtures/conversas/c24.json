@@ -1,0 +1,82 @@
+{
+  "id": "c24",
+  "segmento": "móveis planejados",
+  "vendedor": {
+    "id": "v1",
+    "nome": "Ana Paula"
+  },
+  "cliente": {
+    "nome": "Camila Torres",
+    "telefone": "+55 81 90902-6960"
+  },
+  "dificil": false,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-05T15:20:00-03:00",
+      "texto": "Boa tarde. Vcs fazem cozinha planejada?"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T15:29:00-03:00",
+      "texto": "Boa tarde! Fazemos sim. Aqui é a Ana Paula, da Marcenaria Bem Morar. O imóvel é casa ou apê?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T15:35:00-03:00",
+      "texto": "apartamento, recebi as chaves mes passado"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T15:37:00-03:00",
+      "texto": "Parabéns pelo apê novo! 🔑 Você tem a planta ou as medidas da cozinha?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T15:58:00-03:00",
+      "texto": "tenho a planta da construtora"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T15:59:00-03:00",
+      "texto": "[imagem]"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T16:04:00-03:00",
+      "texto": "Perfeito, recebi. Vocês pensam em algum acabamento? MDF branco, amadeirado...?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T16:37:00-03:00",
+      "texto": "amadeirado com branco. e queria ver se cabe uma ilha"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T16:41:00-03:00",
+      "texto": "Pela planta cabe sim, mas o ideal é nosso projetista medir no local. Qual dia fica bom pra visita técnica?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-05T16:59:00-03:00",
+      "texto": "vou ver com meu marido e te falo"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-05T17:00:00-03:00",
+      "texto": "Combinado! A visita é sem custo 😉"
+    }
+  ],
+  "gabarito": {
+    "etapa": "qualificacao",
+    "pendencias": [
+      {
+        "responsavel": "cliente",
+        "descricao": "Informar data para a visita técnica",
+        "origem_msg": 9
+      }
+    ],
+    "proximo_passo": "Vendedor cobrar a data da visita técnica",
+    "observacao": ""
+  }
+}

@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1450" height="800" viewBox="0 0 1450 800" font-family="Segoe UI, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker></defs>
+<rect width="1450" height="800" fill="#fff"/>
+<text x="20" y="34" font-size="22" font-weight="700" fill="#222">C4 Nível 3 — Componentes do pipeline (Processador + Analisador)</text>
+<rect x="40" y="90" width="230" height="100" rx="22" fill="#438dd5" stroke="#2e6295"/>
+<text x="155.0" y="112" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Fila mensagens</text>
+<text x="155.0" y="132" text-anchor="middle" font-size="11" font-weight="400" fill="#fff">[SQS]</text>
+<text x="155.0" y="148" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">Evento bruto da Meta</text>
+<rect x="420" y="80" width="230" height="120" rx="4" fill="#85bbf0" stroke="#2e6295"/>
+<text x="535.0" y="102" text-anchor="middle" font-size="15" font-weight="700" fill="#000">1. Recebimento</text>
+<text x="535.0" y="122" text-anchor="middle" font-size="11" font-weight="400" fill="#000">[Componente]</text>
+<text x="535.0" y="138" text-anchor="middle" font-size="12" font-weight="400" fill="#000">Normaliza o evento: cliente ou</text>
+<text x="535.0" y="155" text-anchor="middle" font-size="12" font-weight="400" fill="#000">vendedor (eco), horário, ID</text>
+<rect x="800" y="80" width="230" height="120" rx="4" fill="#85bbf0" stroke="#2e6295"/>
+<text x="915.0" y="102" text-anchor="middle" font-size="15" font-weight="700" fill="#000">2. Mascaramento</text>
+<text x="915.0" y="122" text-anchor="middle" font-size="11" font-weight="400" fill="#000">[Componente]</text>
+<text x="915.0" y="138" text-anchor="middle" font-size="12" font-weight="400" fill="#000">CPF, CNPJ, e-mail, telefone,</text>
+<text x="915.0" y="155" text-anchor="middle" font-size="12" font-weight="400" fill="#000">CEP, cartão, PIX viram</text>
+<text x="915.0" y="172" text-anchor="middle" font-size="12" font-weight="400" fill="#000">marcadores</text>
+<rect x="1180" y="80" width="230" height="120" rx="4" fill="#85bbf0" stroke="#2e6295"/>
+<text x="1295.0" y="102" text-anchor="middle" font-size="15" font-weight="700" fill="#000">3. Vínculo ao vendedor</text>
+<text x="1295.0" y="122" text-anchor="middle" font-size="11" font-weight="400" fill="#000">[Componente]</text>
+<text x="1295.0" y="138" text-anchor="middle" font-size="12" font-weight="400" fill="#000">Número do vendedor vira</text>
+<text x="1295.0" y="155" text-anchor="middle" font-size="12" font-weight="400" fill="#000">vendedor_id; telefone do</text>
+<text x="1295.0" y="172" text-anchor="middle" font-size="12" font-weight="400" fill="#000">cliente vira HMAC</text>
+<rect x="1180" y="320" width="230" height="120" rx="4" fill="#85bbf0" stroke="#2e6295"/>
+<text x="1295.0" y="342" text-anchor="middle" font-size="15" font-weight="700" fill="#000">4. Tempo de resposta</text>
+<text x="1295.0" y="362" text-anchor="middle" font-size="11" font-weight="400" fill="#000">[Componente]</text>
+<text x="1295.0" y="378" text-anchor="middle" font-size="12" font-weight="400" fill="#000">Turnos do cliente, horário</text>
+<text x="1295.0" y="395" text-anchor="middle" font-size="12" font-weight="400" fill="#000">comercial, TPR e TMR</text>
+<rect x="800" y="320" width="230" height="120" rx="4" fill="#85bbf0" stroke="#2e6295"/>
+<text x="915.0" y="342" text-anchor="middle" font-size="15" font-weight="700" fill="#000">Repositório</text>
+<text x="915.0" y="362" text-anchor="middle" font-size="11" font-weight="400" fill="#000">[Componente]</text>
+<text x="915.0" y="378" text-anchor="middle" font-size="12" font-weight="400" fill="#000">PostgreSQL com vendedor_id em</text>
+<text x="915.0" y="395" text-anchor="middle" font-size="12" font-weight="400" fill="#000">toda consulta</text>
+<path d="M800,582 v116 a115.0,12 0 0 0 230,0 v-116 a115.0,12 0 0 0 -230,0 a115.0,12 0 0 0 230,0" fill="#438dd5" stroke="#2e6295"/>
+<text x="915.0" y="592" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Banco</text>
+<text x="915.0" y="612" text-anchor="middle" font-size="11" font-weight="400" fill="#fff">[RDS PostgreSQL]</text>
+<text x="915.0" y="628" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">mensagens, conversas, analises</text>
+<rect x="420" y="320" width="230" height="120" rx="4" fill="#85bbf0" stroke="#2e6295"/>
+<text x="535.0" y="342" text-anchor="middle" font-size="15" font-weight="700" fill="#000">5. Análise</text>
+<text x="535.0" y="362" text-anchor="middle" font-size="11" font-weight="400" fill="#000">[Componente]</text>
+<text x="535.0" y="378" text-anchor="middle" font-size="12" font-weight="400" fill="#000">Monta prompt versionado com a</text>
+<text x="535.0" y="395" text-anchor="middle" font-size="12" font-weight="400" fill="#000">conversa mascarada</text>
+<rect x="40" y="320" width="230" height="120" rx="4" fill="#85bbf0" stroke="#2e6295"/>
+<text x="155.0" y="342" text-anchor="middle" font-size="15" font-weight="700" fill="#000">AnalisadorConversa</text>
+<text x="155.0" y="362" text-anchor="middle" font-size="11" font-weight="400" fill="#000">[Interface + adaptadores]</text>
+<text x="155.0" y="378" text-anchor="middle" font-size="12" font-weight="400" fill="#000">Bedrock (padrão), Anthropic,</text>
+<text x="155.0" y="395" text-anchor="middle" font-size="12" font-weight="400" fill="#000">OpenAI</text>
+<rect x="420" y="570" width="230" height="120" rx="4" fill="#85bbf0" stroke="#2e6295"/>
+<text x="535.0" y="592" text-anchor="middle" font-size="15" font-weight="700" fill="#000">6. Validação da saída</text>
+<text x="535.0" y="612" text-anchor="middle" font-size="11" font-weight="400" fill="#000">[Componente]</text>
+<text x="535.0" y="628" text-anchor="middle" font-size="12" font-weight="400" fill="#000">Schema JSON; etapa só da lista</text>
+<text x="535.0" y="645" text-anchor="middle" font-size="12" font-weight="400" fill="#000">fechada; senão reprocessa</text>
+<rect x="40" y="590" width="230" height="100" rx="4" fill="#999999" stroke="#2e6295"/>
+<text x="155.0" y="612" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">LLM</text>
+<text x="155.0" y="632" text-anchor="middle" font-size="11" font-weight="400" fill="#fff">[Amazon Bedrock]</text>
+<text x="155.0" y="648" text-anchor="middle" font-size="12" font-weight="400" fill="#fff">Claude</text>
+<line x1="270" y1="140" x2="420" y2="140" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="326" y="130" width="38" height="21" fill="#fff" opacity="0.92"/>
+<text x="345" y="144" text-anchor="middle" font-size="12" fill="#333">Lote</text>
+<line x1="650" y1="140" x2="800" y2="140" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="640" y="130" width="170" height="21" fill="#fff" opacity="0.92"/>
+<text x="725" y="144" text-anchor="middle" font-size="12" fill="#333">Texto original (memória)</text>
+<line x1="1030" y1="140" x2="1180" y2="140" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="1050" y="130" width="111" height="21" fill="#fff" opacity="0.92"/>
+<text x="1105" y="144" text-anchor="middle" font-size="12" fill="#333">Texto mascarado</text>
+<line x1="1295" y1="200" x2="1295" y2="320" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="1230" y="250" width="131" height="21" fill="#fff" opacity="0.92"/>
+<text x="1295" y="264" text-anchor="middle" font-size="12" fill="#333">Mensagem vinculada</text>
+<line x1="1180" y1="380" x2="1030" y2="380" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="1082" y="370" width="45" height="21" fill="#fff" opacity="0.92"/>
+<text x="1105" y="384" text-anchor="middle" font-size="12" fill="#333">Grava</text>
+<line x1="915" y1="440" x2="915" y2="570" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="899" y="494" width="32" height="21" fill="#fff" opacity="0.92"/>
+<text x="915" y="510" text-anchor="middle" font-size="12" fill="#333">SQL</text>
+<line x1="800" y1="380" x2="650" y2="380" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="670" y="370" width="111" height="21" fill="#fff" opacity="0.92"/>
+<text x="725" y="384" text-anchor="middle" font-size="12" fill="#333">Conversa parada</text>
+<line x1="420" y1="380" x2="270" y2="380" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="306" y="370" width="78" height="21" fill="#fff" opacity="0.92"/>
+<text x="345" y="384" text-anchor="middle" font-size="12" fill="#333">analisar()</text>
+<line x1="155" y1="440" x2="155" y2="590" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="116" y="504" width="78" height="21" fill="#fff" opacity="0.92"/>
+<text x="155" y="520" text-anchor="middle" font-size="12" fill="#333">Requisição</text>
+<line x1="246" y1="440" x2="444" y2="570" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="296" y="494" width="98" height="21" fill="#fff" opacity="0.92"/>
+<text x="345" y="510" text-anchor="middle" font-size="12" fill="#333">Resposta JSON</text>
+<line x1="626" y1="570" x2="824" y2="440" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#a)"/>
+<rect x="660" y="494" width="131" height="21" fill="#fff" opacity="0.92"/>
+<text x="725" y="510" text-anchor="middle" font-size="12" fill="#333">Etapa e pendências</text>
+</svg>

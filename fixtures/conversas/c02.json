@@ -1,0 +1,57 @@
+{
+  "id": "c02",
+  "segmento": "material de construção",
+  "vendedor": {
+    "id": "v1",
+    "nome": "Ana Paula"
+  },
+  "cliente": {
+    "nome": "Rogério Lins",
+    "telefone": "+55 81 91299-8737"
+  },
+  "dificil": false,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-03T07:45:00-03:00",
+      "texto": "Bom dia, preciso de orçamento: 50 sacos de cimento CP II, 3 metros de areia média e 2 metros de brita 1. Entrega no Ibura"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T08:00:00-03:00",
+      "texto": "Bom dia, Sr. Rogério! Ana Paula aqui, da Casa Forte. Vou levantar agora"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T08:03:00-03:00",
+      "texto": "ok"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T08:38:00-03:00",
+      "texto": "Orçamento:\n50 sc cimento CP II 50kg — R$ 36,90 un = R$ 1.845,00\n3 m³ areia média — R$ 140,00 = R$ 420,00\n2 m³ brita 1 — R$ 155,00 = R$ 310,00\nFrete Ibura: R$ 80,00\nTotal: R$ 2.655,00\nPagamento no PIX ou cartão em até 3x. Entrega em 24h após confirmação."
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T09:00:00-03:00",
+      "texto": "certo. vou passar pro mestre de obras ver se a quantidade ta certa"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T09:02:00-03:00",
+      "texto": "Tranquilo! O orçamento vale até sexta 😉"
+    }
+  ],
+  "gabarito": {
+    "etapa": "proposta",
+    "pendencias": [
+      {
+        "responsavel": "cliente",
+        "descricao": "Confirmar quantidades com o mestre de obras e dar retorno",
+        "origem_msg": 4
+      }
+    ],
+    "proximo_passo": "Vendedor cobrar retorno antes de sexta (validade do orçamento)",
+    "observacao": ""
+  }
+}

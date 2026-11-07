@@ -1,0 +1,82 @@
+{
+  "id": "c29",
+  "segmento": "software B2B",
+  "vendedor": {
+    "id": "v1",
+    "nome": "Ana Paula"
+  },
+  "cliente": {
+    "nome": "Felipe Cavalcanti",
+    "telefone": "+55 81 92093-2291"
+  },
+  "dificil": false,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-04T09:30:00-03:00",
+      "texto": "Bom dia Ana, aqui é o Felipe da Transportadora Rota Norte. Conversamos na feira"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T09:36:00-03:00",
+      "texto": "Bom dia, Felipe! Lembro sim, vocês queriam sistema de roteirização, né?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T09:40:00-03:00",
+      "texto": "isso. temos 18 caminhões e hj é tudo planilha"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T09:43:00-03:00",
+      "texto": "Show. E quantos usuários vão usar o painel?"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T09:53:00-03:00",
+      "texto": "uns 5 no escritorio e os motoristas pelo app"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T09:55:00-03:00",
+      "texto": "Perfeito, vou montar a proposta e te mando ainda hoje"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T13:25:00-03:00",
+      "texto": "Felipe, segue a proposta 👇\n[documento: Proposta_RotaFacil_RotaNorte.pdf]\nResumo: plano Frota 20 — até 20 veículos, 5 usuários de painel, app dos motoristas ilimitado. R$ 1.290/mês, implantação R$ 2.500 (pode dividir em 2x). Contrato de 12 meses."
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T13:57:00-03:00",
+      "texto": "recebi, obrigado. vou levar pra diretoria na reuniao de quinta"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-04T14:00:00-03:00",
+      "texto": "Ótimo! Se quiserem, posso fazer uma demo rápida pra diretoria"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-04T14:15:00-03:00",
+      "texto": "vou ver se encaixa e te falo"
+    }
+  ],
+  "gabarito": {
+    "etapa": "proposta",
+    "pendencias": [
+      {
+        "responsavel": "cliente",
+        "descricao": "Levar a proposta à diretoria na quinta e dar retorno",
+        "origem_msg": 7
+      },
+      {
+        "responsavel": "cliente",
+        "descricao": "Confirmar se haverá demo para a diretoria",
+        "origem_msg": 9
+      }
+    ],
+    "proximo_passo": "Vendedor confirmar a demo antes da reunião de quinta",
+    "observacao": ""
+  }
+}

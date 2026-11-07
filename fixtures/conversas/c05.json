@@ -1,0 +1,82 @@
+{
+  "id": "c05",
+  "segmento": "loja de móveis",
+  "vendedor": {
+    "id": "v1",
+    "nome": "Ana Paula"
+  },
+  "cliente": {
+    "nome": "Luciana Bastos",
+    "telefone": "+55 81 98445-0723"
+  },
+  "dificil": true,
+  "mensagens": [
+    {
+      "de": "cliente",
+      "em": "2026-11-03T15:00:00-03:00",
+      "texto": "Oi Ana, vou querer o sofá retrátil cinza de 2,30m que vc mandou foto"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T15:05:00-03:00",
+      "texto": "Oba, Luciana! Ótima escolha 😍 Fica R$ 2.890,00 com frete grátis, em até 10x sem juros no link"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T15:09:00-03:00",
+      "texto": "fechado, pode mandar o link de pagamento"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T15:12:00-03:00",
+      "texto": "Pra emitir a nota preciso de nome completo, CPF, e-mail e endereço de entrega, por favor"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T15:18:00-03:00",
+      "texto": "Luciana Ferreira Bastos\nCPF 123.456.789-09\nluciana.bastos.ficticio@exemplo.com.br\nRua das Acácias, 245, apto 302, Boa Viagem, Recife-PE, CEP 51020-000"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T15:19:00-03:00",
+      "texto": "se precisar, o telefone do meu marido pra entrega é +55 81 99876-1234"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T15:23:00-03:00",
+      "texto": "Anotado! Segue o link: https://pag.exemplo.com.br/moveisbemestar/8F3K2"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T15:34:00-03:00",
+      "texto": "pago em 10x ✅"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T15:35:00-03:00",
+      "texto": "[imagem: comprovante de pagamento]"
+    },
+    {
+      "de": "vendedor",
+      "em": "2026-11-03T15:38:00-03:00",
+      "texto": "Pagamento aprovado! 🙌 Entrega prevista pra terça (10/11), a transportadora liga no número do seu marido antes"
+    },
+    {
+      "de": "cliente",
+      "em": "2026-11-03T15:40:00-03:00",
+      "texto": "maravilha obrigada"
+    }
+  ],
+  "gabarito": {
+    "etapa": "fechado_ganho",
+    "pendencias": [
+      {
+        "responsavel": "vendedor",
+        "descricao": "Entregar o sofá na terça (10/11)",
+        "origem_msg": 9
+      }
+    ],
+    "proximo_passo": "Acompanhar a entrega de terça e fazer pós-venda",
+    "observacao": "(c) Contém dados pessoais fictícios no texto (nome completo, CPF 123.456.789-09, e-mail, endereço e telefone). Testa se a IA classifica fechado_ganho sem reproduzir/expor os dados pessoais na saída."
+  }
+}
