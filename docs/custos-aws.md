@@ -4,6 +4,8 @@ Ticket 00003 · Região: **us-east-1** (Norte da Virgínia) no MVP pelo menor cu
 
 Preços de tabela on-demand em USD, conferidos na AWS Pricing Calculator. Valores de referência — confirmar na data.
 
+> **Onde o MVP roda de fato.** Durante as três sprints, a validação roda **localmente**, na máquina do autor, com Docker Compose (PostgreSQL, Redis, Evolution API e o receptor), com custo de infraestrutura zero. A arquitetura AWS abaixo é o **desenho alvo** para quando houver uso real. Subir para a AWS só compensa a partir de um volume relevante (algumas equipes de vendas usando ao mesmo tempo), quando passam a importar disponibilidade 24 h, backup gerenciado e escala. Abaixo disso, uma VPS única com Docker Compose atende com custo menor.
+
 ## Arquitetura
 
 | Serviço | Papel | Configuração |
@@ -21,14 +23,14 @@ Preços de tabela on-demand em USD, conferidos na AWS Pricing Calculator. Valore
 | Amazon Bedrock | LLM (modelo pequeno da família Claude) | sob demanda |
 | Cognito | Login e perfis | User pool, plano Lite |
 | S3 + CloudFront | Frontend estático | — |
-| Secrets Manager + KMS | Chave do HMAC, token da instância Evolution | 2 segredos, 1 chave |
+| Secrets Manager + KMS | Token da instância Evolution e credenciais do app (lidos pela EC2 e no deploy). Nos Lambdas da VPC, a chave do HMAC vai como variável de ambiente cifrada com KMS, sem endpoint extra | 2 segredos, 1 chave |
 | CloudWatch + AWS Budgets | Logs, alarmes, alerta de custo | Alerta em 80% do orçamento |
 
 ## Volume considerado
 
 | Cenário | Vendedores | Conversas/dia | Mensagens/mês | Análises LLM/mês |
 |---|---|---|---|---|
-| **Validação do MVP** | 2 simulados | 30 conversas no total | ~400 | ~150 (5 rodadas) |
+| **Validação do MVP (se fosse na AWS)** | 2 simulados | 30 conversas no total | ~400 | ~150 (5 rodadas) |
 | **Piloto** | 10 | 40 por vendedor | ~180.000 | ~24.000 |
 
 ## Custo mensal estimado (USD)
@@ -44,10 +46,10 @@ Preços de tabela on-demand em USD, conferidos na AWS Pricing Calculator. Valore
 | CloudWatch Logs | ~2 GB × 0,50 | 0,10 | 1,00 |
 | Lambda, API Gateway, SQS, Cognito | dentro do nível gratuito / centavos | 0,00 | ~1,00 |
 | S3 + CloudFront | — | 0,10 | 0,50 |
-| **Infraestrutura** | | **~41** | **~44** |
+| **Infraestrutura** | | **~41** | **~43** |
 | LLM (entrada) | ~2.000 tokens × análises × preço/M | < 0,50 | 48 M × 1,00 = 48,00 |
 | LLM (saída) | ~300 tokens × análises × preço/M | < 0,50 | 7,2 M × 5,00 = 36,00 |
-| **Total** | | **~42** | **~128** |
+| **Total** | | **~42** | **~127** |
 
 Preço de referência do LLM: modelo pequeno a US$ 1,00 por milhão de tokens de entrada e US$ 5,00 por milhão de saída. O adaptador permite trocar por um modelo mais barato se a acurácia se mantiver.
 
