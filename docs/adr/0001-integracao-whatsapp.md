@@ -1,6 +1,6 @@
 # ADR 0001 — Integração de leitura do WhatsApp
 
-- Status: **Aceita**
+- Status: **Substituída** pela [ADR 0003](0003-integracao-evolution-api.md) em 2026-11-07 (mudança de escopo da Sprint 1). A Cloud API passou a ser o plano B.
 - Data: 2026-11-07
 - Ticket: 00002
 

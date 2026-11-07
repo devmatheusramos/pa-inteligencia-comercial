@@ -46,6 +46,7 @@ Regra aplicada em duas camadas: filtro por `vendedor_id` na API e Row Level Secu
 
 ## Bases legais (resumo)
 
-- Empresa cliente é a **controladora**; a plataforma é **operadora**; Meta e AWS são suboperadoras.
+- Empresa cliente é a **controladora**; a plataforma é **operadora**; AWS é suboperadora. A Evolution API roda na conta AWS do projeto: nenhum terceiro recebe as mensagens além do próprio WhatsApp.
+- A Evolution é configurada para **não gravar** mensagens, contatos e conversas no banco dela (`DATABASE_SAVE_DATA_*=false`); o texto só é gravado depois de mascarado.
 - Base legal sugerida: legítimo interesse na gestão comercial (art. 7º, IX), com aviso aos vendedores sobre o monitoramento do número corporativo.
 - Validação usa apenas conversas simuladas com dados fictícios.

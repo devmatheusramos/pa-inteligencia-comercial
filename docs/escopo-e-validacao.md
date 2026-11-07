@@ -6,7 +6,7 @@ Ticket 00001 · Sprint 1 · Projeto Aplicado — Plataforma de inteligência com
 
 | Classificação | Item | Sprint |
 |---|---|---|
-| **Essencial** | Recebimento das mensagens do WhatsApp **somente leitura** (cliente e vendedor) | 2 |
+| **Essencial** | Recebimento das mensagens do WhatsApp **somente leitura** (cliente e vendedor) via Evolution API (ADR 0003) | 2 |
 | **Essencial** | Mascaramento de dados pessoais antes de gravar e antes de enviar ao LLM | 2 |
 | **Essencial** | Vínculo de cada conversa ao vendedor dono do número | 2 |
 | **Essencial** | Análise da conversa por LLM: etapa, pendências e próximo passo | 2 |

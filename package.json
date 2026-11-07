@@ -4,12 +4,15 @@
   "private": true,
   "description": "MVP de inteligência comercial para equipes de vendas via WhatsApp — Projeto Aplicado XP Educação",
   "type": "module",
-  "engines": { "node": ">=24" },
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "webhook": "node --env-file-if-exists=.env src/webhook.ts",
     "lint": "tsc --noEmit",
     "test": "node --test test/*.test.ts",
-    "validar-fixtures": "node scripts/validar-fixtures.ts"
+    "validar-fixtures": "node scripts/validar-fixtures.ts",
+    "evolution:conectar": "node --env-file-if-exists=.env scripts/evolution-conectar.ts"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

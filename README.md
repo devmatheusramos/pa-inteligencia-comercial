@@ -10,7 +10,8 @@ Lê, **somente leitura**, as conversas comerciais do WhatsApp, mascara dados pes
 | Documento | Conteúdo |
 |---|---|
 | [docs/escopo-e-validacao.md](docs/escopo-e-validacao.md) | Escopo, etapas de venda, regras dos indicadores, plano de validação |
-| [docs/adr/0001-integracao-whatsapp.md](docs/adr/0001-integracao-whatsapp.md) | Comparativo e decisão da integração com o WhatsApp |
+| [docs/adr/0003-integracao-evolution-api.md](docs/adr/0003-integracao-evolution-api.md) | **Integração adotada**: Evolution API (mudança de escopo) |
+| [docs/adr/0001-integracao-whatsapp.md](docs/adr/0001-integracao-whatsapp.md) | Comparativo inicial e Cloud API oficial (substituída, hoje plano B) |
 | [docs/adr/0002-stack.md](docs/adr/0002-stack.md) | Backend, banco, LLM, autenticação, frontend |
 | [docs/arquitetura/](docs/arquitetura/) | C4 níveis 1, 2 e 3 |
 | [docs/custos-aws.md](docs/custos-aws.md) | Hospedagem AWS e estimativa de custo |
@@ -22,18 +23,18 @@ Lê, **somente leitura**, as conversas comerciais do WhatsApp, mascara dados pes
 Requisitos: Node.js 24+, Docker.
 
 ```bash
-cp .env.example .env
+cp .env.example .env      # troque as chaves de exemplo por valores aleatórios
 npm install
 npm run lint && npm test && npm run validar-fixtures
-docker compose up -d     # PostgreSQL com o esquema e RLS
-npm run webhook          # receptor em http://localhost:3000/webhook
+docker compose up -d      # PostgreSQL (com RLS), Redis e Evolution API v2.3.7
+npm run webhook           # receptor em http://localhost:3000/webhook/evolution
 ```
 
-## Prova da integração (número de teste da Meta)
+## Prova da integração (Evolution API)
 
-1. developers.facebook.com → criar app do tipo *Business* → adicionar o produto **WhatsApp**. A Meta fornece um número de teste.
-2. Copiar a **Chave secreta do app** (Configurações → Básico) para `WHATSAPP_APP_SECRET` no `.env`.
-3. `npm run webhook` e, em outro terminal, `ngrok http 3000`.
-4. WhatsApp → Configuração → Webhook: URL `https://<id>.ngrok-free.app/webhook`, token igual a `WHATSAPP_VERIFY_TOKEN`. Assinar o campo `messages`.
-5. Em *API Setup*, adicionar seu celular como destinatário e enviar uma mensagem dele para o número de teste.
-6. O terminal mostra `assinatura OK | ... | cliente | ...` com o texto já mascarado.
+1. Com o receptor rodando, em outro terminal: `npm run evolution:conectar`. Cria a instância `vendedor-teste` com o token do `.env`, aponta o webhook para o receptor e salva `evolution-qrcode.png`.
+2. No celular do número de teste (papel de vendedor): WhatsApp → Aparelhos conectados → Conectar aparelho → ler o QR code. O receptor mostra `conexão da instância vendedor-teste: open`.
+3. De outro celular, mande uma mensagem para o número de teste. O receptor mostra `cliente | ... | "texto mascarado"`.
+4. Responda pelo celular do vendedor. O receptor mostra `vendedor | ...` com o mesmo `cliente#`, ou seja, a mesma conversa.
+
+Nenhuma rota de envio da Evolution é chamada: o sistema só lê.
