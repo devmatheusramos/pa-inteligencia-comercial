@@ -6,6 +6,7 @@ import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import { criarPool } from '../src/db.ts';
+import { mascarar } from '../src/mascaramento.ts';
 import { emitirToken } from '../src/auth.ts';
 import { calcularIndicadores, minutosComerciais } from '../src/indicadores.ts';
 import { abrirNavegador } from './capturar.mjs';
@@ -37,7 +38,7 @@ const tira = async (nome, url, marcas, opc = {}) => { await nav.ir(url, 500); co
 
 try {
   /* ---------- 00005: mensagem antes e depois do mascaramento ---------- */
-  const c05 = fix('c05'), iDado = c05.mensagens.findIndex((m) => /CPF/.test(m.texto));
+  const c05 = fix('c05'), iDado = c05.mensagens.findIndex((m) => mascarar(m.texto).texto !== m.texto && /CPF/.test(mascarar(m.texto).texto));
   const g = (await pool.query('SELECT id, texto_mascarado FROM mensagens WHERE id = $1', [`c05-${iDado}`])).rows[0];
   const depois = esc(g.texto_mascarado).replace(/(\[[A-Z]+\])/g, '<b class="ok">$1</b>').replace(/(Luciana Ferreira Bastos|Rua das Acácias, 245, apto 302, Boa Viagem, Recife-PE,)/g, '<span class="sel" id="m3">$1</span>');
   await tira('s2-01-mascaramento.png', pagina('s2-01', 'Mensagem de um cliente: o que ele escreveu × o que o sistema guardou', 'Conversa de teste. Os dados abaixo são fictícios.',
@@ -71,7 +72,7 @@ try {
   const erros = rod.filter((x) => x.ia.etapa !== x.gabarito.etapa).map((x) => '#e' + x.id);
   await tira('s2-05-acerto-ia.png', pagina('s2-05', 'Acerto da IA na etapa da venda: 30 conversas de teste', 'As "respostas certas" foram escritas e congeladas antes de rodar a IA.',
     `<div class="linha" id="m1"><div class="num ok">${acertos} de ${rod.length}</div><div><b>${Math.round((acertos / rod.length) * 100)}% de acerto</b><br><span class="mut">meta do projeto: 85% (26 de 30)</span></div></div>
-     <div class="cols"><table>${cab}${rod.slice(0, metade).map(linhaR).join('')}</table><table>${cab}${rod.slice(metade).map(linhaR).join('')}</table></div>`), ['#m1', ...erros]);
+     <div class="cols"><table>${cab}${rod.slice(0, metade).map(linhaR).join('')}</table><table>${cab}${rod.slice(metade).map(linhaR).join('')}</table></div>`), ['#m1', ...erros], { folga: 2 });
 
   /* ---------- 00007: tempo de resposta, conferido na mão ---------- */
   const ind = calcularIndicadores(c01.mensagens.map((m) => ({ de: m.de, em: m.em })));
@@ -89,10 +90,10 @@ try {
   const linhaA = (id, quem, pede, res, ok) => `<div class="linha" id="${id}"><div style="width:230px"><b>${quem}</b><br><span class="mut">${pede}</span></div><div class="${ok ? 'ok' : 'ruim'}" style="font-size:17px;font-weight:700">${res}</div></div>`;
   await tira('s2-07-acesso.png', pagina('s2-07', 'Quem vê o quê', 'Teste feito no sistema rodando: cada pessoa entra com o seu tipo de login.',
     linhaA('m1', 'Gestor', 'pede a lista de conversas', `Vê ${lg.j.conversas.length} conversas (as dos 2 vendedores)`, true) + linhaA('m2', 'Vendedora Ana Paula', 'pede a lista de conversas', `Vê só as ${la.j.conversas.length} dela`, true) +
-    linhaA('m3', 'Ana Paula', 'tenta abrir uma conversa do Bruno', `Negado (erro ${neg.st})`, true) + linhaA('m4', 'Sem login', 'tenta ver as conversas', `Negado (erro ${sem.st})`, true)), ['#m1', '#m2', '#m3', '#m4']);
+    linhaA('m3', 'Ana Paula', 'tenta abrir uma conversa do Bruno', `Negado (erro ${neg.st})`, true) + linhaA('m4', 'Sem login', 'tenta ver as conversas', `Negado (erro ${sem.st})`, true)), ['#m1', '#m2', '#m3', '#m4'], { folga: 2 });
 
   /* ---------- 00008: gabarito corrigido e congelado ---------- */
-  const antes = JSON.parse(execFileSync('git', ['show', 'HEAD:fixtures/conversas/c21.json'], { cwd: RAIZ, encoding: 'utf8' })).gabarito.pendencias, agora = fix('c21').gabarito.pendencias;
+  const antes = JSON.parse(execFileSync('git', ['show', '243c51a:fixtures/conversas/c21.json'], { cwd: RAIZ, encoding: 'utf8' })).gabarito.pendencias, agora = fix('c21').gabarito.pendencias;
   const manifesto = readFileSync(join(RAIZ, 'fixtures', 'conversas', 'gabarito.sha256'), 'utf8').trim().split('\n');
   let conferem = 0; for (const lin of manifesto) { const [h, f] = lin.split('  '); const hh = createHash('sha256').update(JSON.stringify(fix(f.replace('.json', '')).gabarito)).digest('hex'); if (hh === h) conferem++; }
   const lis = (a, novo) => a.map((p, i) => `<div>• ${esc(p.descricao)}${novo && i >= antes.length ? ' <b class="ok">(incluída na revisão)</b>' : ''}</div>`).join('');

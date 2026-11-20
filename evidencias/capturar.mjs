@@ -29,7 +29,7 @@ export async function abrirNavegador({ largura = 1360, altura = 900 } = {}) {
     async esperar(ms) { await espera(ms); },
     async tamanho(w, h) { await enviar('Emulation.setDeviceMetricsOverride', { width: w, height: h, deviceScaleFactor: 1.5, mobile: false }); await espera(400); },
     // Marca elementos com uma caixa vermelha e um número; devolve o retângulo que reúne tudo (para recortar).
-    async marcar(seletores, { margem = 10, incluir = [] } = {}) {
+    async marcar(seletores, { margem = 10, incluir = [], folga = 6 } = {}) {
       return api.js(`(() => {
         document.querySelectorAll('.marca-print').forEach((e) => e.remove());
         if (!document.getElementById('estilo-print')) { const st = document.createElement('style'); st.id = 'estilo-print'; st.textContent = 'header{position:static!important}'; document.head.appendChild(st); }
@@ -39,7 +39,7 @@ export async function abrirNavegador({ largura = 1360, altura = 900 } = {}) {
         const todos = [...caixas]; inc.forEach((s) => { const el = document.querySelector(s); if (el) { const r = el.getBoundingClientRect(); todos.push([r.left + scrollX, r.top + scrollY, r.width, r.height]); } });
         caixas.forEach(([x, y, w, h, n]) => {
           const d = document.createElement('div'); d.className = 'marca-print';
-          d.style.cssText = 'position:absolute;left:' + (x - 6) + 'px;top:' + (y - 6) + 'px;width:' + (w + 12) + 'px;height:' + (h + 12) + 'px;border:3px solid #e11d48;border-radius:10px;pointer-events:none;z-index:99999;box-shadow:0 0 0 3px #fff8';
+          d.style.cssText = 'position:absolute;left:' + (x - ${folga}) + 'px;top:' + (y - ${folga}) + 'px;width:' + (w + ${folga} * 2) + 'px;height:' + (h + ${folga} * 2) + 'px;border:3px solid #e11d48;border-radius:10px;pointer-events:none;z-index:99999;box-shadow:0 0 0 3px #fff8';
           const b = document.createElement('div'); b.textContent = n;
           b.style.cssText = 'position:absolute;left:-14px;top:-14px;width:28px;height:28px;border-radius:50%;background:#e11d48;color:#fff;font:700 15px/28px system-ui;text-align:center;box-shadow:0 0 0 3px #fff';
           d.appendChild(b); document.body.appendChild(d); });
