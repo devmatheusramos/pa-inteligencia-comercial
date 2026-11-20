@@ -70,7 +70,7 @@
           "origem_msg": 9
         }
       ],
-      "proximo_passo": "Aguardar o cliente informar o resultado do teste de nivelamento.",
+      "proximo_passo": "Aguardar o resultado do teste de nivelamento e enviar o valor e a turma correspondente.",
       "modelo": "gpt-4o-mini",
       "versao_prompt": "analise-v1"
     },
@@ -97,7 +97,7 @@
     "ia": {
       "etapa": "prospeccao",
       "pendencias": [],
-      "proximo_passo": "Aguarde o retorno da Juliana após ela olhar o catálogo.",
+      "proximo_passo": "Aguarde o cliente revisar o catálogo e entre em contato para esclarecer dúvidas.",
       "modelo": "gpt-4o-mini",
       "versao_prompt": "analise-v1"
     },
@@ -143,11 +143,11 @@
       "pendencias": [
         {
           "responsavel": "vendedor",
-          "descricao": "confirmar horário da avaliação",
+          "descricao": "confirmar a agenda de sábado",
           "origem_msg": 9
         }
       ],
-      "proximo_passo": "Confirmar o horário da avaliação gratuita com a Dra. Renata.",
+      "proximo_passo": "Confirmar a agenda de sábado para a avaliação gratuita.",
       "modelo": "gpt-4o-mini",
       "versao_prompt": "analise-v1"
     },
@@ -169,7 +169,7 @@
     "ia": {
       "etapa": "perdido",
       "pendencias": [],
-      "proximo_passo": "Acompanhar Mariana no próximo ano para verificar se ela reconsidera a matrícula.",
+      "proximo_passo": "Acompanhar o cliente em janeiro para verificar se ele mudou de ideia.",
       "modelo": "gpt-4o-mini",
       "versao_prompt": "analise-v1"
     },
@@ -185,7 +185,7 @@
     "ia": {
       "etapa": "perdido",
       "pendencias": [],
-      "proximo_passo": "Acompanhe o cliente em uma futura oportunidade.",
+      "proximo_passo": "Agradecer ao cliente pela consideração e deixar a porta aberta para futuras oportunidades.",
       "modelo": "gpt-4o-mini",
       "versao_prompt": "analise-v1"
     },
@@ -201,7 +201,7 @@
     "ia": {
       "etapa": "prospeccao",
       "pendencias": [],
-      "proximo_passo": "Aguarde a confirmação do horário do trabalho do cliente na segunda-feira para agendar a visita.",
+      "proximo_passo": "Aguarde a confirmação do cliente sobre o horário do trabalho e o período desejado na segunda-feira.",
       "modelo": "gpt-4o-mini",
       "versao_prompt": "analise-v1"
     },
@@ -234,7 +234,7 @@
           "origem_msg": 10
         }
       ],
-      "proximo_passo": "Aguardar o envio da logo e do endereço da lanchonete pelo cliente.",
+      "proximo_passo": "Aguarde o envio da logo e do endereço para montar o orçamento.",
       "modelo": "gpt-4o-mini",
       "versao_prompt": "analise-v1"
     },
@@ -388,7 +388,7 @@
           "origem_msg": 8
         }
       ],
-      "proximo_passo": "Enviar a confirmação da fábrica e a condição atualizada para a cliente.",
+      "proximo_passo": "Aguarde a confirmação da fábrica e envie a condição atualizada ao cliente.",
       "modelo": "gpt-4o-mini",
       "versao_prompt": "analise-v1"
     },
@@ -421,7 +421,7 @@
           "origem_msg": 6
         }
       ],
-      "proximo_passo": "Recalcule as opções e envie ao cliente.",
+      "proximo_passo": "Recalcule as opções e envie ao cliente conforme prometido.",
       "modelo": "gpt-4o-mini",
       "versao_prompt": "analise-v1"
     },
@@ -443,7 +443,7 @@
     "ia": {
       "etapa": "proposta",
       "pendencias": [],
-      "proximo_passo": "Aguarde o retorno da cliente sobre a proposta.",
+      "proximo_passo": "Aguarde o cliente analisar a proposta e retorne em breve para saber se ele tem alguma dúvida.",
       "modelo": "gpt-4o-mini",
       "versao_prompt": "analise-v1"
     },
@@ -493,7 +493,7 @@
           "origem_msg": 5
         }
       ],
-      "proximo_passo": "Aguarde a resposta da gerente e informe a cliente sobre a possibilidade de parcelamento.",
+      "proximo_passo": "Aguarde a resposta da gerente e informe ao cliente sobre a possibilidade de parcelamento.",
       "modelo": "gpt-4o-mini",
       "versao_prompt": "analise-v1"
     },
@@ -542,7 +542,7 @@
     "ia": {
       "etapa": "perdido",
       "pendencias": [],
-      "proximo_passo": "Agradecer ao cliente pela conversa e deixar a porta aberta para futuras oportunidades.",
+      "proximo_passo": "Nenhuma ação necessária, o cliente optou por outro serviço.",
       "modelo": "gpt-4o-mini",
       "versao_prompt": "analise-v1"
     },
@@ -558,7 +558,7 @@
     "ia": {
       "etapa": "fechado_ganho",
       "pendencias": [],
-      "proximo_passo": "Acompanhar o contato do time de implantação para garantir que o onboarding ocorra conforme o planejado.",
+      "proximo_passo": "Acompanhar o contato do time de implantação com o cliente.",
       "modelo": "gpt-4o-mini",
       "versao_prompt": "analise-v1"
     },
@@ -578,9 +578,9 @@
   {
     "id": "c24",
     "ia": {
-      "etapa": "qualificacao",
+      "etapa": "prospeccao",
       "pendencias": [],
-      "proximo_passo": "Aguardar o cliente confirmar um dia para a visita técnica.",
+      "proximo_passo": "Aguarde o retorno do cliente sobre a visita técnica.",
       "modelo": "gpt-4o-mini",
       "versao_prompt": "analise-v1"
     },
@@ -662,7 +662,7 @@
     "ia": {
       "etapa": "fechado_ganho",
       "pendencias": [],
-      "proximo_passo": "Aguarde a entrega na quinta-feira pela manhã.",
+      "proximo_passo": "Aguarde a entrega na quinta-feira e mantenha contato para qualquer eventualidade.",
       "modelo": "gpt-4o-mini",
       "versao_prompt": "analise-v1"
     },

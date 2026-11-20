@@ -1,4 +1,7 @@
 // Mascaramento de dados pessoais antes de gravar e antes do LLM (docs/dados-pessoais.md).
+// Dados com formato (CPF, e-mail, telefone, CEP...) são achados por regra. Endereço e nome, não têm formato fixo:
+// endereço é achado pela palavra de logradouro (Rua, Avenida...); nome, por frases como "meu nome é", por linha
+// que é só um nome completo e pelos nomes já conhecidos da conversa (ex.: nome do contato no WhatsApp).
 
 const soDigitos = (s: string) => s.replace(/\D/g, '');
 
@@ -50,19 +53,37 @@ const REGRAS: Regra[] = [
   { marcador: '[CPF]', regex: /\b\d{3}\.?\d{3}\.?\d{3}-?\d{2}\b/g, valida: cpfValido },
   { marcador: '[TELEFONE]', regex: /(?:\+?55\s?)?\(?\b\d{2}\)?\s?9?\d{4}[-\s]?\d{4}\b/g },
   { marcador: '[CEP]', regex: /\b\d{5}-\d{3}\b/g },
+  // Endereço: da palavra de logradouro até o fim da linha, da frase ou do " e " seguinte.
+  { marcador: '[ENDERECO]', regex: /\b(?:Rua|Av\.?|Avenida|Travessa|Tv\.|Alameda|Pra[cç]a|Estrada|Rodovia|Largo)\s+[^\n]{2,100}?(?=\n|[.;!?]\s|\s+e\s|\s*$)/giu },
 ];
 
-export type ResultadoMascaramento = { texto: string; ocorrencias: Record<string, number> };
+// Nome depois de "meu nome é", "me chamo", "sou o/a", "aqui é o/a" (nome começa com maiúscula).
+const NOME_DECLARADO = /\b((?:meu nome (?:é|e)|me chamo|sou (?:o|a)|aqui (?:é|e) (?:o|a))\s+)([A-ZÀ-Ú][\p{L}'-]+(?:\s+(?:d[aeo]s?\s+)?[A-ZÀ-Ú][\p{L}'-]+){0,3})/gu;
+// Linha que é só um nome completo (2 a 4 palavras com inicial maiúscula), como no bloco "nome / CPF / e-mail / endereço".
+const NOME_NA_LINHA = /^(?!(?:Bom|Boa|Muito|Feliz|Obrigad|Perfeito|Tudo|Sim|Não|Nao|Oi|Olá|Ola|Ok|Beleza|Bora|Valeu)\b)[A-ZÀ-Ú][\p{L}'-]+(?:\s+(?:d[aeo]s?\s+)?[A-ZÀ-Ú][\p{L}'-]+){1,3}$/gmu;
 
-export function mascarar(texto: string): ResultadoMascaramento {
+const VARIANTES: Record<string, string> = { a: '[aáàâãä]', e: '[eéèêë]', i: '[iíìîï]', o: '[oóòôõö]', u: '[uúùûü]', c: '[cç]' };
+const semAcento = (s: string) => s.normalize('NFD').replace(/\p{Diacritic}/gu, '');
+const regexDoNome = (palavra: string) => new RegExp(`(?<![\\p{L}])${[...semAcento(palavra).toLowerCase()].map((c) => VARIANTES[c] ?? c.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('')}(?![\\p{L}])`, 'giu');
+
+export type ResultadoMascaramento = { texto: string; ocorrencias: Record<string, number> };
+export type OpcoesMascaramento = { nomes?: string[] };   // nomes que já se sabe que são pessoais (ex.: nome do contato)
+
+export function mascarar(texto: string, opcoes: OpcoesMascaramento = {}): ResultadoMascaramento {
   const ocorrencias: Record<string, number> = {};
+  const conta = (m: string) => { ocorrencias[m] = (ocorrencias[m] ?? 0) + 1; };
   let saida = texto;
   for (const { marcador, regex, valida } of REGRAS) {
     saida = saida.replace(regex, (m) => {
       if (valida && !valida(m)) return m;
-      ocorrencias[marcador] = (ocorrencias[marcador] ?? 0) + 1;
+      conta(marcador);
       return marcador;
     });
   }
+  saida = saida.replace(NOME_DECLARADO, (_, antes: string) => { conta('[NOME]'); return antes + '[NOME]'; });
+  saida = saida.replace(NOME_NA_LINHA, () => { conta('[NOME]'); return '[NOME]'; });
+  // Nomes conhecidos: cada palavra do nome (3+ letras), sem diferenciar maiúscula nem acento.
+  const palavras = new Set((opcoes.nomes ?? []).flatMap((n) => n.split(/\s+/)).filter((w) => semAcento(w).length >= 3));
+  for (const w of palavras) saida = saida.replace(regexDoNome(w), () => { conta('[NOME]'); return '[NOME]'; });
   return { texto: saida, ocorrencias };
 }

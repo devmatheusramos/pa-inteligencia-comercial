@@ -43,7 +43,7 @@ export function normalizarEvolution(evento: any): MensagemNormalizada[] {
       vendedor: evento.instance,
       clienteHmac: hmacTelefone(jid.split('@')[0]),
       enviadaEm: new Date(Number(data.messageTimestamp) * 1000).toISOString(),
-      textoMascarado: mascarar(textoDa(data)).texto,
+      textoMascarado: mascarar(textoDa(data), { nomes: data.key.fromMe || !data.pushName ? [] : [String(data.pushName)] }).texto,   // nome do contato no WhatsApp
     });
   }
   return saida;

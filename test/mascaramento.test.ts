@@ -26,3 +26,21 @@ test('não mascara números que não são dado pessoal', () => {
   const texto = 'Fica R$ 2.400 em 3x, entrega em 10 dias, pedido 12345';
   assert.equal(mascarar(texto).texto, texto);
 });
+
+test('mascara endereço: da palavra de logradouro até o fim da linha', () => {
+  const r = mascarar('Rua das Acácias, 245, apto 302, Boa Viagem, Recife-PE,\nCEP 51020-000');
+  assert.equal(r.texto, '[ENDERECO]\nCEP [CEP]');
+  assert.equal(mascarar('moro na Avenida Boa Viagem, 1500 e queria saber o prazo').texto, 'moro na [ENDERECO] e queria saber o prazo');
+});
+
+test('mascara nome: "meu nome é", linha só com nome completo e nomes já conhecidos', () => {
+  assert.equal(mascarar('Oi, meu nome é Carla Souza Lima e quero um orçamento').texto, 'Oi, meu nome é [NOME] e quero um orçamento');
+  assert.equal(mascarar('Luciana Ferreira Bastos\nCPF 529.982.247-25').texto, '[NOME]\nCPF [CPF]');
+  assert.equal(mascarar('Boa tarde, Dona Lúcia! Obrigada, lucia.', { nomes: ['Lúcia Barbosa'] }).texto, 'Boa tarde, Dona [NOME]! Obrigada, [NOME].');
+});
+
+test('nome: não confunde saudação nem lugar com nome de pessoa', () => {
+  assert.equal(mascarar('Boa Tarde').texto, 'Boa Tarde');
+  assert.equal(mascarar('Bom Dia').texto, 'Bom Dia');
+  assert.equal(mascarar('A SolarPE atende em Recife').texto, 'A SolarPE atende em Recife');
+});

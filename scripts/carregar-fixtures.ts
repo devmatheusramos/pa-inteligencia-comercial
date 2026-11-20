@@ -21,7 +21,7 @@ for (const f of readdirSync(dir).filter((x) => /^c\d+\.json$/.test(x)).sort()) {
     const r = await gravarMensagem(pool, {
       id: `${c.id}-${i}`, fonte: 'evolution', canal: 'whatsapp', de: m.de, vendedor: `vendedor-${c.vendedor.id}`,
       clienteHmac: hmacTelefone(c.cliente.telefone), enviadaEm: new Date(m.em).toISOString(),
-      textoMascarado: mascarar(m.texto).texto,
+      textoMascarado: mascarar(m.texto, { nomes: [c.cliente.nome] }).texto,
     });
     contagem[r]++;
   }
