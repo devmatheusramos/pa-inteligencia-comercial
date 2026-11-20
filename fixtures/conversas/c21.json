@@ -54,6 +54,11 @@
         "responsavel": "vendedor",
         "descricao": "Enviar o boleto ao cliente",
         "origem_msg": 5
+      },
+      {
+        "responsavel": "vendedor",
+        "descricao": "Emitir a nota fiscal após o evento (12/11)",
+        "origem_msg": 5
       }
     ],
     "proximo_passo": "Vendedor enviar o boleto hoje e emitir a NF após o evento",

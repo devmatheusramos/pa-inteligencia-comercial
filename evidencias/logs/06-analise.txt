@@ -1,0 +1,33 @@
+gabarito íntegro: 30 conversas conferem com o congelamento (fixtures/conversas/gabarito.sha256)
+c01  OK   IA=negociacao    gabarito=negociacao    pend IA=2 gab=2
+c02  OK   IA=proposta      gabarito=proposta      pend IA=0 gab=1
+c03  OK   IA=qualificacao  gabarito=qualificacao  pend IA=1 gab=2
+c04  OK   IA=prospeccao    gabarito=prospeccao    pend IA=0 gab=1
+c05  OK   IA=fechado_ganho gabarito=fechado_ganho pend IA=0 gab=1  (difícil)
+c06  ERR  IA=prospeccao    gabarito=qualificacao  pend IA=1 gab=1
+c07  OK   IA=perdido       gabarito=perdido       pend IA=0 gab=0
+c08  OK   IA=perdido       gabarito=perdido       pend IA=0 gab=0
+c09  ERR  IA=prospeccao    gabarito=qualificacao  pend IA=0 gab=2  (difícil)
+c10  OK   IA=qualificacao  gabarito=qualificacao  pend IA=1 gab=2
+c11  OK   IA=proposta      gabarito=proposta      pend IA=0 gab=1
+c12  OK   IA=prospeccao    gabarito=prospeccao    pend IA=1 gab=1
+c13  OK   IA=proposta      gabarito=proposta      pend IA=0 gab=1
+c14  OK   IA=prospeccao    gabarito=prospeccao    pend IA=0 gab=2
+c15  ERR  IA=proposta      gabarito=negociacao    pend IA=0 gab=1  (difícil)
+c16  OK   IA=negociacao    gabarito=negociacao    pend IA=1 gab=2
+c17  OK   IA=negociacao    gabarito=negociacao    pend IA=1 gab=1
+c18  OK   IA=proposta      gabarito=proposta      pend IA=0 gab=1  (difícil)
+c19  OK   IA=fechado_ganho gabarito=fechado_ganho pend IA=0 gab=1
+c20  OK   IA=negociacao    gabarito=negociacao    pend IA=1 gab=1
+c21  OK   IA=fechado_ganho gabarito=fechado_ganho pend IA=0 gab=2
+c22  OK   IA=perdido       gabarito=perdido       pend IA=0 gab=0
+c23  OK   IA=fechado_ganho gabarito=fechado_ganho pend IA=0 gab=1
+c24  OK   IA=qualificacao  gabarito=qualificacao  pend IA=0 gab=1
+c25  OK   IA=negociacao    gabarito=negociacao    pend IA=1 gab=1  (difícil)
+c26  OK   IA=perdido       gabarito=perdido       pend IA=0 gab=0
+c27  OK   IA=perdido       gabarito=perdido       pend IA=0 gab=0  (difícil)
+c28  OK   IA=fechado_ganho gabarito=fechado_ganho pend IA=0 gab=1
+c29  OK   IA=proposta      gabarito=proposta      pend IA=0 gab=2
+c30  OK   IA=prospeccao    gabarito=prospeccao    pend IA=0 gab=0
+
+Etapa correta: 27/30 = 90.0%  (meta da Sprint 3: >= 85%, ou seja, 26/30)  | modelo gpt-4o-mini | prompt analise-v1

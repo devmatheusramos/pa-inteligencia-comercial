@@ -75,7 +75,7 @@ As metas abaixo são **metas**, não resultados. Os resultados serão medidos na
 - **Sem o MVP (T_manual)**: o avaliador lê as conversas no formato de chat e responde, cronometrado.
 - **Com o MVP (T_painel)**: o mesmo avaliador responde usando o painel do gestor, cronometrado, com intervalo mínimo de 48 h e ordem das perguntas embaralhada para reduzir o efeito de memória.
 - Fórmula: `redução = (T_manual − T_painel) / T_manual`. Meta: ≥ 79%.
-- As respostas das duas rodadas são conferidas com o gabarito; tempo só vale se a rodada tiver pelo menos 4 das 5 respostas corretas.
+- As respostas das duas rodadas são conferidas com o gabarito: registra-se o tempo e quantas das 5 respostas ficaram certas, em cada rodada.
 
 ### 4.3 Hipóteses × evidência
 

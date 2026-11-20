@@ -1,0 +1,19 @@
+conversa c01 -> saída do analisador (modelo gpt-4o-mini, prompt analise-v1)
+{
+  "etapa": "negociacao",
+  "pendencias": [
+    {
+      "responsavel": "cliente",
+      "descricao": "mandar foto do orçamento da concorrente",
+      "origem_msg": 5
+    },
+    {
+      "responsavel": "vendedor",
+      "descricao": "ver uma condição melhor no à vista",
+      "origem_msg": 6
+    }
+  ],
+  "proximo_passo": "Aguarde o envio da foto do orçamento da concorrente e a resposta sobre a condição melhor.",
+  "modelo": "gpt-4o-mini",
+  "versao_prompt": "analise-v1"
+}

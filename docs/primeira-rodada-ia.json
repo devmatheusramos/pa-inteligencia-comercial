@@ -1,0 +1,725 @@
+[
+  {
+    "id": "c01",
+    "ia": {
+      "etapa": "negociacao",
+      "pendencias": [
+        {
+          "responsavel": "cliente",
+          "descricao": "mandar foto do orçamento da concorrente",
+          "origem_msg": 5
+        },
+        {
+          "responsavel": "vendedor",
+          "descricao": "ver uma condição melhor no à vista",
+          "origem_msg": 6
+        }
+      ],
+      "proximo_passo": "Aguarde o envio da foto do orçamento da concorrente e a resposta sobre a condição melhor.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "negociacao",
+      "pendencias": [
+        {
+          "responsavel": "cliente",
+          "descricao": "Enviar foto do orçamento do concorrente",
+          "origem_msg": 7
+        },
+        {
+          "responsavel": "vendedor",
+          "descricao": "Ver com o gerente condição melhor à vista",
+          "origem_msg": 6
+        }
+      ],
+      "proximo_passo": "Vendedor trazer condição à vista e comparar com o concorrente",
+      "observacao": ""
+    }
+  },
+  {
+    "id": "c02",
+    "ia": {
+      "etapa": "proposta",
+      "pendencias": [],
+      "proximo_passo": "Aguarde a confirmação do cliente sobre a quantidade com o mestre de obras.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "proposta",
+      "pendencias": [
+        {
+          "responsavel": "cliente",
+          "descricao": "Confirmar quantidades com o mestre de obras e dar retorno",
+          "origem_msg": 4
+        }
+      ],
+      "proximo_passo": "Vendedor cobrar retorno antes de sexta (validade do orçamento)",
+      "observacao": ""
+    }
+  },
+  {
+    "id": "c03",
+    "ia": {
+      "etapa": "qualificacao",
+      "pendencias": [
+        {
+          "responsavel": "vendedor",
+          "descricao": "enviar valor e turma após o teste",
+          "origem_msg": 9
+        }
+      ],
+      "proximo_passo": "Aguardar o cliente informar o resultado do teste de nivelamento.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "qualificacao",
+      "pendencias": [
+        {
+          "responsavel": "vendedor",
+          "descricao": "Passar valor e turma após o nivelamento",
+          "origem_msg": 9
+        },
+        {
+          "responsavel": "cliente",
+          "descricao": "Filha fazer o teste de nivelamento",
+          "origem_msg": 11
+        }
+      ],
+      "proximo_passo": "Aguardar o nivelamento e enviar valor e turma",
+      "observacao": ""
+    }
+  },
+  {
+    "id": "c04",
+    "ia": {
+      "etapa": "prospeccao",
+      "pendencias": [],
+      "proximo_passo": "Aguarde o retorno da Juliana após ela olhar o catálogo.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "prospeccao",
+      "pendencias": [
+        {
+          "responsavel": "cliente",
+          "descricao": "Olhar o catálogo e dar retorno",
+          "origem_msg": 4
+        }
+      ],
+      "proximo_passo": "Vendedor fazer follow-up perguntando tipo de festa e data",
+      "observacao": ""
+    }
+  },
+  {
+    "id": "c05",
+    "ia": {
+      "etapa": "fechado_ganho",
+      "pendencias": [],
+      "proximo_passo": "Acompanhar a entrega na data prevista.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "fechado_ganho",
+      "pendencias": [
+        {
+          "responsavel": "vendedor",
+          "descricao": "Entregar o sofá na terça (10/11)",
+          "origem_msg": 9
+        }
+      ],
+      "proximo_passo": "Acompanhar a entrega de terça e fazer pós-venda",
+      "observacao": "(c) Contém dados pessoais fictícios no texto (nome completo, CPF 123.456.789-09, e-mail, endereço e telefone). Testa se a IA classifica fechado_ganho sem reproduzir/expor os dados pessoais na saída."
+    }
+  },
+  {
+    "id": "c06",
+    "ia": {
+      "etapa": "prospeccao",
+      "pendencias": [
+        {
+          "responsavel": "vendedor",
+          "descricao": "confirmar horário da avaliação",
+          "origem_msg": 9
+        }
+      ],
+      "proximo_passo": "Confirmar o horário da avaliação gratuita com a Dra. Renata.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "qualificacao",
+      "pendencias": [
+        {
+          "responsavel": "vendedor",
+          "descricao": "Confirmar horário da avaliação no sábado",
+          "origem_msg": 9
+        }
+      ],
+      "proximo_passo": "Vendedor confirmar o horário da avaliação de sábado",
+      "observacao": ""
+    }
+  },
+  {
+    "id": "c07",
+    "ia": {
+      "etapa": "perdido",
+      "pendencias": [],
+      "proximo_passo": "Acompanhar Mariana no próximo ano para verificar se ela reconsidera a matrícula.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "perdido",
+      "pendencias": [],
+      "proximo_passo": "Registrar desistência por orçamento; eventual recontato no próximo ano",
+      "observacao": ""
+    }
+  },
+  {
+    "id": "c08",
+    "ia": {
+      "etapa": "perdido",
+      "pendencias": [],
+      "proximo_passo": "Acompanhe o cliente em uma futura oportunidade.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "perdido",
+      "pendencias": [],
+      "proximo_passo": "Registrar desistência do evento e encerrar",
+      "observacao": ""
+    }
+  },
+  {
+    "id": "c09",
+    "ia": {
+      "etapa": "prospeccao",
+      "pendencias": [],
+      "proximo_passo": "Aguarde a confirmação do horário do trabalho do cliente na segunda-feira para agendar a visita.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "qualificacao",
+      "pendencias": [
+        {
+          "responsavel": "vendedor",
+          "descricao": "Passar o valor após a definição do período",
+          "origem_msg": 10
+        },
+        {
+          "responsavel": "cliente",
+          "descricao": "Informar na segunda se precisa de integral ou meio período",
+          "origem_msg": 11
+        }
+      ],
+      "proximo_passo": "Na segunda, confirmar o período, passar o valor e agendar a visita",
+      "observacao": "(e) Várias perguntas misturadas (integral, alimentação, vaga, valor, câmera, fralda), áudios transcritos '[áudio]' e figurinhas '[figurinha]'. O valor foi pedido mas não enviado, então a etapa é qualificacao."
+    }
+  },
+  {
+    "id": "c10",
+    "ia": {
+      "etapa": "qualificacao",
+      "pendencias": [
+        {
+          "responsavel": "cliente",
+          "descricao": "Enviar a logo e o endereço da lanchonete",
+          "origem_msg": 10
+        }
+      ],
+      "proximo_passo": "Aguardar o envio da logo e do endereço da lanchonete pelo cliente.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "qualificacao",
+      "pendencias": [
+        {
+          "responsavel": "vendedor",
+          "descricao": "Enviar orçamento com arte inclusa",
+          "origem_msg": 9
+        },
+        {
+          "responsavel": "cliente",
+          "descricao": "Enviar logo e endereço da lanchonete",
+          "origem_msg": 10
+        }
+      ],
+      "proximo_passo": "Cliente enviar a logo; vendedor montar e enviar o orçamento",
+      "observacao": ""
+    }
+  },
+  {
+    "id": "c11",
+    "ia": {
+      "etapa": "proposta",
+      "pendencias": [],
+      "proximo_passo": "Aguarde o cliente entrar em contato após a chegada do aparelho.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "proposta",
+      "pendencias": [
+        {
+          "responsavel": "cliente",
+          "descricao": "Confirmar chegada do aparelho e escolher dia da instalação",
+          "origem_msg": 8
+        }
+      ],
+      "proximo_passo": "Vendedor cobrar o cliente quando o aparelho chegar",
+      "observacao": ""
+    }
+  },
+  {
+    "id": "c12",
+    "ia": {
+      "etapa": "prospeccao",
+      "pendencias": [
+        {
+          "responsavel": "vendedor",
+          "descricao": "chamar o cliente às 18h",
+          "origem_msg": 7
+        }
+      ],
+      "proximo_passo": "Lembre-se de chamar o cliente às 18h conforme combinado.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "prospeccao",
+      "pendencias": [
+        {
+          "responsavel": "vendedor",
+          "descricao": "Chamar o cliente depois das 18h",
+          "origem_msg": 7
+        }
+      ],
+      "proximo_passo": "Vendedor ligar após as 18h para entender a necessidade",
+      "observacao": ""
+    }
+  },
+  {
+    "id": "c13",
+    "ia": {
+      "etapa": "proposta",
+      "pendencias": [],
+      "proximo_passo": "Aguarde a resposta do cliente amanhã.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "proposta",
+      "pendencias": [
+        {
+          "responsavel": "cliente",
+          "descricao": "Responder sobre a proposta após conversar com o marido",
+          "origem_msg": 9
+        }
+      ],
+      "proximo_passo": "Vendedor cobrar resposta no dia seguinte, reforçando a disputa pela data",
+      "observacao": ""
+    }
+  },
+  {
+    "id": "c14",
+    "ia": {
+      "etapa": "prospeccao",
+      "pendencias": [],
+      "proximo_passo": "Aguarde o contato do cliente na próxima semana.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "prospeccao",
+      "pendencias": [
+        {
+          "responsavel": "vendedor",
+          "descricao": "Chamar o cliente na segunda-feira",
+          "origem_msg": 6
+        },
+        {
+          "responsavel": "cliente",
+          "descricao": "Decidir com a esposa sobre a reforma e dar retorno",
+          "origem_msg": 5
+        }
+      ],
+      "proximo_passo": "Vendedor retomar contato na segunda e descobrir o tipo de obra",
+      "observacao": ""
+    }
+  },
+  {
+    "id": "c15",
+    "ia": {
+      "etapa": "proposta",
+      "pendencias": [],
+      "proximo_passo": "Aguarde o retorno do cliente sobre o preço.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "negociacao",
+      "pendencias": [
+        {
+          "responsavel": "cliente",
+          "descricao": "Avaliar o orçamento e dar retorno",
+          "origem_msg": 7
+        }
+      ],
+      "proximo_passo": "Vendedor perguntar se o valor é impeditivo e oferecer alternativa (malha mais simples ou menos peças)",
+      "observacao": "(a) Ambígua entre proposta e negociacao: após o orçamento o cliente comenta que está caro ('ta salgado'), mas em tom de brincadeira e sem pedir ajuste, e diz que vai avaliar. Pela regra, menção a preço alto conta como objeção de preço, por isso negociacao; leitura como proposta é defensável."
+    }
+  },
+  {
+    "id": "c16",
+    "ia": {
+      "etapa": "negociacao",
+      "pendencias": [
+        {
+          "responsavel": "vendedor",
+          "descricao": "mandar confirmação da fábrica e condição atualizada",
+          "origem_msg": 8
+        }
+      ],
+      "proximo_passo": "Enviar a confirmação da fábrica e a condição atualizada para a cliente.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "negociacao",
+      "pendencias": [
+        {
+          "responsavel": "vendedor",
+          "descricao": "Confirmar com a fábrica a entrega do quarto do bebê até 05/12",
+          "origem_msg": 6
+        },
+        {
+          "responsavel": "vendedor",
+          "descricao": "Enviar condição atualizada com desconto à vista",
+          "origem_msg": 8
+        }
+      ],
+      "proximo_passo": "Vendedor enviar confirmação da fábrica e nova condição amanhã",
+      "observacao": ""
+    }
+  },
+  {
+    "id": "c17",
+    "ia": {
+      "etapa": "negociacao",
+      "pendencias": [
+        {
+          "responsavel": "vendedor",
+          "descricao": "recalcular as opções e enviar",
+          "origem_msg": 6
+        }
+      ],
+      "proximo_passo": "Recalcule as opções e envie ao cliente.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "negociacao",
+      "pendencias": [
+        {
+          "responsavel": "vendedor",
+          "descricao": "Enviar recálculo das duas opções de carga horária",
+          "origem_msg": 6
+        }
+      ],
+      "proximo_passo": "Vendedor enviar as duas opções recalculadas à tarde",
+      "observacao": ""
+    }
+  },
+  {
+    "id": "c18",
+    "ia": {
+      "etapa": "proposta",
+      "pendencias": [],
+      "proximo_passo": "Aguarde o retorno da cliente sobre a proposta.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "proposta",
+      "pendencias": [
+        {
+          "responsavel": "cliente",
+          "descricao": "Dar retorno sobre a proposta de contabilidade",
+          "origem_msg": 6
+        }
+      ],
+      "proximo_passo": "Vendedor fazer um último contato após a sexta e depois pausar o follow-up",
+      "observacao": "(b) Cliente some após a proposta: 3 follow-ups do vendedor em dias seguidos sem resposta. Silêncio não é recusa explícita, então a etapa continua proposta, com pendência do cliente."
+    }
+  },
+  {
+    "id": "c19",
+    "ia": {
+      "etapa": "fechado_ganho",
+      "pendencias": [],
+      "proximo_passo": "Aguardar o prazo de produção e avisar o cliente quando os cartões estiverem prontos para retirada.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "fechado_ganho",
+      "pendencias": [
+        {
+          "responsavel": "vendedor",
+          "descricao": "Avisar quando os cartões estiverem prontos para retirada",
+          "origem_msg": 6
+        }
+      ],
+      "proximo_passo": "Vendedor avisar a retirada na segunda",
+      "observacao": ""
+    }
+  },
+  {
+    "id": "c20",
+    "ia": {
+      "etapa": "negociacao",
+      "pendencias": [
+        {
+          "responsavel": "vendedor",
+          "descricao": "confirmar possibilidade de parcelamento em 6x",
+          "origem_msg": 5
+        }
+      ],
+      "proximo_passo": "Aguarde a resposta da gerente e informe a cliente sobre a possibilidade de parcelamento.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "negociacao",
+      "pendencias": [
+        {
+          "responsavel": "vendedor",
+          "descricao": "Confirmar com a gerente o parcelamento em 6x",
+          "origem_msg": 5
+        }
+      ],
+      "proximo_passo": "Vendedor dar resposta sobre o 6x ainda hoje",
+      "observacao": ""
+    }
+  },
+  {
+    "id": "c21",
+    "ia": {
+      "etapa": "fechado_ganho",
+      "pendencias": [],
+      "proximo_passo": "Enviar o boleto conforme prometido.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "fechado_ganho",
+      "pendencias": [
+        {
+          "responsavel": "vendedor",
+          "descricao": "Enviar o boleto ao cliente",
+          "origem_msg": 5
+        },
+        {
+          "responsavel": "vendedor",
+          "descricao": "Emitir a nota fiscal após o evento (12/11)",
+          "origem_msg": 5
+        }
+      ],
+      "proximo_passo": "Vendedor enviar o boleto hoje e emitir a NF após o evento",
+      "observacao": ""
+    }
+  },
+  {
+    "id": "c22",
+    "ia": {
+      "etapa": "perdido",
+      "pendencias": [],
+      "proximo_passo": "Agradecer ao cliente pela conversa e deixar a porta aberta para futuras oportunidades.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "perdido",
+      "pendencias": [],
+      "proximo_passo": "Registrar perda e encerrar",
+      "observacao": ""
+    }
+  },
+  {
+    "id": "c23",
+    "ia": {
+      "etapa": "fechado_ganho",
+      "pendencias": [],
+      "proximo_passo": "Acompanhar o contato do time de implantação para garantir que o onboarding ocorra conforme o planejado.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "fechado_ganho",
+      "pendencias": [
+        {
+          "responsavel": "vendedor",
+          "descricao": "Time de implantação contatar o cliente para agendar o onboarding",
+          "origem_msg": 5
+        }
+      ],
+      "proximo_passo": "Acionar a implantação para o onboarding",
+      "observacao": ""
+    }
+  },
+  {
+    "id": "c24",
+    "ia": {
+      "etapa": "qualificacao",
+      "pendencias": [],
+      "proximo_passo": "Aguardar o cliente confirmar um dia para a visita técnica.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "qualificacao",
+      "pendencias": [
+        {
+          "responsavel": "cliente",
+          "descricao": "Informar data para a visita técnica",
+          "origem_msg": 9
+        }
+      ],
+      "proximo_passo": "Vendedor cobrar a data da visita técnica",
+      "observacao": ""
+    }
+  },
+  {
+    "id": "c25",
+    "ia": {
+      "etapa": "negociacao",
+      "pendencias": [
+        {
+          "responsavel": "vendedor",
+          "descricao": "confirmar se é possível parcelar em 10x sem juros",
+          "origem_msg": 7
+        }
+      ],
+      "proximo_passo": "Confirmar com o dono sobre o parcelamento em 10x sem juros e retornar ao cliente.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "negociacao",
+      "pendencias": [
+        {
+          "responsavel": "vendedor",
+          "descricao": "Retornar se a empresa absorve os juros do 10x",
+          "origem_msg": 7
+        }
+      ],
+      "proximo_passo": "Vendedor responder hoje sobre o 10x sem juros e retomar a confiança",
+      "observacao": "(f) Vendedor leva 5h45 para a primeira resposta e 3h para a seguinte; cliente reclama explicitamente da demora. Objeção de forma de pagamento com menção a concorrente, conversa aberta: negociacao."
+    }
+  },
+  {
+    "id": "c26",
+    "ia": {
+      "etapa": "perdido",
+      "pendencias": [],
+      "proximo_passo": "Acompanhar o cliente em futuras oportunidades.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "perdido",
+      "pendencias": [],
+      "proximo_passo": "Registrar perda por preço (concorrente) e encerrar",
+      "observacao": ""
+    }
+  },
+  {
+    "id": "c27",
+    "ia": {
+      "etapa": "perdido",
+      "pendencias": [],
+      "proximo_passo": "Acompanhar o cliente em uma futura oportunidade.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "perdido",
+      "pendencias": [],
+      "proximo_passo": "Registrar perda (cancelamento após aceite) e liberar a agenda da equipe",
+      "observacao": "(d) Cliente aceita na msg 1 ('pode fechar') mas não paga o sinal e no dia seguinte cancela. A etapa final é perdido, não fechado_ganho; o sinal prometido deixa de ser pendência porque o negócio foi cancelado."
+    }
+  },
+  {
+    "id": "c28",
+    "ia": {
+      "etapa": "fechado_ganho",
+      "pendencias": [],
+      "proximo_passo": "Aguarde a entrega na quinta-feira pela manhã.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "fechado_ganho",
+      "pendencias": [
+        {
+          "responsavel": "vendedor",
+          "descricao": "Entregar o pedido na quinta (05/11) pela manhã",
+          "origem_msg": 6
+        }
+      ],
+      "proximo_passo": "Garantir a entrega na quinta e fazer pós-venda",
+      "observacao": ""
+    }
+  },
+  {
+    "id": "c29",
+    "ia": {
+      "etapa": "proposta",
+      "pendencias": [],
+      "proximo_passo": "Aguarde o retorno do cliente após a reunião com a diretoria.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "proposta",
+      "pendencias": [
+        {
+          "responsavel": "cliente",
+          "descricao": "Levar a proposta à diretoria na quinta e dar retorno",
+          "origem_msg": 7
+        },
+        {
+          "responsavel": "cliente",
+          "descricao": "Confirmar se haverá demo para a diretoria",
+          "origem_msg": 9
+        }
+      ],
+      "proximo_passo": "Vendedor confirmar a demo antes da reunião de quinta",
+      "observacao": ""
+    }
+  },
+  {
+    "id": "c30",
+    "ia": {
+      "etapa": "prospeccao",
+      "pendencias": [],
+      "proximo_passo": "Enviar promoções periodicamente para o cliente.",
+      "modelo": "gpt-4o-mini",
+      "versao_prompt": "analise-v1"
+    },
+    "gabarito": {
+      "etapa": "prospeccao",
+      "pendencias": [],
+      "proximo_passo": "Vendedor manter contato com promoções e recontatar no próximo mês",
+      "observacao": ""
+    }
+  }
+]

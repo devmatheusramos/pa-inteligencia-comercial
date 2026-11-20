@@ -1,0 +1,352 @@
+===== c01 | vendedor: Bruno | energia solar =====
+11-02 16:00  CLIENTE : Boa tarde, recebi o orçamento do sistema solar
+11-02 16:04  VENDEDOR: Boa tarde, Dona Lúcia! Bruno da SolarPE. Alguma dúvida sobre a proposta?
+11-02 16:14  CLIENTE : achei caro. 18.900 ta puxado
+11-02 16:15  CLIENTE : a outra empresa me passou 16.500 no mesmo tamanho
+11-02 16:21  VENDEDOR: Entendo! Sabe me dizer a marca dos painéis e do inversor deles? Os nossos são tier 1 e o inversor tem 10 anos de garantia
+11-02 16:40  CLIENTE : nao sei, vou ver no orçamento deles
+11-02 16:42  VENDEDOR: Se puder me mandar foto do orçamento, comparo item a item pra você. E vou ver com meu gerente uma condição melhor no à vista
+11-02 17:27  CLIENTE : vou procurar aqui e te mando
+11-02 17:28  VENDEDOR: Fico no aguardo!
+
+===== c02 | vendedor: Ana Paula | material de construção =====
+11-03 07:45  CLIENTE : Bom dia, preciso de orçamento: 50 sacos de cimento CP II, 3 metros de areia média e 2 metros de brita 1. Entrega no Ibura
+11-03 08:00  VENDEDOR: Bom dia, Sr. Rogério! Ana Paula aqui, da Casa Forte. Vou levantar agora
+11-03 08:03  CLIENTE : ok
+11-03 08:38  VENDEDOR: Orçamento:
+50 sc cimento CP II 50kg — R$ 36,90 un = R$ 1.845,00
+3 m³ areia média — R$ 140,00 = R$ 420,00
+2 m³ brita 1 — R$ 155,00 = R$ 310,00
+Frete Ibura: R$ 80,00
+Total: R$ 2.655,00
+Pagamento no PIX ou cartão em até 3x. Entrega em 24h após confirmação.
+11-03 09:00  CLIENTE : certo. vou passar pro mestre de obras ver se a quantidade ta certa
+11-03 09:02  VENDEDOR: Tranquilo! O orçamento vale até sexta 😉
+
+===== c03 | vendedor: Bruno | escola de idiomas =====
+11-04 11:00  CLIENTE : Olá! Quero informações do curso de inglês
+11-04 11:04  VENDEDOR: Olá! Aqui é o Bruno, da Speak Up Idiomas 🇺🇸 O curso seria pra você mesmo?
+11-04 11:22  CLIENTE : pra minha filha, ela tem 12 anos
+11-04 11:24  VENDEDOR: Legal! Ela já estudou inglês antes ou começaria do zero?
+11-04 11:29  CLIENTE : teve na escola, mas é bem fraquinha
+11-04 11:32  VENDEDOR: Entendi. A gente faz um teste de nivelamento online, rapidinho, pra colocar ela na turma certa. Qual turno ela estuda na escola?
+11-04 11:44  CLIENTE : de manha
+11-04 11:46  VENDEDOR: Então pra ela temos turmas à tarde, seg/qua ou ter/qui. Prefere alguma?
+11-04 12:26  CLIENTE : ter e qui seria melhor. e o valor?
+11-04 12:29  VENDEDOR: Vou te mandar o link do nivelamento, depois que ela fizer te passo valor e turma certinha, porque depende do nível 😊
+11-04 12:30  VENDEDOR: https://speakup.exemplo.com.br/nivelamento
+11-04 12:39  CLIENTE : ta bom, ela faz hj a noite
+
+===== c04 | vendedor: Ana Paula | buffet =====
+11-05 10:15  VENDEDOR: Oi, Juliana! Tudo bem? Aqui é a Ana Paula do Buffet Pirlimpimpim 🎈 Você deixou seu contato no nosso stand na feira de festas do shopping. Posso te mandar nosso catálogo?
+11-05 10:53  CLIENTE : oi! deixei sim
+11-05 10:54  CLIENTE : pode mandar
+11-05 10:59  VENDEDOR: [documento: Catalogo_Espacos_e_Cardapios.pdf] Aqui está! Trabalhamos com festa infantil, 15 anos e casamento
+11-05 13:19  CLIENTE : obg, vou dar uma olhada com calma e te falo
+11-05 13:22  VENDEDOR: Imagina! Qualquer dúvida é só chamar 😊
+
+===== c05 | vendedor: Ana Paula | loja de móveis =====
+11-03 15:00  CLIENTE : Oi Ana, vou querer o sofá retrátil cinza de 2,30m que vc mandou foto
+11-03 15:05  VENDEDOR: Oba, Luciana! Ótima escolha 😍 Fica R$ 2.890,00 com frete grátis, em até 10x sem juros no link
+11-03 15:09  CLIENTE : fechado, pode mandar o link de pagamento
+11-03 15:12  VENDEDOR: Pra emitir a nota preciso de nome completo, CPF, e-mail e endereço de entrega, por favor
+11-03 15:18  CLIENTE : Luciana Ferreira Bastos
+CPF 123.456.789-09
+luciana.bastos.ficticio@exemplo.com.br
+Rua das Acácias, 245, apto 302, Boa Viagem, Recife-PE, CEP 51020-000
+11-03 15:19  CLIENTE : se precisar, o telefone do meu marido pra entrega é +55 81 99876-1234
+11-03 15:23  VENDEDOR: Anotado! Segue o link: https://pag.exemplo.com.br/moveisbemestar/8F3K2
+11-03 15:34  CLIENTE : pago em 10x ✅
+11-03 15:35  CLIENTE : [imagem: comprovante de pagamento]
+11-03 15:38  VENDEDOR: Pagamento aprovado! 🙌 Entrega prevista pra terça (10/11), a transportadora liga no número do seu marido antes
+11-03 15:40  CLIENTE : maravilha obrigada
+
+===== c06 | vendedor: Ana Paula | clínica de estética =====
+11-02 19:30  CLIENTE : Oi boa noite, queria saber sobre harmonização facial
+11-02 19:31  CLIENTE : quanto ta?
+11-02 20:41  VENDEDOR: Boa noite! Aqui é a Ana Paula, da Clínica Bella Pele ✨ Desculpa a demora, estava em atendimento.
+11-02 20:42  VENDEDOR: Pra te passar o valor certinho preciso entender o que você quer tratar. Seria lábio, bigode chinês, mandíbula...?
+11-02 20:57  CLIENTE : queria mais o bigode chines e a olheira
+11-02 21:00  VENDEDOR: Entendi! Você já fez algum procedimento antes?
+11-02 21:06  CLIENTE : nunca fiz nada
+11-02 21:08  VENDEDOR: Então o ideal é passar por uma avaliação gratuita com a Dra. Renata, ela vê o volume que precisa. Você teria disponibilidade essa semana?
+11-02 21:17  CLIENTE : so posso sabado de manha
+11-02 21:21  VENDEDOR: Vou ver a agenda de sábado e te confirmo amanhã cedo, tá?
+11-02 21:23  CLIENTE : ok obgda
+
+===== c07 | vendedor: Ana Paula | escola de idiomas =====
+11-03 18:10  VENDEDOR: Oi, Mariana! Tudo bem? Passando pra saber se você conseguiu pensar sobre a matrícula no espanhol 😊
+11-03 19:45  CLIENTE : oi Ana, tudo sim
+11-03 19:46  CLIENTE : pensei sim, mas vou deixar pra ano que vem. apertou aqui as contas
+11-03 19:50  VENDEDOR: Entendo perfeitamente. Se quiser, consigo segurar o valor promocional até janeiro
+11-03 20:08  CLIENTE : obrigada, mas nao vou fazer agora mesmo nao. desisti por enquanto
+11-03 20:11  VENDEDOR: Sem problemas! Fica à vontade pra chamar quando quiser 💛
+
+===== c08 | vendedor: Ana Paula | buffet =====
+11-05 16:20  CLIENTE : Ana, boa tarde. Decidimos não fazer festa no casamento
+11-05 16:21  CLIENTE : vamos só no cartório e usar o dinheiro na viagem
+11-05 16:43  VENDEDOR: Boa tarde, Bianca! Que decisão linda também, viagem é memória pra vida toda ✈️
+11-05 16:44  VENDEDOR: Posso te perguntar se o orçamento pesou?
+11-05 16:58  CLIENTE : um pouco, mas foi mais escolha nossa mesmo
+11-05 17:01  VENDEDOR: Entendi! Se mudarem de ideia ou quiserem um almoço pequeno pra família, me chama
+11-05 17:10  CLIENTE : pode deixar, obrigada por tudo
+
+===== c09 | vendedor: Ana Paula | escola infantil =====
+11-04 13:00  CLIENTE : oii boa tarde
+11-04 13:01  CLIENTE : [figurinha]
+11-04 13:02  CLIENTE : [áudio] oi, tudo bem? então, eu queria saber como funciona aí a escolinha, se tem integral, se a comida é feita aí mesmo, e se tem vaga pra janeiro, meu filho tem 2 aninhos. ah e quanto é também, tá?
+11-04 13:20  VENDEDOR: Boa tarde! Aqui é a Ana Paula, do Espaço Crescer 🌻 Vou te responder tudo, pode deixar!
+11-04 13:21  VENDEDOR: Temos sim integral (7h às 18h) e meio período. A alimentação é toda feita aqui, com cardápio de nutricionista
+11-04 13:22  VENDEDOR: Qual o nome do seu pequeno? E você precisaria de integral ou meio período?
+11-04 13:34  CLIENTE : Theo
+11-04 13:35  CLIENTE : acho q integral, mas talvez meio periodo da tarde. depende do meu trabalho novo
+11-04 13:36  CLIENTE : vcs tem camera pra gente ver?? e a fralda é vcs que fornecem?
+11-04 13:42  VENDEDOR: Temos câmeras sim, com acesso pelo app dos pais 📱 A fralda é a família que manda
+11-04 13:43  VENDEDOR: Sobre vaga pra janeiro: pra turma de 2 anos ainda temos. O valor muda conforme o período, então assim que você definir integral ou meio, te passo certinho. Quer agendar uma visita pra conhecer?
+11-04 14:08  CLIENTE : [áudio] quero sim, pode ser semana que vem? eu só sei o horário do trabalho segunda, aí te falo se é integral
+11-04 14:09  CLIENTE : [figurinha]
+11-04 14:12  VENDEDOR: Claro! Te aguardo segunda com o período e já marcamos a visita 😊
+
+===== c10 | vendedor: Bruno | gráfica =====
+11-03 09:20  CLIENTE : Bom dia, vcs fazem panfleto?
+11-03 09:26  VENDEDOR: Bom dia! Fazemos sim 😄 Aqui é o Bruno da Gráfica Impacto. É pra qual tipo de divulgação?
+11-03 09:35  CLIENTE : inauguração da minha lanchonete, dia 20
+11-03 09:37  VENDEDOR: Que massa, parabéns! Quantas unidades você tá pensando?
+11-03 09:51  CLIENTE : uns 2 mil? nao sei qnto se usa
+11-03 09:54  VENDEDOR: Pra bairro, 2 mil costuma dar bem. Vai ser frente e verso? Colorido?
+11-03 10:01  CLIENTE : colorido, frente só
+11-03 10:03  VENDEDOR: Show. E a arte você já tem pronta ou precisa que a gente crie?
+11-03 10:28  CLIENTE : nao tenho nao. tenho só a logo
+11-03 10:31  VENDEDOR: Tranquilo, a gente cria. Me manda a logo em boa qualidade e o endereço da lanchonete que eu monto o orçamento com a arte inclusa
+11-03 10:42  CLIENTE : mando a noite, a logo ta no pc
+
+===== c11 | vendedor: Bruno | ar-condicionado =====
+11-05 13:10  CLIENTE : boa tarde quanto fica pra instalar um split de 12 mil
+11-05 13:15  VENDEDOR: Boa tarde! Bruno da FrioMax. O aparelho você já tem?
+11-05 13:18  CLIENTE : ja comprei, chega amanha
+11-05 13:20  VENDEDOR: Show. É casa ou apartamento? Qual andar?
+11-05 13:28  CLIENTE : apto 3 andar, a condensadora fica na varanda
+11-05 13:30  VENDEDOR: A distância entre a evaporadora e a condensadora fica em torno de quantos metros?
+11-05 13:36  CLIENTE : uns 3 metros acho
+11-05 13:40  VENDEDOR: Então fica assim:
+Instalação split 12.000 BTUs com até 3m de tubulação: R$ 450,00
+Metro adicional, se precisar: R$ 90,00
+Garantia de 90 dias na instalação. PIX ou cartão.
+Tenho agenda segunda ou terça.
+11-05 14:05  CLIENTE : blz, vou esperar o aparelho chegar pra ver certinho e te chamo
+11-05 14:06  VENDEDOR: Fechado, fico no aguardo 👍
+
+===== c12 | vendedor: Bruno | software B2B =====
+11-04 14:10  CLIENTE : Boa tarde, vi o anúncio de vcs no Instagram
+11-04 14:22  VENDEDOR: Boa tarde! Aqui é o Bruno, da GestorPro. Que bom que chegou até a gente! Com quem eu falo?
+11-04 14:28  CLIENTE : Marcelo
+11-04 14:30  VENDEDOR: Prazer, Marcelo! Sua empresa é de qual ramo?
+11-04 15:01  CLIENTE : distribuidora de bebidas. mas agora to no meio de um carregamento, consigo falar mais tarde?
+11-04 15:04  VENDEDOR: Claro! Que horário fica melhor pra você?
+11-04 15:08  CLIENTE : depois das 18h
+11-04 15:10  VENDEDOR: Fechado, te chamo às 18h então
+
+===== c13 | vendedor: Bruno | buffet =====
+11-02 10:00  CLIENTE : Oi, queria orçamento pra aniversário de 1 ano do meu filho
+11-02 10:08  VENDEDOR: Oi! Aqui é o Bruno do Buffet Sabor & Festa 🎉 Parabéns pelo pequeno! Pra quantas pessoas e qual a data?
+11-02 10:22  CLIENTE : uns 60 convidados, sabado 28 de novembro
+11-02 10:25  VENDEDOR: Seria no nosso salão ou em outro lugar?
+11-02 10:30  CLIENTE : no salao de festas do meu predio
+11-02 10:32  VENDEDOR: Perfeito. Fazemos buffet completo no local: salgados, docinhos, bolo, bebidas e garçons. Já tem tema?
+11-02 10:43  CLIENTE : tema safari
+11-02 11:30  VENDEDOR: Segue a proposta:
+Pacote Safari 60 pessoas — 4h de festa
+• 25 salgados por pessoa
+• 6 docinhos por pessoa
+• Bolo 4kg decorado tema safari
+• Refrigerante e suco à vontade
+• 2 garçons
+Valor: R$ 3.900,00
+Sinal de 30% pra reservar a data, restante até 3 dias antes.
+11-02 11:31  VENDEDOR: Sábado 28 ainda tá livre, mas tem mais 2 famílias perguntando essa data 😬
+11-02 11:57  CLIENTE : vou mostrar pro meu marido e te respondo amanha
+11-02 11:59  VENDEDOR: Combinado!
+
+===== c14 | vendedor: Ana Paula | material de construção =====
+11-02 08:40  VENDEDOR: Bom dia! Aqui é a Ana Paula, da Casa Forte Materiais de Construção 😊 Vi que o senhor se cadastrou no nosso site semana passada. Posso ajudar em alguma coisa?
+11-02 09:27  CLIENTE : bom dia. cadastrei sim mas nem lembro pq kkk
+11-02 09:31  VENDEDOR: Kkkk acontece! O senhor tá pensando em alguma obra ou reforma?
+11-02 09:53  CLIENTE : talvez, to vendo ainda com minha esposa
+11-02 09:56  VENDEDOR: Entendi! Fica à vontade. Quando vocês decidirem, posso passar uma lista de preço do que precisar
+11-02 11:01  CLIENTE : blz. semana q vem te falo
+11-02 11:03  VENDEDOR: Combinado! Vou te chamar na segunda então, tá bom?
+11-02 11:18  CLIENTE : 👍
+
+===== c15 | vendedor: Ana Paula | uniformes profissionais =====
+11-02 09:10  CLIENTE : Bom dia! Preciso de camisa polo bordada pra equipe da minha oficina
+11-02 09:17  VENDEDOR: Bom dia! Ana Paula da Vestir Uniformes. Quantas peças e quais tamanhos?
+11-02 09:32  CLIENTE : 12 pecas. 4 M, 6 G e 2 GG
+11-02 09:35  VENDEDOR: Bordado só na frente ou nas costas também?
+11-02 09:40  CLIENTE : so a logo no peito
+11-02 10:20  VENDEDOR: Fica assim:
+12 polos piquet cinza com bordado da logo no peito
+R$ 59,90 cada = R$ 718,80
+Prazo de 10 dias úteis após aprovação da arte. 50% de entrada.
+11-02 10:48  CLIENTE : eita, ta salgado hein kkkk
+11-02 10:49  CLIENTE : mas vou ver aqui
+11-02 10:53  VENDEDOR: Qualquer coisa me chama 😊
+
+===== c16 | vendedor: Bruno | móveis planejados =====
+11-04 17:00  CLIENTE : Bruno, vi o projeto e amei, mas o prazo de 45 dias nao da
+11-04 17:11  VENDEDOR: Oi, Patrícia! Que bom que gostou 😍 Qual seria o prazo ideal pra vocês?
+11-04 17:18  CLIENTE : a gente muda dia 10 de dezembro, precisava pelo menos o quarto do bebe pronto antes
+11-04 17:22  VENDEDOR: Entendi, quarto do bebê é prioridade mesmo. Uma opção é dividir em duas entregas: quarto do bebê primeiro e o resto depois
+11-04 17:25  CLIENTE : isso seria perfeito
+11-04 17:26  CLIENTE : e o valor muda?
+11-04 17:41  VENDEDOR: O valor total se mantém R$ 23.400, só a montagem em duas etapas. Vou confirmar com a fábrica se o quarto sai até 05/12
+11-04 17:50  CLIENTE : ok. e se fechar à vista tem desconto?
+11-04 17:55  VENDEDOR: Tem 5% no PIX. Te mando a confirmação da fábrica amanhã junto com a condição atualizada
+11-04 17:58  CLIENTE : beleza
+
+===== c17 | vendedor: Ana Paula | escola de idiomas =====
+11-05 08:30  CLIENTE : Bom dia Ana. Recebemos a proposta das aulas in company pros nossos 12 funcionários
+11-05 08:37  VENDEDOR: Bom dia, Rodrigo! Que bom. O que acharam?
+11-05 08:50  CLIENTE : a diretoria gostou mas pediu pra reduzir pra 2 aulas por semana em vez de 3
+11-05 08:51  CLIENTE : e queria saber se o valor cai proporcional
+11-05 08:55  VENDEDOR: Dá pra fazer sim. Com 2 aulas semanais o valor mensal cai, mas o curso fica mais longo, de 12 pra 18 meses
+11-05 09:17  CLIENTE : hm, 18 meses é muito. Tem como manter 12 meses com 2x?
+11-05 09:23  VENDEDOR: Aí teria que aumentar cada aula pra 1h30. Vou recalcular as duas opções e te mando à tarde
+11-05 09:26  CLIENTE : perfeito
+
+===== c18 | vendedor: Bruno | contabilidade =====
+11-02 14:30  CLIENTE : Boa tarde! Tô abrindo uma empresa (ME) e preciso de contador. Vcs atendem?
+11-02 14:40  VENDEDOR: Boa tarde! Atendemos sim. Bruno, da Contabiliza Recife. Qual o ramo da empresa?
+11-02 14:48  CLIENTE : comercio de roupas, loja fisica
+11-02 14:51  VENDEDOR: Vai ter funcionário?
+11-02 14:57  CLIENTE : 1 vendedora
+11-02 15:01  VENDEDOR: Perfeito. Pra Simples Nacional, comércio, com 1 funcionário: abertura da empresa R$ 600 (pagamento único) + mensalidade R$ 450. Inclui folha, guias e declarações.
+11-02 15:36  CLIENTE : certo, vou analisar
+11-03 10:06  VENDEDOR: Oi, Kátia! Bom dia. Conseguiu analisar a proposta? Qualquer dúvida estou aqui
+11-04 10:08  VENDEDOR: Oi Kátia, tudo bem? A condição da abertura vale até sexta, viu? 😊
+11-05 10:23  VENDEDOR: Kátia, vou deixar sua proposta reservada aqui. Quando quiser retomar é só me chamar!
+
+===== c19 | vendedor: Ana Paula | gráfica =====
+11-04 10:05  CLIENTE : Oi Ana! Aprovado o layout dos cartões de visita
+11-04 10:08  VENDEDOR: Oba! Então confirmo: 1.000 cartões couchê 300g, 4x4 cores, verniz localizado, R$ 189,00. Prazo 3 dias úteis
+11-04 10:15  CLIENTE : pode rodar
+11-04 10:17  VENDEDOR: Vou mandar pra produção. Pagamento é PIX ou na retirada?
+11-04 10:21  CLIENTE : pix agr
+11-04 10:27  CLIENTE : [imagem: comprovante PIX R$ 189,00]
+11-04 10:29  VENDEDOR: Recebido, obrigada! Fica pronto segunda (09/11), te aviso quando liberar pra retirada
+11-04 10:30  CLIENTE : show 👏
+
+===== c20 | vendedor: Ana Paula | clínica de estética =====
+11-03 10:40  CLIENTE : oi Ana, sobre aquele pacote de 10 sessões de drenagem que vc mandou
+11-03 10:43  VENDEDOR: Oi, Carla! Me diga 😊
+11-03 10:45  CLIENTE : queria pagar em mais vezes, 4x fica pesado pra mim
+11-03 10:49  VENDEDOR: Entendo. Hoje o pacote de R$ 1.200 a gente parcela em até 4x sem juros no cartão. Em quantas vezes ficaria bom pra você?
+11-03 10:55  CLIENTE : 6x dava
+11-03 10:58  VENDEDOR: Deixa eu ver com a gerente se libera 6x. Te retorno até o fim da tarde
+11-03 11:00  CLIENTE : ok, aguardo
+11-03 14:00  CLIENTE : e ai conseguiu?
+11-03 14:25  VENDEDOR: Oi Carla! Ela ainda tá em reunião, assim que sair eu te falo, prometo
+
+===== c21 | vendedor: Bruno | buffet =====
+11-03 08:50  CLIENTE : Bruno, bom dia. A diretoria aprovou o coffee break pro treinamento do dia 12
+11-03 08:56  VENDEDOR: Bom dia, Simone! Que ótimo 🙌 Então confirmando: coffee break pra 40 pessoas, 2 intervalos, dia 12/11 às 9h e 15h, R$ 1.680,00
+11-03 09:00  CLIENTE : isso mesmo. Preciso da nota fiscal no CNPJ da empresa
+11-03 09:02  VENDEDOR: Claro. Me manda o cartão CNPJ por favor
+11-03 09:17  CLIENTE : [documento: cartao_cnpj_metalurgica_sao_jose.pdf]
+11-03 09:22  VENDEDOR: Recebido! Te mando o boleto ainda hoje e a NF sai depois do evento
+11-03 09:25  CLIENTE : perfeito, obrigada!
+
+===== c22 | vendedor: Bruno | dedetização =====
+11-04 09:00  CLIENTE : bom dia, sobre a dedetização
+11-04 09:05  VENDEDOR: Bom dia, Seu Jorge! Bruno da LimpPrag. Conseguiu ver a proposta de R$ 380 pra casa toda?
+11-04 09:17  CLIENTE : vi sim. mas meu cunhado trabalha com isso e vai fazer pra mim de graça
+11-04 09:20  VENDEDOR: Ah, aí não tem como competir né kkk
+11-04 09:24  CLIENTE : kkkk pois é
+11-04 09:26  VENDEDOR: Mas fica o contato, se precisar de certificado pra condomínio ou empresa a gente emite
+11-04 09:56  CLIENTE : blz obrigado
+
+===== c23 | vendedor: Bruno | software B2B =====
+11-05 14:00  CLIENTE : Bruno, conversei com meus sócios. Vamos fechar o plano Pro anual
+11-05 14:03  VENDEDOR: Que notícia boa, Henrique! 🚀 Plano Pro anual, 15 usuários: R$ 9.612,00 à vista ou 12x de R$ 801,00 no boleto. Qual prefere?
+11-05 14:11  CLIENTE : 12x no boleto
+11-05 14:13  VENDEDOR: Perfeito. Te mandei o contrato pra assinatura digital no e-mail cadastrado
+11-05 14:39  CLIENTE : assinado ✅
+11-05 14:43  VENDEDOR: Recebi aqui! Bem-vindo à GestorPro 🎉 Amanhã nosso time de implantação entra em contato pra agendar o onboarding
+11-05 14:45  CLIENTE : top, valeu
+
+===== c24 | vendedor: Ana Paula | móveis planejados =====
+11-05 15:20  CLIENTE : Boa tarde. Vcs fazem cozinha planejada?
+11-05 15:29  VENDEDOR: Boa tarde! Fazemos sim. Aqui é a Ana Paula, da Marcenaria Bem Morar. O imóvel é casa ou apê?
+11-05 15:35  CLIENTE : apartamento, recebi as chaves mes passado
+11-05 15:37  VENDEDOR: Parabéns pelo apê novo! 🔑 Você tem a planta ou as medidas da cozinha?
+11-05 15:58  CLIENTE : tenho a planta da construtora
+11-05 15:59  CLIENTE : [imagem]
+11-05 16:04  VENDEDOR: Perfeito, recebi. Vocês pensam em algum acabamento? MDF branco, amadeirado...?
+11-05 16:37  CLIENTE : amadeirado com branco. e queria ver se cabe uma ilha
+11-05 16:41  VENDEDOR: Pela planta cabe sim, mas o ideal é nosso projetista medir no local. Qual dia fica bom pra visita técnica?
+11-05 16:59  CLIENTE : vou ver com meu marido e te falo
+11-05 17:00  VENDEDOR: Combinado! A visita é sem custo 😉
+
+===== c25 | vendedor: Bruno | segurança eletrônica =====
+11-05 09:00  CLIENTE : Bom dia Bruno. Recebi a proposta das câmeras. Achei o preço ok mas preciso parcelar em 10x, vcs fazem?
+11-05 10:35  CLIENTE : ??
+11-05 12:35  CLIENTE : Bruno?
+11-05 14:45  VENDEDOR: Seu Wagner, desculpa, tava numa instalação sem sinal. Vi agora
+11-05 14:49  CLIENTE : rapaz, to esperando desde as 9h. se for demorar assim pra responder imagina depois pra dar suporte
+11-05 14:52  VENDEDOR: O senhor tem toda razão, peço desculpas. Sobre o parcelamento: hoje fazemos em até 6x sem juros no cartão. Em 10x tem os juros da maquininha, uns 8%
+11-05 15:07  CLIENTE : 6x nao da. e 10x sem juros? a outra empresa faz
+11-05 18:07  VENDEDOR: Vou ver com o dono se a gente absorve os juros. Te dou retorno ainda hoje
+11-05 18:57  CLIENTE : ta, mas responde mesmo dessa vez né
+
+===== c26 | vendedor: Bruno | móveis planejados =====
+11-02 11:30  CLIENTE : Oi Bruno, tudo bem? Passando pra avisar que a gente fechou com outra marcenaria
+11-02 11:39  VENDEDOR: Oi, Rafael! Poxa, que pena. Posso perguntar o que pesou na decisão?
+11-02 11:53  CLIENTE : preço mesmo, ficou uns 4 mil mais barato
+11-02 11:56  VENDEDOR: Entendo. Se quiser, ainda consigo rever os valores
+11-02 12:16  CLIENTE : agradeço mas ja assinei o contrato com eles
+11-02 12:18  VENDEDOR: Tranquilo, Rafael. Sucesso na obra! Qualquer coisa estamos por aqui 🤝
+11-02 12:23  CLIENTE : valeu
+
+===== c27 | vendedor: Bruno | pintura residencial =====
+11-03 08:00  VENDEDOR: Bom dia, Seu Cláudio! Conseguiu ver o orçamento da pintura? Externa + interna, R$ 7.800, 12 dias de serviço
+11-03 08:34  CLIENTE : bom dia bruno. vi sim, pode fechar
+11-03 08:35  CLIENTE : começa quando?
+11-03 08:40  VENDEDOR: Show! Consigo começar segunda, dia 9. Pra reservar a equipe peço 20% de sinal, R$ 1.560 no PIX
+11-03 08:52  CLIENTE : beleza, mando hj a tarde
+11-03 15:52  VENDEDOR: Seu Cláudio, boa tarde! Só lembrando do sinal pra garantir a segunda 😊
+11-04 06:52  CLIENTE : Bruno, bom dia. Desculpa, conversei com minha esposa e vamos adiar a pintura. Surgiu um gasto com o carro
+11-04 07:00  VENDEDOR: Poxa, entendo. Quer que eu deixe agendado pra dezembro ou janeiro?
+11-04 07:20  CLIENTE : nao, melhor cancelar mesmo. depois se for fazer eu te procuro
+11-04 07:23  VENDEDOR: Tudo bem, Seu Cláudio. Fico à disposição 🤝
+
+===== c28 | vendedor: Ana Paula | material de construção =====
+11-02 13:15  CLIENTE : Ana, pode fechar o porcelanato aquele 60x60 acetinado. 45m²
+11-02 13:19  VENDEDOR: Oi, Dona Vera! Fecho sim 😊 Confirmando: 45 m² porcelanato 60x60 acetinado, R$ 69,90/m² = R$ 3.145,50 + 30 sacos de argamassa AC-III R$ 1.050,00. Total R$ 4.195,50
+11-02 13:25  CLIENTE : isso. vou mandar o pix
+11-02 13:34  CLIENTE : [imagem: comprovante PIX R$ 4.195,50]
+11-02 13:37  VENDEDOR: Recebido! Obrigada, Dona Vera 🙏 Qual o melhor dia pra entrega?
+11-02 13:49  CLIENTE : quinta de manhã
+11-02 13:51  VENDEDOR: Agendado pra quinta (05/11) pela manhã. O motorista liga meia hora antes
+11-02 13:52  CLIENTE : obrigada
+
+===== c29 | vendedor: Ana Paula | software B2B =====
+11-04 09:30  CLIENTE : Bom dia Ana, aqui é o Felipe da Transportadora Rota Norte. Conversamos na feira
+11-04 09:36  VENDEDOR: Bom dia, Felipe! Lembro sim, vocês queriam sistema de roteirização, né?
+11-04 09:40  CLIENTE : isso. temos 18 caminhões e hj é tudo planilha
+11-04 09:43  VENDEDOR: Show. E quantos usuários vão usar o painel?
+11-04 09:53  CLIENTE : uns 5 no escritorio e os motoristas pelo app
+11-04 09:55  VENDEDOR: Perfeito, vou montar a proposta e te mando ainda hoje
+11-04 13:25  VENDEDOR: Felipe, segue a proposta 👇
+[documento: Proposta_RotaFacil_RotaNorte.pdf]
+Resumo: plano Frota 20 — até 20 veículos, 5 usuários de painel, app dos motoristas ilimitado. R$ 1.290/mês, implantação R$ 2.500 (pode dividir em 2x). Contrato de 12 meses.
+11-04 13:57  CLIENTE : recebi, obrigado. vou levar pra diretoria na reuniao de quinta
+11-04 14:00  VENDEDOR: Ótimo! Se quiserem, posso fazer uma demo rápida pra diretoria
+11-04 14:15  CLIENTE : vou ver se encaixa e te falo
+
+===== c30 | vendedor: Bruno | ar-condicionado =====
+11-06 08:05  VENDEDOR: Bom dia, Seu Antônio! Aqui é o Bruno da FrioMax Climatização. O senhor foi indicado pela Dona Célia, cliente nossa. Tudo bem?
+11-06 08:57  CLIENTE : bom dia. tudo e vc
+11-06 09:00  VENDEDOR: Tudo ótimo! A gente trabalha com instalação, manutenção e higienização de ar-condicionado. Posso te ajudar com alguma coisa?
+11-06 10:35  CLIENTE : no momento nao, mas a celia falou bem de vcs
+11-06 10:39  VENDEDOR: Que bom! Fico à disposição. Posso salvar seu contato e te mandar nossas promoções de vez em quando?
+11-06 10:59  CLIENTE : pode sim
+11-06 11:00  VENDEDOR: Obrigado, Seu Antônio! Bom fim de semana

@@ -1,0 +1,8 @@
+$ [cliente] mensagem com e-mail e telefone chegando no webhook
+HTTP 200
+$ [vendedor] resposta, mesma conversa
+HTTP 200
+$ [cliente] MESMA mensagem reenviada (duplicada)
+HTTP 200
+$ token inválido
+HTTP 401

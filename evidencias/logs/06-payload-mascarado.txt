@@ -1,0 +1,13 @@
+c05: mensagem 4 ANTES do mascaramento (nunca sai do sistema):
+  "Luciana Ferreira Bastos
+CPF 123.456.789-09
+luciana.bastos.ficticio@exemplo.com.br
+Rua das Acácias, 245, apto 302, Boa Viagem, Recife-PE, CEP 51020-000"
+
+c05: o que o modelo RECEBE (payload "user" enviado à OpenAI):
+[3] vendedor: Pra emitir a nota preciso de nome completo, CPF, e-mail e endereço de entrega, por favor
+[4] cliente: Luciana Ferreira Bastos
+CPF [CPF]
+[EMAIL]
+Rua das Acácias, 245, apto 302, Boa Viagem, Recife-PE, CEP [CEP]
+[5] cliente: se precisar, o telefone do meu marido pra entrega é [TELEFONE]

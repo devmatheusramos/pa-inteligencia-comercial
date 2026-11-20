@@ -1,0 +1,13 @@
+{
+  "t_manual_minutos": 30,
+  "respostas_corretas": 3,
+  "q1_acertos": 29,
+  "respostas": {
+    "Q1 etapa de cada negociação (>= 26/30)": true,
+    "Q2 negociações em \"negociacao\"": true,
+    "Q3 pendências abertas do vendedor": false,
+    "Q4 vendedor com maior tempo de resposta": true,
+    "Q5 sem resposta do vendedor": false
+  },
+  "medido_em": "2026-11-20T03:02:08.679Z"
+}

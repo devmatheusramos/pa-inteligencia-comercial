@@ -1,0 +1,8 @@
+✔ tempo dentro do horário comercial: 10:00 -> 10:12 = 12 min (0.8208ms)
+✔ mensagem fora do expediente começa a contar na abertura seguinte (0.1555ms)
+✔ vários dias úteis: dia cheio = 600 min (0.1371ms)
+✔ turno do cliente: relógio começa na primeira mensagem do turno (0.2794ms)
+✔ turno sem resposta não entra na média e é contado à parte (0.1515ms)
+ℹ tests 5
+ℹ pass 5
+ℹ fail 0

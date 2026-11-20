@@ -6,6 +6,8 @@ import { createServer, type IncomingMessage, type ServerResponse } from 'node:ht
 import { normalizarEvolution, tokenValido } from './fontes/evolution.ts';
 import { assinaturaValida, normalizarMeta } from './fontes/meta.ts';
 import type { MensagemNormalizada } from './fontes/tipos.ts';
+import { criarPool } from './db.ts';
+import { gravarMensagem } from './gravacao.ts';
 
 function lerCorpo(req: IncomingMessage): Promise<Buffer> {
   return new Promise((ok, erro) => {
@@ -22,6 +24,14 @@ const registrar = (msgs: MensagemNormalizada[]) => {
   }
 };
 
+// Ticket 00005: com DATABASE_URL, grava no PostgreSQL (mascarada, sem duplicar, ligada ao vendedor).
+const pool = process.env.DATABASE_URL ? criarPool() : null;
+async function receber(msgs: MensagemNormalizada[]) {
+  registrar(msgs);
+  if (!pool) return;
+  for (const m of msgs) console.log(`[db] ${m.id} -> ${await gravarMensagem(pool, m)}`);
+}
+
 export async function tratar(req: IncomingMessage, res: ServerResponse) {
   const url = new URL(req.url ?? '/', 'http://localhost');
 
@@ -32,7 +42,7 @@ export async function tratar(req: IncomingMessage, res: ServerResponse) {
       return void res.writeHead(401).end();
     }
     if (evento.event === 'connection.update') console.log(`[evolution] conexão da instância ${evento.instance}: ${evento.data?.state}`);
-    registrar(normalizarEvolution(evento));
+    await receber(normalizarEvolution(evento));
     return void res.writeHead(200).end();
   }
 
@@ -48,7 +58,7 @@ export async function tratar(req: IncomingMessage, res: ServerResponse) {
       console.warn('[meta] assinatura inválida — evento descartado');
       return void res.writeHead(401).end();
     }
-    registrar(normalizarMeta(JSON.parse(corpo.toString('utf8'))));
+    await receber(normalizarMeta(JSON.parse(corpo.toString('utf8'))));
     return void res.writeHead(200).end();
   }
 

@@ -1,0 +1,13 @@
+$ curl -H "Authorization: Bearer <token VENDEDOR v1 (Ana Paula)>" http://localhost:3001/api/conversas
+papel: vendedor | conversas visíveis: 15
+por vendedor: {"Ana Paula":15}
+┌─────────┬──────┬─────────────┬─────────────────┬─────────┬─────────┬──────────────┐
+│ (index) │ id   │ vendedor    │ etapa           │ tpr_min │ tmr_min │ sem_resposta │
+├─────────┼──────┼─────────────┼─────────────────┼─────────┼─────────┼──────────────┤
+│ 0       │ '13' │ 'Ana Paula' │ 'proposta'      │ 0       │ 12      │ 0            │
+│ 1       │ '31' │ 'Ana Paula' │ 'prospeccao'    │ 6       │ 5       │ 0            │
+│ 2       │ '37' │ 'Ana Paula' │ 'fechado_ganho' │ 5       │ 4       │ 1            │
+│ 3       │ '48' │ 'Ana Paula' │ 'prospeccao'    │ 0       │ 0       │ 1            │
+│ 4       │ '59' │ 'Ana Paula' │ 'perdido'       │ 0       │ 0       │ 0            │
+│ 5       │ '65' │ 'Ana Paula' │ 'perdido'       │ 23      │ 13      │ 1            │
+└─────────┴──────┴─────────────┴─────────────────┴─────────┴─────────┴──────────────┘

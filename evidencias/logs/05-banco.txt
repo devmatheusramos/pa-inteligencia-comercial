@@ -1,0 +1,6 @@
+   id   |    de    | vendedor  |   cliente_hmac   |                            texto_mascarado                            
+--------+----------+-----------+------------------+-----------------------------------------------------------------------
+ DEMO-1 | cliente  | Ana Paula | e60b1e180d0af430 | Oi! Meu email é [EMAIL] e meu telefone [TELEFONE], quero um orçamento
+ DEMO-2 | vendedor | Ana Paula | e60b1e180d0af430 | Olá Carla! Já te envio o orçamento
+(2 rows)
+

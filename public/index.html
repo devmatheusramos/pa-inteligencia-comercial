@@ -1,0 +1,885 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inteligência comercial · WhatsApp</title>
+<style>
+  :root {
+    --bg:#f4f5f9; --card:#ffffff; --ink:#141a2a; --mut:#5b6478; --line:#e3e6ee; --soft:#eef0f6;
+    --brand:#4f46e5; --brand-ink:#ffffff; --ok:#16a34a; --warn:#d97706; --bad:#dc2626;
+    --prospeccao:#64748b; --qualificacao:#0284c7; --proposta:#7c3aed; --negociacao:#d97706; --fechado_ganho:#16a34a; --perdido:#dc2626;
+    --sombra:0 1px 2px #1018280d, 0 1px 3px #1018281a;
+  }
+  :root[data-tema="escuro"] {
+    --bg:#0d1020; --card:#171b2e; --ink:#eef0f8; --mut:#9aa3b8; --line:#2a3050; --soft:#20253d;
+    --brand:#8b93ff; --brand-ink:#0d1020; --ok:#4ade80; --warn:#fbbf24; --bad:#f87171;
+    --prospeccao:#94a3b8; --qualificacao:#38bdf8; --proposta:#a78bfa; --negociacao:#fbbf24; --fechado_ganho:#4ade80; --perdido:#f87171;
+    --sombra:0 1px 2px #0006;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 system-ui,"Segoe UI",Roboto,sans-serif; -webkit-font-smoothing:antialiased; }
+  button, select, input { font:inherit; color:inherit; }
+  button { cursor:pointer; }
+  :focus-visible { outline:2px solid var(--brand); outline-offset:2px; }
+
+  /* barra superior */
+  header { position:sticky; top:0; z-index:5; display:flex; gap:14px; align-items:center; padding:12px 24px; background:var(--card); border-bottom:1px solid var(--line); }
+  .marca { display:flex; align-items:center; gap:10px; min-width:0; }
+  .logo { width:34px; height:34px; border-radius:10px; background:var(--brand); color:var(--brand-ink); display:grid; place-items:center; font-weight:800; }
+  .marca b { display:block; line-height:1.15; } .marca small { color:var(--mut); }
+  .busca { flex:1; max-width:460px; margin-left:auto; position:relative; }
+  .busca input { width:100%; padding:9px 12px 9px 34px; border:1px solid var(--line); border-radius:10px; background:var(--soft); }
+  .busca::before { content:"⌕"; position:absolute; left:12px; top:6px; color:var(--mut); font-size:18px; }
+  .ctl { padding:8px 12px; border:1px solid var(--line); border-radius:10px; background:var(--card); }
+  main { max-width:1180px; margin:0 auto; padding:22px 24px 70px; }
+
+  /* títulos de bloco */
+  .bloco { margin-bottom:22px; }
+  .bloco > h2 { display:flex; align-items:baseline; gap:10px; margin:0 0 10px; font-size:13px; text-transform:uppercase; letter-spacing:.06em; color:var(--mut); }
+  .bloco > h2 small { text-transform:none; letter-spacing:0; font-size:13px; font-weight:400; }
+
+  /* indicadores */
+  .kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+  .kpi { text-align:left; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 18px; box-shadow:var(--sombra); transition:transform .1s, border-color .1s; }
+  .kpi:hover { transform:translateY(-1px); border-color:var(--brand); } .kpi.on { border-color:var(--brand); box-shadow:0 0 0 2px var(--brand) inset; }
+  .kpi .r { color:var(--mut); font-size:13px; } .kpi .n { display:block; font-size:32px; font-weight:750; line-height:1.15; margin:4px 0 2px; letter-spacing:-.02em; } .kpi .d { color:var(--mut); font-size:12.5px; }
+  .kpi .n.verde { color:var(--ok); } .kpi .n.ambar { color:var(--warn); } .kpi .n.verm { color:var(--bad); }
+  .kpi .n small { font-size:15px; font-weight:600; }
+  .insuf { font-size:15px; font-weight:500; color:var(--mut); font-style:italic; }
+
+  /* funil */
+  .funil { display:grid; grid-template-columns:repeat(6,1fr); gap:10px; }
+  .etapa { text-align:left; background:var(--card); border:1px solid var(--line); border-top:4px solid var(--c); border-radius:12px; padding:10px 12px; box-shadow:var(--sombra); }
+  .etapa:hover { border-color:var(--c); } .etapa.on { background:color-mix(in srgb, var(--c) 12%, var(--card)); border-color:var(--c); }
+  .etapa b { display:block; font-size:24px; line-height:1.2; } .etapa span { font-size:12.5px; color:var(--mut); }
+
+  /* equipe */
+  .equipe { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:14px; }
+  .vend { text-align:left; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 16px; box-shadow:var(--sombra); }
+  .vend:hover { border-color:var(--brand); } .vend.on { box-shadow:0 0 0 2px var(--brand) inset; }
+  .vend .topo { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+  .av { width:36px; height:36px; border-radius:50%; background:var(--brand); color:var(--brand-ink); display:grid; place-items:center; font-weight:700; }
+  .vend .topo small { color:var(--mut); display:block; }
+  .medida { display:grid; grid-template-columns:96px 1fr 70px; align-items:center; gap:8px; font-size:12.5px; margin:5px 0; color:var(--mut); }
+  .medida .t { height:8px; background:var(--soft); border-radius:99px; overflow:hidden; } .medida .t i { display:block; height:100%; border-radius:99px; }
+  .medida strong { color:var(--ink); text-align:right; font-weight:600; }
+
+  /* barra de filtros */
+  .filtros { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:12px; }
+  .chip { display:inline-flex; align-items:center; gap:6px; padding:4px 10px; border-radius:99px; background:var(--soft); font-size:13px; border:0; }
+  .chip.ativo { background:var(--brand); color:var(--brand-ink); }
+  .chip button { border:0; background:none; padding:0 0 0 4px; font-weight:700; color:inherit; }
+  .seg { display:inline-flex; border:1px solid var(--line); border-radius:10px; overflow:hidden; margin-left:auto; }
+  .seg button { border:0; background:var(--card); padding:7px 14px; } .seg button.on { background:var(--brand); color:var(--brand-ink); }
+
+  /* quadro */
+  .quadro { display:grid; grid-template-columns:repeat(6,minmax(176px,1fr)); gap:12px; overflow-x:auto; padding-bottom:8px; align-items:start; }
+  .col { background:var(--soft); border-radius:14px; padding:10px; min-height:90px; }
+  .col h3 { display:flex; justify-content:space-between; margin:2px 4px 10px; font-size:13px; } .col h3 i { width:10px; height:10px; border-radius:50%; background:var(--c); display:inline-block; margin-right:6px; }
+  .cartao { display:block; width:100%; text-align:left; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:8px; box-shadow:var(--sombra); }
+  .cartao:hover { border-color:var(--brand); }
+  .cartao .l1 { display:flex; justify-content:space-between; font-size:12px; color:var(--mut); margin-bottom:4px; }
+  .cartao p { margin:0 0 8px; font-size:13.5px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+  .selos { display:flex; flex-wrap:wrap; gap:5px; }
+  .selo { font-size:11.5px; padding:2px 8px; border-radius:99px; background:var(--soft); color:var(--mut); }
+  .selo.pend { background:color-mix(in srgb, var(--warn) 18%, var(--card)); color:var(--warn); font-weight:600; }
+  .selo.espera { background:color-mix(in srgb, var(--bad) 15%, var(--card)); color:var(--bad); font-weight:600; }
+  .selo.verde { background:color-mix(in srgb, var(--ok) 16%, var(--card)); color:var(--ok); } .selo.ambar { background:color-mix(in srgb, var(--warn) 16%, var(--card)); color:var(--warn); } .selo.verm { background:color-mix(in srgb, var(--bad) 15%, var(--card)); color:var(--bad); }
+  .vazio { color:var(--mut); font-size:13px; padding:6px 4px; }
+
+  /* baralho de resumos (carrossel) */
+  .palco { display:grid; grid-template-columns:48px minmax(0,640px) 48px; justify-content:center; align-items:center; gap:14px; }
+  .seta { width:48px; height:48px; border-radius:50%; border:1px solid var(--line); background:var(--card); font-size:26px; line-height:1; box-shadow:var(--sombra); }
+  .seta:hover { background:var(--brand); color:var(--brand-ink); border-color:var(--brand); }
+  .baralho { position:relative; height:440px; perspective:1100px; }
+  .carta { position:absolute; inset:0; border-radius:20px; background:var(--card); border:1px solid var(--line); overflow:hidden; display:flex; flex-direction:column; box-shadow:0 18px 40px -18px #0006, var(--sombra);
+    transition:transform .46s cubic-bezier(.2,.9,.3,1.15), opacity .46s; transform-origin:50% 100%; will-change:transform; }
+  .carta.p0 { transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)); cursor:pointer; z-index:3; }
+  .carta.p1 { transform:translateY(16px) scale(.955) rotate(-1.6deg); z-index:2; opacity:.92; filter:saturate(.8); }
+  .carta.p2 { transform:translateY(32px) scale(.91) rotate(1.8deg); z-index:1; opacity:.8; filter:saturate(.6); }
+  .avanca .p1 { transform:none; opacity:1; filter:none; } .avanca .p2 { transform:translateY(16px) scale(.955) rotate(-1.6deg); opacity:.92; }
+  .avanca .p0 { animation:sai .46s cubic-bezier(.5,0,.9,.4) forwards; }
+  .volta .p0 { animation:saiEsq .46s cubic-bezier(.5,0,.9,.4) forwards; }
+  .carta.entra { animation:entra .5s cubic-bezier(.2,.9,.3,1.2); }
+  @keyframes sai { to { transform:translate(120%,-30px) rotate(18deg); opacity:0; } }
+  @keyframes saiEsq { to { transform:translate(-120%,-30px) rotate(-18deg); opacity:0; } }
+  @keyframes entra { from { transform:translate(-110%,-20px) rotate(-14deg); opacity:0; } }
+  .carta .faixa { display:flex; align-items:center; gap:10px; padding:10px 18px; color:#fff; background:var(--c); font-size:13px; font-weight:650; }
+  .carta .faixa .pct { margin-left:auto; font-weight:500; opacity:.9; }
+  .carta .miolo { padding:16px 20px 8px; flex:1; min-height:0; overflow:hidden; }
+  .carta h3 { margin:0 0 8px; font-size:20px; line-height:1.25; letter-spacing:-.01em; }
+  .carta blockquote { margin:0 0 10px; padding:8px 12px; border-left:3px solid var(--c); background:var(--soft); border-radius:0 10px 10px 0; font-size:14px; color:var(--mut); font-style:italic; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+  .carta ul { list-style:none; margin:0; padding:0; font-size:14px; } .carta li { padding:2px 0; } .carta li::before { content:"○ "; color:var(--warn); font-weight:700; }
+  .carta .rodape { display:flex; align-items:center; gap:6px; flex-wrap:wrap; padding:8px 20px 14px; }
+  .carta .rodape .abrir { margin-left:auto; font-size:13px; color:var(--brand); font-weight:600; }
+  .prog { position:absolute; left:0; bottom:0; height:4px; width:100%; background:var(--c); transform-origin:left; animation:encher linear forwards; opacity:.9; }
+  .pausa .prog { animation-play-state:paused; }
+  @keyframes encher { from { transform:scaleX(0); } to { transform:scaleX(1); } }
+  .pontos { display:flex; justify-content:center; align-items:center; gap:12px; margin-top:34px; color:var(--mut); font-size:13px; }
+  .pontos .trilha { display:flex; gap:4px; } .pontos .trilha i { width:14px; height:5px; border-radius:99px; background:var(--line); transition:all .3s; } .pontos .trilha i.at { width:30px; background:var(--brand); }
+  .pontos button { border:1px solid var(--line); background:var(--card); border-radius:8px; padding:3px 10px; font-size:12.5px; }
+  @media (max-width:700px) { .palco { grid-template-columns:1fr; } .seta { display:none; } .baralho { height:480px; } }
+  @media (prefers-reduced-motion: reduce) { .carta, .carta * { transition:none !important; animation:none !important; } }
+
+  /* navegação */
+  #nav { display:flex; gap:4px; background:var(--soft); padding:4px; border-radius:12px; }
+  #nav button { border:0; background:none; padding:7px 14px; border-radius:9px; color:var(--mut); font-weight:600; } #nav button.on { background:var(--card); color:var(--ink); box-shadow:var(--sombra); }
+
+  /* mascotes dos agentes (só uma referência visual) */
+  .mascote { background:none; border:0; padding:0; display:inline-block; line-height:0; }
+  .mascote svg { width:58px; height:66px; overflow:visible; filter:drop-shadow(0 5px 6px color-mix(in srgb, var(--g) 35%, transparent)); transition:transform .2s; }
+  button.mascote:hover svg { transform:translateY(-4px) scale(1.06); }
+  .flutua { animation:flutua 2.4s ease-in-out infinite; } @keyframes flutua { 50% { transform:translateY(-5px); } }
+  .pe1 { animation:pe1 .5s steps(1) infinite; } .pe2 { animation:pe2 .5s steps(1) infinite; }
+  @keyframes pe1 { 0% { opacity:1; } 50% { opacity:0; } } @keyframes pe2 { 0% { opacity:0; } 50% { opacity:1; } }
+  .medo, .corpo-medo { display:none; }
+
+  /* layout com menu lateral */
+  .layout { display:grid; grid-template-columns:252px minmax(0,1fr); min-height:100vh; }
+  .principal { min-width:0; }
+  #menu { position:sticky; top:0; height:100vh; overflow-y:auto; background:var(--card); border-right:1px solid var(--line); padding:16px 12px 24px; display:flex; flex-direction:column; gap:3px; }
+  #menu .marca { display:flex; align-items:center; gap:10px; padding:2px 6px 14px; } #menu .marca b { font-size:14.5px; line-height:1.2; }
+  #menu .grupo-rot { margin:14px 8px 4px; font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--mut); font-weight:700; }
+  #menu .mi { position:relative; display:flex; align-items:center; gap:10px; width:100%; text-align:left; padding:7px 10px 7px 8px; border:1px solid transparent; border-radius:12px; background:none; color:var(--ink); text-decoration:none; }
+  #menu .mi:hover { background:var(--soft); } #menu .mi.on { background:color-mix(in srgb, var(--g, var(--brand)) 13%, var(--card)); border-color:color-mix(in srgb, var(--g, var(--brand)) 45%, var(--line)); }
+  #menu .mt { display:flex; flex-direction:column; min-width:0; line-height:1.25; } #menu .mt b { font-size:14px; } #menu .mt small { color:var(--mut); font-size:12px; }
+  #menu .n { margin-left:auto; font-weight:750; font-size:15px; color:var(--g); } #menu .ico { width:30px; height:34px; display:grid; place-items:center; font-size:18px; color:var(--mut); }
+  #menu .mascote svg { width:34px; height:38px; filter:none; }
+  #menu .alerta-dot { position:absolute; top:5px; left:32px; width:10px; height:10px; border-radius:50%; background:var(--bad); box-shadow:0 0 0 2px var(--card); animation:pisca 1.4s ease-in-out infinite; }
+  @keyframes pisca { 50% { opacity:.3; } }
+  header .tit { min-width:0; } header .tit b { display:block; font-size:16px; line-height:1.2; } header .tit small { color:var(--mut); }
+
+  /* navegação por agente (fixa sob o cabeçalho) */
+  .subnav { position:sticky; top:68px; z-index:4; display:flex; gap:10px; padding:10px 0 12px; margin:-4px 0 6px; background:linear-gradient(var(--bg) 82%, transparent); overflow-x:auto; }
+  .subnav a { position:relative; display:flex; align-items:center; gap:8px; padding:5px 16px 5px 8px; border-radius:99px; background:var(--card); border:1px solid var(--line); color:var(--ink); text-decoration:none; white-space:nowrap; box-shadow:var(--sombra); transition:border-color .15s, box-shadow .15s; }
+  .subnav a:hover, .subnav a.on { border-color:var(--g); box-shadow:0 0 0 2px color-mix(in srgb, var(--g) 30%, transparent); }
+  .subnav .mascote svg { width:28px; height:32px; filter:none; } .subnav b { font-size:13.5px; } .subnav .n { font-weight:750; color:var(--g); }
+  .subnav .alerta-dot { position:absolute; top:3px; left:30px; width:10px; height:10px; border-radius:50%; background:var(--bad); box-shadow:0 0 0 2px var(--card); animation:pisca 1.4s ease-in-out infinite; } @keyframes pisca { 50% { opacity:.3; } }
+
+  /* a tela dividida por agente */
+  .zona { background:var(--card); border:1px solid var(--line); border-left:6px solid var(--g); border-radius:18px; margin-bottom:24px; box-shadow:var(--sombra); scroll-margin-top:84px; overflow:hidden; }
+  .zona-cab { display:flex; align-items:center; gap:14px; padding:14px 22px 12px 18px; background:linear-gradient(90deg, color-mix(in srgb, var(--g) 12%, var(--card)), var(--card) 65%); border-bottom:1px solid var(--line); }
+  .zona-cab { cursor:pointer; user-select:none; } .zona-cab:hover { background:linear-gradient(90deg, color-mix(in srgb, var(--g) 18%, var(--card)), var(--card) 65%); }
+  .zona-cab .acoes-cab { display:flex; align-items:center; gap:8px; margin-left:8px; }
+  .zona-cab .info, .zona-cab .chev { width:30px; height:30px; display:grid; place-items:center; border:1px solid var(--line); background:var(--card); border-radius:50%; font-size:14px; color:var(--mut); padding:0; }
+  .zona-cab .chev { border:0; background:none; font-size:18px; transition:transform .2s; } .zona.recolhida .chev { transform:rotate(-90deg); }
+  .zona.recolhida .zona-corpo { display:none; } .zona.recolhida .zona-cab { border-bottom:0; }
+  .mao { transform-origin:50px 76px; animation:gira 6s linear infinite; } @keyframes gira { to { transform:rotate(360deg); } }
+  .piscar { animation:piscar 4s infinite; transform-origin:center; transform-box:fill-box; } @keyframes piscar { 0%, 94%, 100% { transform:scaleY(1); } 97% { transform:scaleY(.1); } }
+  .zona-cab h2 { margin:0; font-size:19px; letter-spacing:-.01em; } .zona-cab p { margin:2px 0 0; color:var(--mut); font-size:14px; }
+  .zona-cab .chips { margin-left:auto; display:flex; gap:22px; } .chip-num { text-align:right; } .chip-num b { display:block; font-size:24px; line-height:1.1; letter-spacing:-.02em; } .chip-num small { color:var(--mut); font-size:12px; }
+  .zona-corpo { padding:18px 22px 22px; } .zona-corpo > h3, .sub-h { margin:0 0 10px; font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--mut); } .sub-h small { text-transform:none; letter-spacing:0; font-weight:400; font-size:13px; }
+  .heroi { display:grid; grid-template-columns:minmax(0,1.5fr) minmax(300px,1fr); gap:22px; align-items:start; }
+  .kpis2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; } .kpis2 .kpi { padding:14px 16px; box-shadow:none; background:var(--bg); } .kpis2 .kpi .n { font-size:28px; }
+  .crono { display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); gap:22px; align-items:start; }
+  .lentas > div { display:flex; align-items:center; gap:10px; padding:9px 10px; border-radius:10px; cursor:pointer; font-size:14px; } .lentas > div:hover { background:var(--soft); } .lentas .id { color:var(--mut); width:42px; flex:none; } .lentas .t { margin-left:auto; font-weight:700; white-space:nowrap; }
+  .leitor-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; }
+  .vcard { display:flex; align-items:center; gap:12px; padding:12px 14px; border:1px solid var(--line); border-radius:14px; background:var(--bg); } .vcard small { color:var(--mut); display:block; }
+  .vcard .badge { margin-left:auto; }
+  .ag-det { display:flex; gap:16px; align-items:center; padding:14px; border-radius:14px; background:var(--soft); margin-bottom:14px; border-left:5px solid var(--g); } .ag-det .gh svg { width:74px; height:84px; overflow:visible; }
+  .ag-det dl { margin:0; flex:1; display:grid; grid-template-columns:1fr auto; gap:5px 10px; font-size:13.5px; } .ag-det dt { color:var(--mut); } .ag-det dd { margin:0; font-weight:650; text-align:right; }
+  .feed { border:1px solid var(--line); border-radius:12px; padding:4px 14px; } .feed > div { display:flex; gap:10px; padding:9px 0; border-bottom:1px solid var(--line); font-size:13.5px; } .feed > div:last-child { border:0; } .feed time { margin-left:auto; color:var(--mut); font-size:12.5px; white-space:nowrap; }
+  .feed .bolinha { width:12px; height:12px; border-radius:50% 50% 2px 2px; background:var(--g); flex:none; margin-top:5px; }
+  .aviso-api { background:color-mix(in srgb, var(--warn) 16%, var(--card)); border:1px solid var(--warn); border-radius:12px; padding:12px 14px; margin-bottom:16px; font-size:14px; }
+  @media (max-width:960px) { .layout { grid-template-columns:1fr; } #menu { position:sticky; top:0; z-index:6; height:auto; flex-direction:row; align-items:center; gap:6px; overflow-x:auto; overflow-y:hidden; padding:8px 10px; border-right:0; border-bottom:1px solid var(--line); } #menu .marca, #menu .grupo-rot, #menu .mt small { display:none; } #menu .mi { width:auto; white-space:nowrap; } .zona { scroll-margin-top:70px; } .heroi, .crono { grid-template-columns:1fr; } .zona-cab { flex-wrap:wrap; } .zona-cab .chips { margin-left:0; width:100%; } .subnav { top:112px; } }
+  @media (prefers-reduced-motion: reduce) { .flutua, .pe1, .pe2, .alerta-dot, .mao, .piscar { animation:none !important; } .pe2 { opacity:0; } }
+
+  /* vendedores */
+  .cab-tela { display:flex; align-items:center; gap:12px; margin-bottom:14px; } .cab-tela h2 { margin:0; font-size:20px; letter-spacing:-.01em; } .cab-tela p { margin:2px 0 0; color:var(--mut); font-size:14px; }
+  .btn { border:1px solid var(--line); background:var(--card); border-radius:10px; padding:9px 16px; font-weight:600; } .btn.pri { background:var(--brand); color:var(--brand-ink); border-color:var(--brand); margin-left:auto; } .btn.peq { padding:5px 10px; font-size:13px; }
+  .badge { display:inline-flex; align-items:center; gap:6px; padding:3px 10px; border-radius:99px; font-size:12.5px; font-weight:650; } .badge::before { content:""; width:8px; height:8px; border-radius:50%; background:currentColor; }
+  .badge.conectado { color:var(--ok); background:color-mix(in srgb, var(--ok) 14%, var(--card)); } .badge.aguardando { color:var(--warn); background:color-mix(in srgb, var(--warn) 14%, var(--card)); } .badge.desconectado { color:var(--bad); background:color-mix(in srgb, var(--bad) 13%, var(--card)); } .badge.simulado { color:var(--mut); background:var(--soft); }
+  #modal { position:fixed; inset:0; z-index:40; display:none; place-items:center; background:#0008; padding:16px; } #modal.on { display:grid; }
+  #modal .caixa { width:min(480px,100%); max-height:94vh; overflow:auto; background:var(--card); border-radius:20px; padding:22px 24px; box-shadow:0 30px 70px -20px #000a; }
+  #modal h3 { margin:0 0 4px; font-size:19px; } #modal .mut { color:var(--mut); font-size:14px; margin:0 0 14px; }
+  #modal label { display:block; font-size:13px; font-weight:600; margin:12px 0 4px; } #modal input { width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:10px; background:var(--soft); }
+  #modal .linha { display:flex; gap:8px; margin-top:18px; justify-content:flex-end; } #modal .erro { color:var(--bad); font-size:13.5px; margin-top:10px; }
+  .qrbox { width:240px; height:240px; margin:8px auto 12px; border-radius:16px; background:#fff; display:grid; place-items:center; border:1px solid var(--line); overflow:hidden; } .qrbox img { width:100%; height:100%; } .qrbox .spin { width:28px; height:28px; border:3px solid #ddd; border-top-color:var(--brand); border-radius:50%; animation:giro 1s linear infinite; } @keyframes giro { to { transform:rotate(360deg); } }
+  .passos { font-size:14px; color:var(--mut); padding-left:20px; margin:8px 0; } .passos b { color:var(--ink); }
+  .convite { display:flex; gap:6px; margin-top:10px; } .convite input { flex:1; font-size:12.5px; }
+  .sucesso { text-align:center; padding:10px 0; } .sucesso .check { width:80px; height:80px; border-radius:50%; background:var(--ok); color:#fff; display:grid; place-items:center; font-size:44px; margin:0 auto 10px; animation:pop .5s cubic-bezier(.2,1.4,.4,1); } @keyframes pop { from { transform:scale(0); } }
+
+  /* tour guiado */
+  #tour { position:fixed; inset:0; z-index:50; display:none; } #tour.on { display:block; }
+  #foco { position:fixed; border-radius:16px; pointer-events:none; box-shadow:0 0 0 9999px rgba(8,10,25,.74), 0 0 0 3px var(--brand), 0 0 34px 6px color-mix(in srgb, var(--brand) 55%, transparent);
+    transition:top .5s cubic-bezier(.2,.8,.2,1), left .5s cubic-bezier(.2,.8,.2,1), width .5s cubic-bezier(.2,.8,.2,1), height .5s cubic-bezier(.2,.8,.2,1), opacity .3s; animation:pulsa 2.2s ease-in-out infinite; }
+  @keyframes pulsa { 50% { box-shadow:0 0 0 9999px rgba(8,10,25,.74), 0 0 0 5px var(--brand), 0 0 46px 12px color-mix(in srgb, var(--brand) 40%, transparent); } }
+  #dica { position:fixed; width:min(390px, calc(100vw - 24px)); background:var(--card); color:var(--ink); border-radius:18px; padding:18px 20px 16px; box-shadow:0 24px 60px -12px #000a;
+    transition:top .5s cubic-bezier(.2,.8,.2,1), left .5s cubic-bezier(.2,.8,.2,1); }
+  #dica .etapa-tour { display:flex; align-items:center; gap:8px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--brand); }
+  #dica .etapa-tour span { margin-left:auto; color:var(--mut); font-weight:500; text-transform:none; letter-spacing:0; }
+  #dica h3 { margin:8px 0 6px; font-size:19px; line-height:1.25; } #dica p { margin:0 0 14px; font-size:14.5px; color:var(--mut); }
+  #dica p b { color:var(--ink); }
+  #dica .barra { height:4px; background:var(--soft); border-radius:99px; overflow:hidden; margin-bottom:14px; } #dica .barra i { display:block; height:100%; background:var(--brand); border-radius:99px; transition:width .5s; }
+  #dica .acoes { display:flex; gap:8px; align-items:center; } #dica .acoes .pular { margin-right:auto; border:0; background:none; color:var(--mut); padding:6px 4px; font-size:13px; }
+  #dica .acoes button.b { border:1px solid var(--line); background:var(--card); border-radius:10px; padding:8px 14px; } #dica .acoes button.p { background:var(--brand); color:var(--brand-ink); border-color:var(--brand); font-weight:650; }
+  #dica .acoes button:disabled { opacity:.35; cursor:default; }
+  @media (prefers-reduced-motion: reduce) { #foco, #dica, #dica .barra i { transition:none; animation:none; } }
+
+  /* canal de origem + prévia da conversa */
+  .canal { display:inline-flex; align-items:center; gap:4px; font-size:12px; font-weight:650; color:var(--k); white-space:nowrap; }
+  .canais { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:10px; } .canal-card { display:flex; align-items:center; gap:10px; padding:10px 12px; border:1px solid var(--line); border-radius:12px; background:var(--bg); }
+  .canal-card.breve { opacity:.55; border-style:dashed; } .canal-card small { display:block; color:var(--mut); } .canal-card svg { width:22px; height:22px; flex:none; }
+  .carta .resumo { margin:0 0 10px; font-size:16px; line-height:1.45; font-weight:560; color:var(--ink); }
+  .carta .prev { background:var(--bg); border:1px solid var(--line); border-radius:12px; padding:6px 10px; margin-bottom:10px; }
+  .carta .prev .lb { font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--mut); margin-bottom:2px; }
+  .pv { max-width:88%; padding:5px 10px; border-radius:10px; margin:3px 0; font-size:12.5px; line-height:1.4; background:var(--soft); display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+  .pv.vendedor { margin-left:auto; background:color-mix(in srgb, var(--ok) 20%, var(--card)); }
+  .carta .prox { font-size:14px; padding:7px 11px; border-left:3px solid var(--c); background:color-mix(in srgb, var(--c) 9%, var(--card)); border-radius:0 8px 8px 0; margin-bottom:8px; } .carta .prox b { font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--mut); display:block; }
+  .cartao .l1 { flex-wrap:wrap; gap:2px 8px; align-items:center; } .cartao .l1 span:first-child { white-space:nowrap; }
+  .cartao .resumo-cartao { margin:0 0 8px; font-size:13px; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+  .cartao .afazer { margin:0 0 8px; font-size:12.5px; color:var(--warn); font-weight:600; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; }
+
+  /* lista */
+  .tab { background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:auto; box-shadow:var(--sombra); }
+  table { width:100%; border-collapse:collapse; font-size:14px; }
+  th { position:sticky; top:0; background:var(--card); text-align:left; padding:10px 12px; font-size:12px; color:var(--mut); border-bottom:1px solid var(--line); cursor:pointer; white-space:nowrap; user-select:none; }
+  th:hover { color:var(--ink); }
+  td { padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top; } tr:last-child td { border-bottom:0; }
+  tbody tr { cursor:pointer; } tbody tr:hover { background:var(--soft); }
+  .tag { display:inline-block; white-space:nowrap; padding:2px 10px; border-radius:99px; font-size:12.5px; font-weight:600; color:var(--c); background:color-mix(in srgb, var(--c) 14%, var(--card)); }
+  .mut { color:var(--mut); } .na { color:var(--mut); font-style:italic; font-size:13px; }
+
+  /* gaveta */
+  #veu { position:fixed; inset:0; background:#0007; opacity:0; pointer-events:none; transition:opacity .15s; z-index:9; } #veu.on { opacity:1; pointer-events:auto; }
+  aside { position:fixed; top:0; right:0; bottom:0; width:min(480px,100%); background:var(--card); border-left:1px solid var(--line); z-index:10; transform:translateX(102%); transition:transform .2s; display:flex; flex-direction:column; }
+  aside.on { transform:none; }
+  aside .cab { padding:16px 18px; border-bottom:1px solid var(--line); display:flex; gap:10px; align-items:flex-start; }
+  aside .cab h2 { margin:0 0 6px; font-size:17px; } aside .cab button { margin-left:auto; border:1px solid var(--line); background:var(--card); border-radius:8px; padding:4px 10px; }
+  aside .corpo { padding:16px 18px 30px; overflow:auto; }
+  aside h3 { margin:18px 0 8px; font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--mut); }
+  .destaque { background:color-mix(in srgb, var(--brand) 10%, var(--card)); border:1px solid color-mix(in srgb, var(--brand) 35%, var(--line)); border-radius:12px; padding:12px 14px; }
+  .itempend { display:flex; gap:10px; padding:10px 12px; border:1px solid var(--line); border-radius:10px; margin-bottom:8px; }
+  .itempend .q { flex:none; font-size:11.5px; font-weight:700; padding:2px 8px; border-radius:99px; height:fit-content; background:var(--soft); }
+  .itempend .q.vendedor { background:color-mix(in srgb, var(--warn) 20%, var(--card)); color:var(--warn); }
+  .bal { max-width:84%; padding:8px 11px; border-radius:12px; margin:6px 0; font-size:14px; white-space:pre-wrap; background:var(--soft); }
+  .bal.vendedor { margin-left:auto; background:color-mix(in srgb, var(--ok) 20%, var(--card)); }
+  .bal small { display:block; font-size:11px; color:var(--mut); margin-bottom:2px; }
+  .aviso { font-size:12.5px; color:var(--mut); } #erro { padding:30px; color:var(--bad); }
+
+  @media (max-width:960px) { .kpis { grid-template-columns:repeat(2,1fr); } .funil { grid-template-columns:repeat(3,1fr); } header { flex-wrap:wrap; } .busca { max-width:none; order:5; flex-basis:100%; margin:0; } main { padding:16px 14px 60px; } }
+  @media (max-width:520px) { .kpis { grid-template-columns:1fr; } }
+
+  /* ===== tema executivo: sóbrio, denso, cor só para sinalizar ===== */
+  :root { --bg:#f3f5f8; --card:#ffffff; --ink:#0f172a; --mut:#64748b; --line:#e2e8f0; --soft:#f1f5f9; --brand:#2563eb; --brand-ink:#ffffff; --sombra:0 1px 2px #0f172a0d; }
+  :root[data-tema="escuro"] { --bg:#0b1220; --card:#111a2e; --ink:#e6edf8; --mut:#8fa0bb; --line:#22304a; --soft:#16213a; --brand:#60a5fa; --brand-ink:#0b1220; }
+  body { font-variant-numeric:tabular-nums; }
+  #menu { background:#0f172a; border-right:0; }
+  #menu .marca b { color:#fff; } #menu .logo { background:#2563eb; color:#fff; }
+  #menu .mi { color:#cbd5e1; } #menu .mi:hover { background:#1e293b; } #menu .mi.on { background:#1e293b; border-color:#334155; }
+  #menu .mt small, #menu .grupo-rot, #menu .ico { color:#7f8fab; } #menu .mt b { color:#f1f5f9; }
+  #menu .mascote svg { width:30px; height:34px; } #menu .alerta-dot { box-shadow:0 0 0 2px #0f172a; }
+  header { background:var(--card); } header .tit b { font-size:17px; }
+  .zona { border-radius:12px; border-left-width:4px; box-shadow:none; }
+  .zona .zona-cab { background:var(--card); padding:10px 18px 10px 14px; gap:12px; } .zona .zona-cab:hover { background:var(--soft); }
+  .zona-cab .mascote svg { width:36px; height:42px; filter:none; } .zona-cab h2 { font-size:16px; } .zona-cab p { font-size:13px; max-width:520px; }
+  .chip-num b { font-size:19px; } .zona-cab .chips { gap:18px; }
+  .kt { text-align:left; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 14px; box-shadow:none; }
+  button.kt:hover { border-color:var(--brand); } button.kt.on { border-color:var(--brand); box-shadow:0 0 0 2px color-mix(in srgb, var(--brand) 30%, transparent); }
+  .kt .r { display:block; font-size:11.5px; color:var(--mut); text-transform:uppercase; letter-spacing:.05em; font-weight:600; }
+  .kt .n { display:block; font-size:27px; font-weight:700; letter-spacing:-.02em; line-height:1.25; margin:2px 0 1px; } .kt .d { display:block; font-size:12.5px; color:var(--mut); }
+  .kt .n.verde { color:var(--ok); } .kt .n.ambar { color:var(--warn); } .kt .n.verm { color:var(--bad); }
+  .kpis6 { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:12px; margin-bottom:20px; }
+  .heroi { grid-template-columns:minmax(0,1fr) minmax(0,1.25fr); }
+  .crono { grid-template-columns:1fr; }
+  .fbars { display:flex; flex-direction:column; gap:4px; }
+  .fbar { display:grid; grid-template-columns:118px minmax(0,1fr) 26px 38px; align-items:center; gap:10px; text-align:left; background:none; border:1px solid transparent; border-radius:8px; padding:7px 9px; }
+  .fbar:hover { background:var(--soft); } .fbar.on { background:var(--soft); border-color:var(--c); }
+  .fbar .fn { font-size:13.5px; } .fbar .ft { height:12px; background:var(--soft); border-radius:99px; overflow:hidden; } .fbar.on .ft, .fbar:hover .ft { background:var(--line); } .fbar .ft i { display:block; height:100%; background:var(--c); border-radius:99px; }
+  .fbar b { text-align:right; font-size:15px; } .fbar small { color:var(--mut); text-align:right; }
+  .eqtab th, .eqtab td { padding:9px 12px; } .eqtab td.num, .eqtab th.num { text-align:right; } .eqtab .vn { display:flex; align-items:center; gap:10px; }
+  .eqtab .av { width:28px; height:28px; font-size:13px; }
+  .carta { box-shadow:0 10px 24px -14px #0f172a66, var(--sombra); border-radius:14px; }
+  .etapa, .quadro .col, .cartao { border-radius:10px; }
+  .kpis6.v5 { grid-template-columns:repeat(5,minmax(0,1fr)); }
+  .todo { border:1px solid var(--line); border-radius:10px; overflow:hidden; background:var(--card); }
+  .td { display:flex; gap:12px; align-items:flex-start; padding:11px 14px; border-bottom:1px solid var(--line); cursor:pointer; } .td:last-child { border-bottom:0; } .td:hover { background:var(--soft); }
+  .td .ck { width:18px; height:18px; border:2px solid var(--mut); border-radius:5px; flex:none; margin-top:2px; } .td.urgente .ck { border-color:var(--bad); }
+  .td b { display:block; font-size:14.5px; } .td small { color:var(--mut); display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+  .tdm { margin-left:auto; display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex:none; }
+  .privado { display:flex; gap:10px; align-items:flex-start; padding:12px 14px; border:1px solid var(--line); border-radius:10px; background:var(--soft); font-size:14px; color:var(--mut); } .privado b { color:var(--ink); }
+  @media (max-width:1200px) { .kpis6.v5 { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+  @media (max-width:1200px) { .kpis6 { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+  @media (max-width:960px) { .heroi { grid-template-columns:1fr; } }
+  @media (max-width:560px) { .kpis6 { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+</style>
+</head>
+<body>
+<div class="layout">
+<nav id="menu" aria-label="Menu"></nav>
+<div class="principal">
+<header>
+  <div class="tit"><b id="titulo-h">Painel</b><small id="sub">carregando…</small></div>
+  <div class="busca"><input id="busca" type="search" placeholder="Buscar por pendência, vendedor ou texto da conversa…" aria-label="Buscar"></div>
+  <button class="ctl" id="btour" title="Refazer o tour guiado">▶ Tour</button>
+  <button class="ctl" id="tema" title="Alternar tema claro/escuro" aria-label="Alternar tema">◐</button>
+  <label class="mut" style="font-size:13px">Entrar como
+    <select id="perfil" class="ctl">
+      <option value="gestor">Gestor · equipe inteira</option>
+      <option value="v1">Vendedora Ana Paula</option>
+      <option value="v2">Vendedor Bruno</option>
+    </select>
+  </label>
+</header>
+<main id="app"></main>
+</div>
+</div>
+<div id="veu"></div>
+<div id="modal"><div class="caixa" id="caixa"></div></div>
+<div id="tour"><div id="foco"></div><div id="dica" role="dialog" aria-live="polite"></div></div>
+<aside id="gaveta" aria-label="Detalhe da conversa"></aside>
+
+<script>
+/* Se esta página veio de uma API antiga (processo esquecido de antes), segue sozinha para a versão atualizada. */
+const ORIGEM_ATUAL = 'http://localhost:3006';
+(async () => {
+  try {
+    const r = await fetch('/api/versao');
+    if (!r.ok && location.origin !== ORIGEM_ATUAL) {
+      document.body.innerHTML = '<p style="font:16px system-ui;padding:40px">Esta janela estava ligada a uma API antiga. Abrindo a versão atualizada…</p>';
+      location.replace(ORIGEM_ATUAL + location.pathname + location.search);
+    }
+  } catch {}
+})();
+const ETAPAS = ['prospeccao','qualificacao','proposta','negociacao','fechado_ganho','perdido'];
+const CANAIS = {
+  whatsapp:{ nome:'WhatsApp', cor:'#16a34a' }, instagram:{ nome:'Instagram', cor:'#d946ef' }, webchat:{ nome:'Webchat', cor:'#2563eb' }, email:{ nome:'E-mail', cor:'#64748b' }, telegram:{ nome:'Telegram', cor:'#0ea5e9' },
+};
+const bolha = (cor) => '<svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M8 1.5a6.5 6.5 0 0 0-5.6 9.8L1.5 14.5l3.3-.9A6.5 6.5 0 1 0 8 1.5z" fill="' + cor + '"/></svg>';
+const canalDe = (c) => CANAIS[c.canal] || CANAIS.whatsapp;
+const canalTag = (c) => '<span class="canal" style="--k:' + canalDe(c).cor + '" title="Canal de origem">' + bolha(canalDe(c).cor) + canalDe(c).nome + '</span>';
+const NOME = { prospeccao:'Prospecção', qualificacao:'Qualificação', proposta:'Proposta enviada', negociacao:'Negociação', fechado_ganho:'Fechado (ganho)', perdido:'Perdido' };
+const ABERTAS = ['prospeccao','qualificacao','proposta','negociacao'];
+let token = '', dados = null, tela = 'painel';
+const f = { etapa:'', vendedor:'', flag:'', busca:'', canal:'', canal:'' };
+let visao = 'quadro', ordem = { col:'id', asc:true };
+
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c]));
+const guarda = (k, v) => { try { v === undefined ? sessionStorage.getItem(k) : sessionStorage.setItem(k, v); } catch {} };
+const lerGuardado = (k) => { try { return localStorage.getItem(k); } catch { return null; } };
+const fmt = (v) => v === null || v === undefined ? null : (v >= 60 ? Math.floor(v / 60) + 'h' + String(v % 60).padStart(2, '0') : v + ' min');
+const cor = (v) => v === null || v === undefined ? '' : v <= 15 ? 'verde' : v <= 60 ? 'ambar' : 'verm';
+const media = (a) => { const x = a.filter((v) => v !== null && v !== undefined); return x.length ? Math.round(x.reduce((p, q) => p + q, 0) / x.length) : null; };
+const pendV = (c) => (c.pendencias || []).filter((p) => p.responsavel === 'vendedor');
+const aberta = (c) => ABERTAS.includes(c.etapa);
+const espera = (c) => c.semResposta > 0 && aberta(c);
+const atencao = (c) => (pendV(c).length > 0 || espera(c)) && aberta(c);
+const insuf = '<span class="insuf">dados insuficientes</span>';
+
+async function api(url, opts = {}) {
+  const r = await fetch(url, { ...opts, headers: { ...(opts.headers || {}), authorization: 'Bearer ' + token, 'content-type': 'application/json' } });
+  if (!r.ok) throw new Error((await r.json().catch(() => ({}))).erro || r.status);
+  return r.json();
+}
+
+async function entrar() {
+  try {
+    const l = await fetch('/api/login-dev', { method:'POST', headers:{ 'content-type':'application/json' }, body: JSON.stringify({ perfil: $('#perfil').value }) });
+    if (!l.ok) throw new Error('Login de desenvolvimento desligado (defina DEV_LOGIN=1).');
+    token = (await l.json()).token;
+    dados = await api('/api/conversas');
+    Object.assign(f, { etapa:'', vendedor:'', flag:'', busca:'', canal:'' }); $('#busca').value = '';
+    roteia();
+    quandoPronto();
+  } catch (e) { $('#app').innerHTML = '<div id="erro">' + esc(e.message) + '</div>'; }
+}
+
+function filtradas() {
+  const q = f.busca.trim().toLowerCase();
+  return dados.conversas.filter((c) =>
+    (!f.etapa || c.etapa === f.etapa) && (!f.vendedor || c.vendedor === f.vendedor) && (!f.canal || c.canal === f.canal) &&
+    (!f.flag || (f.flag === 'aberta' && aberta(c)) || (f.flag === 'atencao' && atencao(c)) || (f.flag === 'pend' && pendV(c).length) || (f.flag === 'espera' && espera(c))) &&
+    (!q || [c.id, c.vendedor, canalDe(c).nome, NOME[c.etapa], c.resumo, c.previa, c.proximo_passo, ...(c.pendencias || []).map((p) => p.descricao)].join(' ').toLowerCase().includes(q)));
+}
+
+function kpiStrip(cs) {
+  if (dados.papel !== 'gestor') {                                   // Ana Paula: o que ela precisa fazer, sem comparar com colegas
+    const nEs = cs.filter(espera).length, nPe = cs.reduce((n, c) => n + pendV(c).length, 0), nAb = cs.filter(aberta).length, g = cs.filter((c) => c.etapa === 'fechado_ganho').length, tm = media(cs.map((c) => c.tmrMinutos));
+    const t = (flag, r, n, cls, d) => (flag ? '<button class="kt' + (f.flag === flag ? ' on' : '') + '" data-flag="' + flag + '">' : '<div class="kt">') + '<span class="r">' + r + '</span><span class="n ' + cls + '">' + n + '</span><span class="d">' + d + '</span>' + (flag ? '</button>' : '</div>');
+    return '<div class="kpis6 v5">' + t('espera', 'Responder agora', nEs, nEs ? 'verm' : 'verde', 'clientes esperando você') + t('pend', 'Minhas pendências', nPe, nPe ? 'ambar' : 'verde', 'o que você prometeu') +
+      t('', 'Meu tempo médio', fmt(tm) || '—', cor(tm), 'até 15 min é bom') + t('aberta', 'Em negociação', nAb, '', 'de ' + cs.length + ' conversas') + t('', 'Vendas fechadas', g, 'verde', 'na sua carteira') + '</div>';
+  }
+  const ganho = cs.filter((c) => c.etapa === 'fechado_ganho').length, perdido = cs.filter((c) => c.etapa === 'perdido').length, enc = ganho + perdido;
+  const tmr = media(cs.map((c) => c.tmrMinutos)), tpr = media(cs.map((c) => c.tprMinutos));
+  const nAb = cs.filter(aberta).length, nAt = cs.filter(atencao).length, nPe = cs.reduce((n, c) => n + pendV(c).length, 0), nEs = cs.filter(espera).length;
+  const t = (flag, r, n, cls, d) => (flag ? '<button class="kt' + (f.flag === flag ? ' on' : '') + '" data-flag="' + flag + '">' : '<div class="kt">') + '<span class="r">' + r + '</span><span class="n ' + cls + '">' + n + '</span><span class="d">' + d + '</span>' + (flag ? '</button>' : '</div>');
+  return '<div class="kpis6">' +
+    t('aberta', 'Negociações abertas', nAb, '', 'de ' + cs.length + ' conversas') +
+    t('atencao', 'Pedem atenção', nAt, nAt ? 'ambar' : 'verde', 'pendência ou sem retorno') +
+    t('pend', 'Pendências do vendedor', nPe, nPe ? 'ambar' : 'verde', 'prometido e não cumprido') +
+    t('espera', 'Cliente esperando', nEs, nEs ? 'verm' : 'verde', 'sem retorno do vendedor') +
+    t('', 'Tempo médio de resposta', fmt(tmr) || '—', cor(tmr), '1ª resposta: ' + (fmt(tpr) || '—')) +
+    t('', 'Conversão', enc ? Math.round(ganho / enc * 100) + '%' : '—', '', ganho + ' ganhas · ' + perdido + ' perdidas') + '</div>';
+}
+function checklistHoje(cs) {
+  const itens = [];
+  cs.filter(aberta).forEach((c) => { pendV(c).forEach((p) => itens.push({ c, texto: p.descricao, esp: espera(c) })); if (espera(c) && !pendV(c).length) itens.push({ c, texto: 'Responder o cliente', esp: true }); });
+  itens.sort((a, b) => (b.esp - a.esp) || urgencia(b.c) - urgencia(a.c) || a.c.id - b.c.id);
+  if (!itens.length) return '<div class="todo"><div class="td" style="cursor:default"><span class="ck" style="border-color:var(--ok)"></span><div><b>Tudo em dia</b><small>Nenhuma pendência sua nem cliente esperando agora.</small></div></div></div>';
+  return '<div class="todo">' + itens.slice(0, 8).map((i) => '<div class="td' + (i.esp ? ' urgente' : '') + '" data-id="' + i.c.id + '"><span class="ck"></span><div><b>' + esc(i.texto) + '</b><small>' + esc(i.c.resumo || i.c.previa || '') + '</small></div><div class="tdm">' +
+    (i.esp ? '<span class="selo espera">cliente esperando</span>' : '') + '<span class="tag" style="--c:var(--' + (i.c.etapa || 'prospeccao') + ')">' + (NOME[i.c.etapa] || '—') + '</span>' + canalTag(i.c) + '</div></div>').join('') + '</div>' +
+    (itens.length > 8 ? '<p class="mut" style="margin:8px 2px 0;font-size:13px">+ ' + (itens.length - 8) + ' itens. Use os filtros abaixo para ver todos.</p>' : '');
+}
+const saudacao = () => { const h = new Date().getHours(); return (h < 12 ? 'Bom dia' : h < 18 ? 'Boa tarde' : 'Boa noite') + ', ' + String(dados.conversas[0]?.vendedor || '').split(' ')[0]; };
+
+function funilBarras(cs) {
+  const n = (e) => cs.filter((c) => c.etapa === e).length, max = Math.max(1, ...ETAPAS.map(n)), total = cs.filter((c) => c.etapa).length || 1;
+  return '<div class="fbars">' + ETAPAS.map((e) => '<button class="fbar' + (f.etapa === e ? ' on' : '') + '" data-etapa="' + e + '" style="--c:var(--' + e + ')"><span class="fn">' + NOME[e] + '</span><span class="ft"><i style="width:' + (n(e) / max * 100) + '%"></i></span><b>' + n(e) + '</b><small>' + Math.round(n(e) / total * 100) + '%</small></button>').join('') + '</div>';
+}
+function equipeTabela(cs, vendedores) {
+  const sel = (v) => v === null || v === undefined ? '<span class="insuf">—</span>' : '<span class="selo ' + cor(v) + '">' + fmt(v) + '</span>';
+  return '<div class="tab"><table class="eqtab"><thead><tr><th>Vendedor</th><th class="num">Conversas</th><th class="num">Abertas</th><th class="num">Pendências</th><th class="num">Esperando</th><th>1ª resposta</th><th>Tempo médio</th><th class="num">Conversão</th></tr></thead><tbody>' +
+    vendedores.map((v) => { const x = cs.filter((c) => c.vendedor === v), g = x.filter((c) => c.etapa === 'fechado_ganho').length, p = x.filter((c) => c.etapa === 'perdido').length;
+      return '<tr data-vend="' + esc(v) + '" style="' + (f.vendedor === v ? 'background:var(--soft)' : '') + '"><td><div class="vn"><div class="av">' + esc(v[0]) + '</div><b>' + esc(v) + '</b></div></td><td class="num">' + x.length + '</td><td class="num">' + x.filter(aberta).length + '</td><td class="num">' + x.reduce((n, c) => n + pendV(c).length, 0) + '</td><td class="num">' + x.filter(espera).length + '</td><td>' + sel(media(x.map((c) => c.tprMinutos))) + '</td><td>' + sel(media(x.map((c) => c.tmrMinutos))) + '</td><td class="num">' + (g + p ? Math.round(g / (g + p) * 100) + '%' : '—') + '</td></tr>'; }).join('') + '</tbody></table></div>';
+}
+
+function desenhar() {
+  const gestor = dados.papel === 'gestor', cs = dados.conversas;
+  $('#sub').textContent = gestor ? cs.length + ' negociações da equipe · ' + cs.filter(atencao).length + ' pedem atenção' : 'Só a sua carteira · ' + cs.reduce((n, c) => n + pendV(c).length, 0) + ' pendências · ' + cs.filter(espera).length + ' esperando resposta';
+  const vendedores = [...new Set(cs.map((c) => c.vendedor))];
+  const nAbertas = cs.filter(aberta).length, nPend = cs.reduce((n, c) => n + pendV(c).length, 0), nEspera = cs.filter(espera).length, nAt = cs.filter(atencao).length;
+  const AG = agentesDoMomento(), cor4 = (i) => ' style="--g:' + AG[i].cor + '"';
+
+  let h = kpiStrip(cs);
+  const lista = filtradas();
+  const chips = [f.etapa && ['etapa', NOME[f.etapa]], f.vendedor && ['vendedor', f.vendedor], f.flag && ['flag', { aberta:'Negociações abertas', atencao:'Pedem atenção', pend:'Com pendência do vendedor', espera:'Cliente esperando' }[f.flag]], f.canal && ['canal', canalDe({ canal:f.canal }).nome], f.busca && ['busca', '“' + f.busca + '”']].filter(Boolean);
+  const canaisPresentes = [...new Set(cs.map((c) => c.canal))];
+
+  /* 1) VIGIA: entende cada conversa, avisa o que é urgente e mostra as conversas em cada etapa */
+  h += '<section class="zona' + (colapsada.vigia ? ' recolhida' : '') + '" id="zona-vigia"' + cor4(1) + '>' + cabAgente(ZONAS[0], AG) + '<div class="zona-corpo"><div class="heroi">' + (gestor
+      ? '<div><h3 class="sub-h">Funil de vendas <small>clique numa etapa para filtrar</small></h3>' + funilBarras(cs) + '</div><div><h3 class="sub-h">Precisa de você agora <small>as mais urgentes primeiro · ← → navega · espaço pausa</small></h3><div id="deck"></div></div>'
+      : '<div><h3 class="sub-h">Para fazer hoje <small>o mais urgente primeiro · clique para abrir</small></h3>' + checklistHoje(cs) + '</div><div><h3 class="sub-h">Sua carteira por etapa <small>clique numa etapa para filtrar</small></h3>' + funilBarras(cs) + '</div>') + '</div>' +
+    '<h3 class="sub-h" id="negociacoes" style="margin-top:22px">' + (gestor ? 'Conversas em cada etapa' : 'Suas conversas em cada etapa') + ' <small>' + lista.length + ' de ' + cs.length + '</small></h3><div class="filtros">' +
+    chips.map(([k, t]) => '<span class="chip ativo">' + esc(t) + '<button data-limpa="' + k + '" aria-label="Remover filtro">×</button></span>').join('') +
+    (chips.length ? '<button class="chip" data-limpa="tudo">Limpar tudo</button>' : '<span class="mut" style="font-size:13px">Sem filtros</span>') +
+    (canaisPresentes.length > 1 ? '<select id="fcanal" class="ctl"><option value="">Todos os canais</option>' + canaisPresentes.map((k) => '<option value="' + k + '"' + (f.canal === k ? ' selected' : '') + '>' + CANAIS[k].nome + '</option>').join('') + '</select>' : '<span class="mut" style="font-size:13px">Canal: ' + canalDe(cs[0] || {}).nome + '</span>') +
+    '<div class="seg"><button data-visao="quadro" class="' + (visao === 'quadro' ? 'on' : '') + '">Quadro</button><button data-visao="lista" class="' + (visao === 'lista' ? 'on' : '') + '">Lista</button></div></div>' +
+    (lista.length ? (visao === 'quadro' ? quadro(lista, gestor) : tabela(lista, gestor)) : '<div class="vazio" style="padding:30px;text-align:center">Nenhuma negociação com esses filtros.</div>') + '</div></section>';
+
+  /* 2) CRONÔMETRO: tempo de resposta (começa recolhido) */
+  const lentas = [...cs].filter((c) => c.tmrMinutos !== null).sort((a, b) => b.tmrMinutos - a.tmrMinutos).slice(0, 5);
+  h += '<section class="zona' + (colapsada.cronometro ? ' recolhida' : '') + '" id="zona-cronometro"' + cor4(2) + '>' + cabAgente(ZONAS[1], AG) + '<div class="zona-corpo crono"><div><h3 class="sub-h">' + (gestor ? 'Desempenho por vendedor' : 'O seu desempenho') + ' <small>clique numa linha para filtrar · verde até 15 min</small></h3>' + equipeTabela(cs, vendedores) + '</div>' +
+    '<div><h3 class="sub-h">Respostas mais lentas <small>clique para abrir</small></h3><div class="lentas">' +
+    (lentas.length ? lentas.map((c) => '<div data-id="' + c.id + '"><span class="id">#' + c.id + '</span><span>' + (gestor ? esc(c.vendedor) + ' · ' : '') + '<span class="mut">' + (NOME[c.etapa] || 'sem análise') + '</span></span><span class="t selo ' + cor(c.tmrMinutos) + '">' + fmt(c.tmrMinutos) + '</span></div>').join('') : insuf) + '</div></div></div></section>';
+
+  /* 3) LEITOR: de onde vêm as conversas */
+  h += '<section class="zona' + (colapsada.leitor ? ' recolhida' : '') + '" id="zona-leitor"' + cor4(0) + '>' + cabAgente(ZONAS[2], AG) + '<div class="zona-corpo"><h3 class="sub-h">' + (gestor ? 'Vendedores e conexão do WhatsApp' : 'Sua carteira') + '</h3><div id="leitor-corpo">' + corpoLeitor() + '</div></div></section>';
+
+  $('#app').innerHTML = h;
+  ligar(); ligaZonas();
+  iniciarDeck(lista);
+  carregaAgentes();
+}
+
+/* ---- baralho de resumos: carrossel automático, urgentes primeiro ---- */
+const dk = { i:0, timer:null, hover:false, manual:false, ocupado:false, lista:[] };
+const REDUZ = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const DURACAO = 7000;
+const urgencia = (c) => (espera(c) ? 3 : 0) + pendV(c).length * 2 + (c.etapa === 'negociacao' ? 2 : c.etapa === 'proposta' ? 1 : 0) + (aberta(c) ? 1 : 0);
+
+function iniciarDeck(lista) {
+  clearTimeout(dk.timer); dk.ocupado = false;
+  dk.lista = [...lista].sort((a, b) => urgencia(b) - urgencia(a) || a.id - b.id);
+  if (dk.i >= dk.lista.length) dk.i = 0;
+  pintaDeck(false);
+}
+
+function carta(c, p, gestor) {
+  const pv = pendV(c), n = dk.lista.length, ult = c.ultimas || [];
+  return '<div class="carta p' + p + '" data-carta="' + c.id + '" style="--c:var(--' + (c.etapa || 'prospeccao') + ')">' +
+    '<div class="faixa"><span>' + (NOME[c.etapa] || 'Sem análise') + '</span><span>·</span><span>#' + c.id + (gestor ? ' · ' + esc(c.vendedor) : '') + '</span><span style="background:#fff;border-radius:99px;padding:0 8px;line-height:1.6">' + canalTag(c) + '</span><span class="pct">' + ((dk.i + p) % n + 1) + ' de ' + n + '</span></div>' +
+    '<div class="miolo"><p class="resumo">' + esc(c.resumo || c.previa || 'Sem mensagens ainda.') + '</p>' +
+    (ult.length ? '<div class="prev"><div class="lb">Últimas mensagens</div>' + ult.map((m) => '<div class="pv ' + m.de + '">' + esc(m.texto) + '</div>').join('') + '</div>' : '') +
+    (c.proximo_passo ? '<div class="prox"><b>Próximo passo</b>' + esc(c.proximo_passo) + '</div>' : '') + '</div>' +
+    '<div class="rodape">' + selos(c, gestor) + '<span class="abrir">Abrir conversa →</span></div>' +
+    (p === 0 ? '<i class="prog" style="animation-duration:' + DURACAO + 'ms"></i>' : '') + '</div>';
+}
+
+function pintaDeck(entra) {
+  const el = $('#deck'); if (!el) return;
+  const n = dk.lista.length; dk.ocupado = false;
+  if (!n) { el.innerHTML = '<div class="vazio" style="text-align:center;padding:24px">Nada para resumir com esses filtros.</div>'; return; }
+  const g = dados.papel === 'gestor';
+  const cartas = [2, 1, 0].filter((p) => p < n).map((p) => carta(dk.lista[(dk.i + p) % n], p, g)).join('');
+  el.innerHTML = '<div class="palco"><button class="seta" data-d="-1" aria-label="Anterior">‹</button><div class="baralho' + (dk.hover || dk.manual ? ' pausa' : '') + '" id="baralho">' + cartas + '</div><button class="seta" data-d="1" aria-label="Próxima">›</button></div>' +
+    '<div class="pontos"><div class="trilha">' + dk.lista.slice(0, 14).map((_, k) => '<i class="' + (k === dk.i % 14 ? 'at' : '') + '"></i>').join('') + '</div><span>' + (dk.manual ? 'pausado' : 'automático') + '</span><button id="pausar">' + (dk.manual ? '▶ Continuar' : '❚❚ Pausar') + '</button></div>';
+  const b = $('#baralho'), topo = b.querySelector('.p0');
+  if (entra) topo.classList.add('entra');
+  topo.onclick = () => abrir(Number(topo.dataset.carta));
+  el.querySelectorAll('[data-d]').forEach((s) => s.onclick = () => vai(Number(s.dataset.d)));
+  $('#pausar').onclick = () => { dk.manual = !dk.manual; dk.manual ? clearTimeout(dk.timer) : null; pintaDeck(false); };
+  b.onmouseenter = () => { dk.hover = true; clearTimeout(dk.timer); b.classList.add('pausa'); };
+  b.onmouseleave = () => { dk.hover = false; topo.style.removeProperty('--rx'); topo.style.removeProperty('--ry'); if (!dk.manual) pintaDeck(false); };
+  b.onmousemove = (e) => { const r = b.getBoundingClientRect(); topo.style.setProperty('--ry', ((e.clientX - r.left) / r.width - .5) * 9 + 'deg'); topo.style.setProperty('--rx', (.5 - (e.clientY - r.top) / r.height) * 7 + 'deg'); };
+  agenda();
+}
+
+function agenda() { clearTimeout(dk.timer); if (REDUZ || dk.hover || dk.manual || dk.lista.length < 2) return; dk.timer = setTimeout(() => vai(1), DURACAO); }
+
+function vai(d) {
+  const b = $('#baralho'), n = dk.lista.length; if (!b || dk.ocupado || n < 2) return;
+  clearTimeout(dk.timer); dk.ocupado = true;
+  const troca = () => { dk.i = (dk.i + d + n) % n; pintaDeck(d < 0); };
+  if (REDUZ) return troca();
+  b.classList.remove('pausa'); b.classList.add(d > 0 ? 'avanca' : 'volta');
+  setTimeout(troca, 470);
+}
+document.addEventListener('keydown', (e) => {
+  if (tourAtivo || document.activeElement.tagName === 'INPUT' || $('#gaveta').classList.contains('on')) return;
+  if (e.key === 'ArrowRight') vai(1); else if (e.key === 'ArrowLeft') vai(-1);
+  else if (e.key === ' ' && $('#deck')) { e.preventDefault(); dk.manual = !dk.manual; if (dk.manual) clearTimeout(dk.timer); pintaDeck(false); }
+});
+
+const kpi = (flag, r, n, c, d) => '<button class="kpi' + (f.flag === flag ? ' on' : '') + '" data-flag="' + flag + '"><span class="r">' + r + '</span><span class="n ' + c + '">' + n + '</span><span class="d">' + d + '</span></button>';
+const medida = (nome, v) => '<div class="medida"><span>' + nome + '</span><span class="t"><i style="width:' + (v === null ? 0 : Math.min(100, v / 60 * 100)) + '%;background:var(--' + ({ verde:'ok', ambar:'warn', verm:'bad' }[cor(v)] || 'line') + ')"></i></span><strong>' + (v === null ? 'sem dados' : fmt(v)) + '</strong></div>';
+
+function selos(c, gestor) {
+  const s = [];
+  if (pendV(c).length) s.push('<span class="selo pend">' + pendV(c).length + ' pendência' + (pendV(c).length > 1 ? 's' : '') + '</span>');
+  if (espera(c)) s.push('<span class="selo espera">cliente esperando</span>');
+  if (c.tmrMinutos !== null) s.push('<span class="selo ' + cor(c.tmrMinutos) + '">resp. ' + fmt(c.tmrMinutos) + '</span>');
+  return s.join('');
+}
+
+function quadro(lista, gestor) {
+  return '<div class="quadro">' + ETAPAS.map((e) => { const x = lista.filter((c) => c.etapa === e);
+    return '<div class="col" style="--c:var(--' + e + ')"><h3><span><i></i>' + NOME[e] + '</span><span class="mut">' + x.length + '</span></h3>' +
+      (x.length ? x.map((c) => '<button class="cartao" data-id="' + c.id + '"><div class="l1"><span>#' + c.id + (gestor ? ' · ' + esc(c.vendedor) : '') + '</span>' + canalTag(c) + '</div>' +
+        (pendV(c)[0] ? '<div class="afazer">A fazer: ' + esc(pendV(c)[0].descricao) + '</div>' : '') +
+        '<p class="resumo-cartao">' + esc(c.resumo || c.previa || 'Sem mensagens') + '</p><div class="selos">' + selos(c, gestor) + '</div></button>').join('') : '<div class="vazio">Nenhuma</div>') + '</div>'; }).join('') + '</div>';
+}
+
+const COLS = [['id','#'], ['vendedor','Vendedor'], ['etapa','Etapa'], ['canal','Canal'], ['pend','Pendências'], ['tpr','1ª resposta'], ['tmr','Tempo médio']];
+function tabela(lista, gestor) {
+  const val = { id:(c) => c.id, vendedor:(c) => c.vendedor, etapa:(c) => ETAPAS.indexOf(c.etapa), canal:(c) => c.canal, pend:(c) => pendV(c).length, tpr:(c) => c.tprMinutos ?? 1e9, tmr:(c) => c.tmrMinutos ?? 1e9 }[ordem.col];
+  const ord = [...lista].sort((a, b) => (val(a) > val(b) ? 1 : val(a) < val(b) ? -1 : 0) * (ordem.asc ? 1 : -1));
+  return '<div class="tab"><table><thead><tr>' + COLS.filter(([k]) => gestor || k !== 'vendedor').map(([k, t]) => '<th data-ord="' + k + '">' + t + (ordem.col === k ? (ordem.asc ? ' ▲' : ' ▼') : '') + '</th>').join('') + '<th>Resumo</th></tr></thead><tbody>' +
+    ord.map((c) => '<tr data-id="' + c.id + '"><td>' + c.id + '</td>' + (gestor ? '<td>' + esc(c.vendedor) + '</td>' : '') +
+      '<td><span class="tag" style="--c:var(--' + c.etapa + ')">' + (NOME[c.etapa] || 'sem análise') + '</span></td><td>' + canalTag(c) + '</td><td>' + (pendV(c).length ? pendV(c).map((p) => '• ' + esc(p.descricao)).join('<br>') : '<span class="mut">—</span>') + '</td>' +
+      '<td>' + (fmt(c.tprMinutos) ? '<span class="selo ' + cor(c.tprMinutos) + '">' + fmt(c.tprMinutos) + '</span>' : insuf) + '</td><td>' + (fmt(c.tmrMinutos) ? '<span class="selo ' + cor(c.tmrMinutos) + '">' + fmt(c.tmrMinutos) + '</span>' : insuf) + '</td>' +
+      '<td class="mut" style="font-size:13px">' + esc(c.resumo || c.proximo_passo || '') + '</td></tr>').join('') + '</tbody></table></div>';
+}
+
+function ligar() {
+  const alterna = (k, v) => { f[k] = f[k] === v ? '' : v; desenhar(); if (f[k]) $('#negociacoes').scrollIntoView({ behavior:'smooth' }); };
+  if ($('#fcanal')) $('#fcanal').onchange = (e) => { f.canal = e.target.value; desenhar(); };
+  document.querySelectorAll('[data-etapa]').forEach((b) => b.onclick = () => alterna('etapa', b.dataset.etapa));
+  document.querySelectorAll('[data-vend]').forEach((b) => b.onclick = () => alterna('vendedor', b.dataset.vend));
+  document.querySelectorAll('[data-flag]').forEach((b) => b.onclick = () => alterna('flag', b.dataset.flag));
+  document.querySelectorAll('[data-limpa]').forEach((b) => b.onclick = () => { b.dataset.limpa === 'tudo' ? Object.assign(f, { etapa:'', vendedor:'', flag:'', busca:'', canal:'' }) : f[b.dataset.limpa] = ''; if (!f.busca) $('#busca').value = ''; desenhar(); });
+  document.querySelectorAll('[data-visao]').forEach((b) => b.onclick = () => { visao = b.dataset.visao; desenhar(); });
+  document.querySelectorAll('[data-ord]').forEach((th) => th.onclick = () => { ordem = { col: th.dataset.ord, asc: ordem.col === th.dataset.ord ? !ordem.asc : true }; desenhar(); });
+  document.querySelectorAll('[data-id]').forEach((el) => el.onclick = () => abrir(Number(el.dataset.id)));
+}
+
+async function abrir(id) {
+  const c = dados.conversas.find((x) => String(x.id) === String(id)), g = $('#gaveta');
+  $('#veu').classList.add('on'); g.classList.add('on'); g.innerHTML = '<div class="corpo">carregando…</div>';
+  try {
+    const { mensagens } = await api('/api/conversas/' + id + '/mensagens');
+    g.innerHTML = '<div class="cab"><div><h2>Conversa #' + id + '</h2><span class="tag" style="--c:var(--' + c.etapa + ')">' + (NOME[c.etapa] || 'sem análise') + '</span> ' + canalTag(c) + ' <span class="mut" style="font-size:13px">· ' + esc(c.vendedor) + '</span></div><button id="fecha" aria-label="Fechar">Esc ✕</button></div><div class="corpo">' +
+      (c.resumo ? '<h3 style="margin-top:0">Resumo da conversa</h3><p style="margin:0 0 2px;font-size:15.5px">' + esc(c.resumo) + '</p><p class="aviso">Resumo gerado por IA, a validar.</p>' : '') +
+      (c.proximo_passo ? '<h3 style="margin-top:0">Próximo passo sugerido</h3><div class="destaque">' + esc(c.proximo_passo) + '</div>' : '') +
+      (c.pendencias?.length ? '<h3>Pendências</h3>' + c.pendencias.map((p) => '<div class="itempend"><span class="q ' + p.responsavel + '">' + (p.responsavel === 'vendedor' ? 'vendedor' : 'cliente') + '</span><span>' + esc(p.descricao) + '</span></div>').join('') : '<h3>Pendências</h3><p class="mut">Nenhuma pendência aberta.</p>') +
+      '<h3>Indicadores</h3><div class="selos">' + (fmt(c.tprMinutos) ? '<span class="selo ' + cor(c.tprMinutos) + '">1ª resposta ' + fmt(c.tprMinutos) + '</span>' : '<span class="selo">1ª resposta: dados insuficientes</span>') + (fmt(c.tmrMinutos) ? '<span class="selo ' + cor(c.tmrMinutos) + '">tempo médio ' + fmt(c.tmrMinutos) + '</span>' : '') + '</div>' +
+      '<p class="aviso">Etapa, pendências e próximo passo são uma análise de IA, ainda a validar.</p>' +
+      '<h3>Mensagens <span style="text-transform:none;letter-spacing:0">· dados pessoais já mascarados</span></h3>' +
+      mensagens.map((m) => '<div class="bal ' + m.de + '"><small>' + (m.de === 'cliente' ? 'Cliente' : 'Vendedor') + ' · ' + new Date(m.enviada_em).toLocaleString('pt-BR', { timeZone:'America/Recife', day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit' }) + '</small>' + esc(m.texto_mascarado) + '</div>').join('') + '</div>';
+    $('#fecha').onclick = fechar;
+  } catch (e) { g.innerHTML = '<div id="erro">' + esc(e.message) + '</div>'; }
+}
+function fechar() { $('#veu').classList.remove('on'); $('#gaveta').classList.remove('on'); }
+$('#veu').onclick = fechar;
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { fechar(); if ($('#modal').classList.contains('on')) fechaModal(); } if (e.key === '/' && document.activeElement.tagName !== 'INPUT') { e.preventDefault(); $('#busca').focus(); } });
+
+let tmp; $('#busca').oninput = (e) => { clearTimeout(tmp); tmp = setTimeout(() => { f.busca = e.target.value; desenhar(); }, 150); };
+function aplicaTema(t) { document.documentElement.dataset.tema = t; try { localStorage.setItem('tema', t); } catch {} }
+aplicaTema(lerGuardado('tema') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'escuro' : 'claro'));
+$('#tema').onclick = () => aplicaTema(document.documentElement.dataset.tema === 'escuro' ? 'claro' : 'escuro');
+const pedido = new URLSearchParams(location.search); if (pedido.get('perfil')) $('#perfil').value = pedido.get('perfil'); if (pedido.get('visao')) visao = pedido.get('visao'); if (pedido.get('tela')) tela = pedido.get('tela');
+if (pedido.get('tema')) aplicaTema(pedido.get('tema'));
+/* ---- telas: painel, agentes (fantasmas) e vendedores ---- */
+function desenhaNav() { desenhaMenu(); }
+function roteia() {
+  if (dados.papel !== 'gestor' || tela === 'agentes') tela = 'painel';
+  desenhaNav(); clearTimeout(dk.timer); fechar();
+  if (tela === 'vendedores') return desenhaVendedores();
+  desenhar();
+}
+const fone = (t) => { const d = String(t || '').replace(/\D/g, '').replace(/^55/, ''); return d.length >= 10 ? '(' + d.slice(0, 2) + ') ' + d.slice(2, d.length - 4) + '-' + d.slice(-4) : '—'; };
+const quando = (iso) => iso ? new Date(iso).toLocaleString('pt-BR', { timeZone: 'America/Recife', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }) : '—';
+
+/* fantasma: corpo ondulante, olhos que seguem o mouse, fica azul e treme quando assustado */
+/* personagens: cada agente tem uma aparência que combina com a função; todos têm olhos que seguem o mouse */
+const MASCOTES = {
+  /* Vigia: coruja de sentinela */
+  Vigia: (c) => '<svg viewBox="0 0 100 114" aria-hidden="true"><g class="flutua">' +
+    '<path d="M16 34 L24 6 L44 24 Z" fill="' + c + '"/><path d="M84 34 L76 6 L56 24 Z" fill="' + c + '"/><ellipse cx="50" cy="64" rx="40" ry="44" fill="' + c + '"/>' +
+    '<ellipse cx="50" cy="84" rx="24" ry="22" fill="#fff" opacity=".28"/><path d="M36 76 q4 5 8 0 M48 76 q4 5 8 0 M60 76 q4 5 8 0 M42 88 q4 5 8 0 M54 88 q4 5 8 0" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="3" stroke-linecap="round"/>' +
+    '<g class="olhos"><circle cx="32" cy="50" r="17" fill="#fff" stroke="#7c2d12" stroke-width="3"/><circle cx="68" cy="50" r="17" fill="#fff" stroke="#7c2d12" stroke-width="3"/><circle class="pupila" cx="32" cy="50" r="8" fill="#1c1917"/><circle class="pupila" cx="68" cy="50" r="8" fill="#1c1917"/></g>' +
+    '<path d="M14 34 L44 42 M86 34 L56 42" stroke="#7c2d12" stroke-width="5" stroke-linecap="round"/><path d="M43 62 L57 62 L50 76 Z" fill="#7c2d12"/><path d="M34 106 h8 M58 106 h8" stroke="#7c2d12" stroke-width="5" stroke-linecap="round"/></g></svg>',
+  /* Cronômetro: um cronômetro de verdade, com ponteiro girando */
+  'Cronômetro': (c) => '<svg viewBox="0 0 100 114" aria-hidden="true"><g class="flutua">' +
+    '<rect x="42" y="4" width="16" height="12" rx="3" fill="' + c + '"/><rect x="46" y="14" width="8" height="9" fill="' + c + '"/><rect x="76" y="20" width="13" height="8" rx="3" fill="' + c + '" transform="rotate(40 82 24)"/>' +
+    '<circle cx="50" cy="66" r="42" fill="' + c + '"/><circle cx="50" cy="66" r="33" fill="#fff"/>' +
+    '<path d="M50 37 v5 M50 90 v5 M21 66 h5 M74 66 h5" stroke="' + c + '" stroke-width="3" stroke-linecap="round"/>' +
+    '<g class="olhos"><circle cx="40" cy="57" r="8.5" fill="#e0f2fe" stroke="#0e7490" stroke-width="2"/><circle cx="60" cy="57" r="8.5" fill="#e0f2fe" stroke="#0e7490" stroke-width="2"/><circle class="pupila" cx="40" cy="57" r="4.2" fill="#0c4a6e"/><circle class="pupila" cx="60" cy="57" r="4.2" fill="#0c4a6e"/></g>' +
+    '<g class="mao"><path d="M50 76 L50 65" stroke="#0e7490" stroke-width="4" stroke-linecap="round"/></g><circle cx="50" cy="76" r="3.5" fill="#0e7490"/></g></svg>',
+  /* Leitor: balão de conversa com óculos, lendo as mensagens */
+  Leitor: (c) => '<svg viewBox="0 0 100 114" aria-hidden="true"><g class="flutua">' +
+    '<rect x="8" y="12" width="84" height="68" rx="24" fill="' + c + '"/><path d="M24 76 L14 104 L48 80 Z" fill="' + c + '"/>' +
+    '<g class="olhos"><circle cx="35" cy="38" r="10" fill="#fff"/><circle cx="65" cy="38" r="10" fill="#fff"/><circle class="pupila" cx="35" cy="38" r="4.5" fill="#1c1917"/><circle class="pupila" cx="65" cy="38" r="4.5" fill="#1c1917"/></g>' +
+    '<circle cx="35" cy="38" r="14" fill="none" stroke="#fff" stroke-width="3"/><circle cx="65" cy="38" r="14" fill="none" stroke="#fff" stroke-width="3"/><path d="M49 37 h2" stroke="#fff" stroke-width="3"/>' +
+    '<rect x="26" y="60" width="48" height="4.5" rx="2.2" fill="#fff" fill-opacity=".9"/><rect x="26" y="68" width="30" height="4.5" rx="2.2" fill="#fff" fill-opacity=".65"/></g></svg>',
+};
+const mascote = (nome, cor) => (MASCOTES[nome] || MASCOTES.Leitor)(cor);
+document.addEventListener('mousemove', (e) => {
+  document.querySelectorAll('.mascote .olhos, .gh .olhos').forEach((o) => {
+    const svg = o.ownerSVGElement, r = svg.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height * .45;
+    const dx = e.clientX - cx, dy = e.clientY - cy, d = Math.hypot(dx, dy) || 1, k = Math.min(1, d / 160) * 5;
+    o.querySelectorAll('.pupila').forEach((p) => p.setAttribute('transform', 'translate(' + (dx / d * k).toFixed(1) + ' ' + (dy / d * k).toFixed(1) + ')'));
+  });
+});
+
+let cacheAg = null, cacheVend = null, apiAntiga = false;
+function agentesDoMomento() {
+  const a = cacheAg, cs = dados.conversas, g = dados.papel === 'gestor';
+  const tmr = media(cs.map((c) => c.tmrMinutos)), tpr = media(cs.map((c) => c.tprMinutos));
+  const urg = cs.filter(atencao).length, nEsp = cs.filter(espera).length, nPend = cs.reduce((n, c) => n + pendV(c).length, 0);
+  const cx = a ? (a.vendedores.conectado || 0) : 0, sim = a ? (a.vendedores.simulado || 0) : 0;
+  return [
+    { cor:'#f43f5e', nome:'Leitor', frase:'Lê o WhatsApp dos vendedores (só leitura) e esconde os dados pessoais.',
+      stats: a ? [['Mensagens lidas', a.leitor.mensagens], ['Com dado protegido', a.leitor.protegidas], ['WhatsApp conectado', cx + ' real · ' + sim + ' simulado'], ['Última mensagem', quando(a.leitor.ultima)]] : [['Conversas lidas', cs.length], ['Modo', 'somente leitura']],
+      acao: g ? { rot:'Gerenciar vendedores e WhatsApp', fn: () => { tela = 'vendedores'; roteia(); scrollTo({ top:0 }); } } : null },
+    { cor:'#f59e0b', nome:'Vigia', alerta: urg > 0, frase:'Entende cada conversa (etapa, pendências e próximo passo) e avisa quem precisa de atenção agora.',
+      stats: [['Pedem atenção', urg], ['Cliente esperando', nEsp], ['Pendências abertas', nPend], ['Conversas analisadas', a ? a.analista.analises : cs.filter((c) => c.etapa).length], ['Modelo (IA)', a ? (a.analista.modelos || '—') : '—'], ['Última análise', a ? quando(a.analista.ultima) : '—'], ['Revisão', 'a validar']],
+      recentes: a ? a.recentes : null,
+      acoes: [{ rot:'Ver o que pede atenção', fn: () => { Object.assign(f, { etapa:'', vendedor:'', flag:'atencao', canal:'' }); desenhar(); $('#negociacoes').scrollIntoView({ behavior:'smooth' }); } },
+        { rot:'Ver as conversas em cada etapa', fn: () => { $('#negociacoes').scrollIntoView({ behavior:'smooth' }); } }] },
+    { cor:'#0891b2', nome:'Cronômetro', frase:'Mede, sem IA, quanto o vendedor demora a responder.',
+      stats: [['Tempo médio', fmt(tmr) || 'dados insuficientes'], ['1ª resposta (média)', fmt(tpr) || 'dados insuficientes'], ['Horário contado', 'seg–sex, 8h–18h'], ['Conversas medidas', cs.filter((c) => c.tmrMinutos !== null).length]],
+      acao: { rot:'Ver quem demora mais', fn: () => { visao = 'lista'; ordem = { col:'tmr', asc:false }; Object.assign(f, { etapa:'', vendedor:'', flag:'' }); desenhar(); $('#negociacoes').scrollIntoView({ behavior:'smooth' }); } } },
+  ];
+}
+
+/* a tela é dividida por agente, em ordem de prioridade */
+const ZONAS = [{ nome:'Vigia', id:'vigia', i:1 }, { nome:'Cronômetro', id:'cronometro', i:2 }, { nome:'Leitor', id:'leitor', i:0 }];
+function chipsDe(nome) {
+  const cs = dados.conversas, a = cacheAg;
+  if (nome === 'Vigia') return [[cs.filter(atencao).length, 'pedem atenção'], [cs.filter(espera).length, 'esperando'], [a ? a.analista.analises : cs.filter((c) => c.etapa).length, 'conversas analisadas']];
+  if (nome === 'Cronômetro') return [[fmt(media(cs.map((c) => c.tmrMinutos))) || '—', 'resposta média'], [fmt(media(cs.map((c) => c.tprMinutos))) || '—', '1ª resposta']];
+  return a ? [[a.leitor.mensagens, 'mensagens lidas'], [a.leitor.protegidas, 'com dado protegido']] : [[cs.length, 'conversas lidas']];
+}
+const colapsada = { cronometro: true };   // o Cronômetro começa só resumido; clique no agente para abrir
+const cabAgente = (z, AG) => { const x = AG[z.i];
+  return '<div class="zona-cab" id="cab-' + z.id + '" role="button" tabindex="0" aria-expanded="' + !colapsada[z.id] + '" title="Clique para abrir ou recolher"><span class="mascote" style="--g:' + x.cor + '">' + mascote(z.nome, x.cor) + '</span><div><h2>Agente ' + z.nome + '</h2><p>' + x.frase + '</p></div>' +
+    '<div class="chips">' + chipsDe(z.nome).map(([n, t]) => '<div class="chip-num"><b>' + esc(n) + '</b><small>' + t + '</small></div>').join('') + '</div>' +
+    '<div class="acoes-cab"><button class="info" data-ag="' + z.i + '" title="Ver o que este agente faz" aria-label="Sobre o agente ' + z.nome + '">i</button><span class="chev" aria-hidden="true">▾</span></div></div>'; };
+
+function desenhaMenu() {
+  if (!dados) return;
+  const g = dados.papel === 'gestor', AG = agentesDoMomento();
+  const itemZona = (z) => { const x = AG[z.i], c0 = chipsDe(z.nome)[0];
+    return '<a class="mi" href="#zona-' + z.id + '" data-zona="' + z.id + '" style="--g:' + x.cor + '"><span class="mascote">' + mascote(z.nome, x.cor) + '</span><span class="mt"><b>' + z.nome + '</b><small>' + c0[1] + '</small></span><span class="n">' + esc(c0[0]) + '</span>' + (x.alerta ? '<i class="alerta-dot"></i>' : '') + '</a>'; };
+  $('#menu').innerHTML = '<div class="marca"><div class="logo">IC</div><b>Inteligência comercial</b></div>' +
+    '<div class="grupo-rot">Painel</div><button class="mi' + (tela === 'painel' ? ' on' : '') + '" data-tela="painel"><span class="ico">▦</span><span class="mt"><b>Visão geral</b></span></button>' +
+    '<div class="grupo-rot">Agentes</div>' + ZONAS.map(itemZona).join('') +
+    (g ? '<div class="grupo-rot">Gestão</div><button class="mi' + (tela === 'vendedores' ? ' on' : '') + '" data-tela="vendedores"><span class="ico">☻</span><span class="mt"><b>Vendedores</b><small>cadastro e WhatsApp</small></span></button>' : '');
+  document.querySelectorAll('#menu [data-tela]').forEach((b) => b.onclick = () => { tela = b.dataset.tela; roteia(); scrollTo({ top: 0 }); });
+  document.querySelectorAll('#menu [data-zona]').forEach((a) => a.onclick = (e) => { e.preventDefault(); irParaZona(a.dataset.zona); });
+  $('#titulo-h').textContent = tela === 'vendedores' ? 'Vendedores' : (g ? 'Visão geral da operação' : saudacao());
+}
+function irParaZona(id) {
+  const ir = () => { colapsada[id] = false; const z = $('#zona-' + id); if (!z) return; z.classList.remove('recolhida'); const cab = $('#cab-' + id); if (cab) cab.setAttribute('aria-expanded', 'true'); z.scrollIntoView({ behavior: 'smooth' }); };
+  if (tela !== 'painel') { tela = 'painel'; roteia(); setTimeout(ir, 60); } else ir();
+}
+
+function canaisHtml() {
+  const cs = dados.conversas;
+  return '<h3 class="sub-h" style="margin-top:22px">Canais <small>de onde vêm as conversas</small></h3><div class="canais">' + Object.entries(CANAIS).map(([k, v]) => { const n = cs.filter((c) => c.canal === k).length, ativo = n > 0;
+    return '<div class="canal-card' + (ativo ? '' : ' breve') + '">' + bolha(v.cor) + '<div><b>' + v.nome + '</b><small>' + (ativo ? n + ' conversas · ativo' : 'em breve') + '</small></div></div>'; }).join('') + '</div>';
+}
+function corpoLeitor() { return corpoLeitorBase() + canaisHtml(); }
+function corpoLeitorBase() {
+  if (dados.papel !== 'gestor') return '<div class="privado"><span>🔒</span><div><b>Só o seu número de trabalho é lido.</b> O sistema apenas lê as conversas individuais desse número, ignora grupos, mascara CPF, e-mail e telefone antes de guardar e nunca envia mensagens por você. Cada vendedor enxerga só a própria carteira.</div></div>';
+  if (apiAntiga) return '<div class="aviso-api"><b>Esta API está desatualizada.</b> <a class="btn pri" style="margin:8px 0 0;display:inline-block;text-decoration:none" href="' + ORIGEM_ATUAL + '">Abrir a versão atualizada</a></div>';
+  if (!cacheVend) return '<p class="mut" style="margin:0">carregando vendedores…</p>';
+  const ROT = { conectado:'Conectado', aguardando:'Aguardando QR', desconectado:'Desconectado', simulado:'Simulado' };
+  return '<div class="leitor-grid">' + cacheVend.map((v) => '<div class="vcard"><div class="av">' + esc(v.nome[0]) + '</div><div><b>' + esc(v.nome) + '</b><small>' + (v.telefone ? fone(v.telefone) + ' · ' : '') + v.conversas + ' conversas</small></div><span class="badge ' + v.estado + '">' + ROT[v.estado] + '</span></div>').join('') + '</div>' +
+    '<p style="margin:14px 0 0"><button class="btn pri" style="margin:0" data-acao="novo-vendedor">+ Adicionar vendedor e conectar WhatsApp</button></p>';
+}
+
+let obsZonas = null;
+function ligaZonas() {
+  document.querySelectorAll('#app [data-ag]').forEach((b) => b.onclick = (e) => { e.stopPropagation(); abreAgente(Number(b.dataset.ag)); });
+  document.querySelectorAll('.zona-cab').forEach((cab) => { const alterna = () => { const z = cab.closest('.zona'), id = z.id.replace('zona-', ''); colapsada[id] = !colapsada[id]; z.classList.toggle('recolhida', colapsada[id]); cab.setAttribute('aria-expanded', String(!colapsada[id])); };
+    cab.onclick = alterna; cab.onkeydown = (e) => { if ((e.key === 'Enter' || e.key === ' ') && e.target === cab) { e.preventDefault(); alterna(); } }; });
+  document.querySelectorAll('[data-acao="novo-vendedor"]').forEach((b) => b.onclick = () => { tela = 'vendedores'; roteia(); scrollTo({ top:0 }); modalNovo(); });
+  if (obsZonas) obsZonas.disconnect();
+  obsZonas = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) document.querySelectorAll('[data-zona]').forEach((a) => a.classList.toggle('on', a.dataset.zona === e.target.id.replace('zona-', ''))); }), { rootMargin:'-90px 0px -55% 0px' });
+  document.querySelectorAll('.zona').forEach((z) => obsZonas.observe(z));
+}
+async function carregaAgentes() {
+  if (dados.papel !== 'gestor') return;
+  const [ra, rv] = await Promise.allSettled([api('/api/agentes'), api('/api/vendedores')]);
+  apiAntiga = [ra, rv].some((r) => r.status === 'rejected' && /rota não encontrada|404/i.test(r.reason.message));
+  if (ra.status === 'fulfilled') cacheAg = ra.value; if (rv.status === 'fulfilled') cacheVend = rv.value.vendedores;
+  if (tela !== 'painel' || !$('#zona-vigia')) return;
+  const AG = agentesDoMomento();
+  desenhaMenu();
+  ZONAS.forEach((z) => { const el = $('#cab-' + z.id); if (el) el.outerHTML = cabAgente(z, AG); });
+  const lc = $('#leitor-corpo'); if (lc) lc.innerHTML = corpoLeitor();
+  ligaZonas();
+}
+function abreAgente(i) {
+  const x = agentesDoMomento()[i], g = $('#gaveta'), acoes = x.acoes || (x.acao ? [x.acao] : []);
+  $('#veu').classList.add('on'); g.classList.add('on');
+  g.innerHTML = '<div class="cab"><div><h2>Agente ' + x.nome + '</h2><span class="mut" style="font-size:13.5px">' + x.frase + '</span></div><button id="fecha" aria-label="Fechar">Esc ✕</button></div><div class="corpo">' +
+    '<div class="ag-det" style="--g:' + x.cor + '"><div class="gh">' + mascote(x.nome, x.cor) + '</div><dl>' + x.stats.map(([k, v]) => '<dt>' + k + '</dt><dd>' + esc(v) + '</dd>').join('') + '</dl></div>' +
+    (x.recentes ? '<h3>O que fez por último</h3><div class="feed" style="--g:' + x.cor + '">' + (x.recentes.length ? x.recentes.map((r) => '<div><span class="bolinha"></span><span>Conversa <b>#' + r.conversa_id + '</b> → <b>' + (NOME[r.etapa] || r.etapa) + '</b></span><time>' + quando(r.analisada_em) + '</time></div>').join('') : '<p class="mut">Nenhuma análise ainda.</p>') + '</div>' : '') +
+    (acoes.length ? '<div style="display:flex;flex-direction:column;gap:8px;margin-top:18px">' + acoes.map((a, k) => '<button class="btn' + (k === 0 ? ' pri' : '') + '" style="margin:0" data-acaoag="' + k + '">' + a.rot + ' →</button>').join('') + '</div>' : '') + '</div>';
+  $('#fecha').onclick = fechar;
+  document.querySelectorAll('[data-acaoag]').forEach((b) => b.onclick = () => { fechar(); acoes[Number(b.dataset.acaoag)].fn(); });
+}
+
+/* vendedores: lista, cadastro (nome + celular) e QR code para o vendedor ler */
+let polling = null, qrAuto = false;
+async function desenhaVendedores() {
+  $('#sub').textContent = 'Cadastre os vendedores e conecte o WhatsApp de cada um';
+  let v; try { v = (await api('/api/vendedores')).vendedores; } catch (e) { $('#app').innerHTML = /rota não encontrada|404/i.test(e.message) ? '<div class="aviso-api"><b>Esta API está desatualizada.</b> Abra a versão atualizada: <a href="' + ORIGEM_ATUAL + '">' + ORIGEM_ATUAL + '</a></div>' : '<div id="erro">' + esc(e.message) + '</div>'; return; }
+  const ROT = { conectado: 'Conectado', aguardando: 'Aguardando QR code', desconectado: 'Desconectado', simulado: 'Simulado (dados de teste)' };
+  $('#app').innerHTML = '<div class="cab-tela"><div><h2>Vendedores</h2><p>O sistema só lê as conversas de trabalho do número de cada vendedor. Nunca envia mensagens.</p></div><button class="btn pri" id="novo">+ Adicionar vendedor</button></div>' +
+    '<div class="tab"><table><thead><tr><th>Vendedor</th><th>Celular</th><th>WhatsApp</th><th>Conversas</th><th></th></tr></thead><tbody>' +
+    v.map((x) => '<tr style="cursor:default"><td><b>' + esc(x.nome) + '</b><br><span class="mut" style="font-size:12.5px">' + esc(x.id) + '</span></td><td>' + fone(x.telefone) + '</td><td><span class="badge ' + x.estado + '">' + ROT[x.estado] + '</span></td><td>' + x.conversas + '</td><td style="text-align:right">' +
+      (x.convite_token && x.estado !== 'conectado' ? '<button class="btn peq" data-qr="' + x.id + '">Ver QR code</button> <button class="btn peq" data-link="' + x.convite_token + '">Copiar link</button>' : '') + '</td></tr>').join('') + '</tbody></table></div>';
+  $('#novo').onclick = () => modalNovo();
+  const auto = !qrAuto && new URLSearchParams(location.search).get('qr'); qrAuto = true; if (auto) { const alvo = v.find((x) => x.id === auto); if (alvo?.convite_token) modalQr(alvo); }
+  document.querySelectorAll('[data-qr]').forEach((b) => b.onclick = () => modalQr(v.find((x) => x.id === b.dataset.qr)));
+  document.querySelectorAll('[data-link]').forEach((b) => b.onclick = async () => { try { await navigator.clipboard.writeText(location.origin + '/conectar/' + b.dataset.link); b.textContent = 'Link copiado ✓'; } catch { prompt('Copie o link:', location.origin + '/conectar/' + b.dataset.link); } });
+}
+const abreModal = (h) => { $('#caixa').innerHTML = h; $('#modal').classList.add('on'); };
+function fechaModal() { clearInterval(polling); $('#modal').classList.remove('on'); if (tela === 'vendedores') desenhaVendedores(); }
+$('#modal').onclick = (e) => { if (e.target.id === 'modal') fechaModal(); };
+
+function modalNovo() {
+  abreModal('<h3>Novo vendedor</h3><p class="mut">Informe o nome e o celular que ele usa para vender. Em seguida você recebe o QR code para conectar o WhatsApp.</p>' +
+    '<label for="n">Nome</label><input id="n" placeholder="Ex.: Carla Souza" maxlength="60" autocomplete="off"><label for="t">Celular com DDD</label><input id="t" placeholder="(81) 98888-7777" inputmode="tel" autocomplete="off">' +
+    '<div class="erro" id="e"></div><div class="linha"><button class="btn" id="cancela">Cancelar</button><button class="btn pri" style="margin:0" id="salva">Cadastrar e gerar QR code</button></div>');
+  $('#n').focus(); $('#cancela').onclick = fechaModal;
+  const salvar = async () => {
+    $('#salva').disabled = true; $('#e').textContent = '';
+    try { const r = await api('/api/vendedores', { method: 'POST', body: JSON.stringify({ nome: $('#n').value, telefone: $('#t').value }) }); modalQr(r); }
+    catch (e) { $('#e').textContent = e.message; $('#salva').disabled = false; }
+  };
+  $('#salva').onclick = salvar; $('#t').onkeydown = (e) => { if (e.key === 'Enter') salvar(); };
+}
+function modalQr(v) {
+  const link = location.origin + '/conectar/' + v.convite_token;
+  abreModal('<div id="conteudo"><h3>Conectar o WhatsApp de ' + esc(v.nome) + '</h3><p class="mut">' + fone(v.telefone) + '</p><div class="qrbox" id="qr"><div class="spin"></div></div><div class="erro" id="aviso"></div>' +
+    '<ol class="passos"><li>No celular do vendedor, abra o <b>WhatsApp</b>.</li><li>Toque em <b>Aparelhos conectados</b> › <b>Conectar um aparelho</b>.</li><li>Aponte a câmera para o QR code.</li></ol>' +
+    '<p class="mut" style="margin:10px 0 0">Ou envie este link para ele abrir no computador:</p><div class="convite"><input id="lk" readonly value="' + esc(link) + '"><button class="btn peq" id="cp">Copiar</button></div>' +
+    '<div class="linha"><button class="btn" id="fecha">Fechar</button></div></div>');
+  $('#fecha').onclick = fechaModal;
+  $('#cp').onclick = async () => { try { await navigator.clipboard.writeText(link); $('#cp').textContent = 'Copiado ✓'; } catch { $('#lk').select(); } };
+  let ultimo = '';
+  const ciclo = async () => {
+    try {
+      const c = await api('/api/vendedores/' + v.id + '/conexao');
+      if (c.estado === 'conectado') { clearInterval(polling); $('#conteudo').innerHTML = '<div class="sucesso"><div class="check">✓</div><h3>' + esc(v.nome) + ' está conectado!</h3><p class="mut">As conversas de trabalho já começam a aparecer no painel.</p></div><div class="linha"><button class="btn pri" style="margin:0" id="ok">Concluir</button></div>'; $('#ok').onclick = fechaModal; return; }
+      $('#aviso').textContent = c.aviso || '';
+      if (c.qr && c.qr !== ultimo) { ultimo = c.qr; $('#qr').innerHTML = '<img alt="QR code do WhatsApp" src="' + c.qr + '">'; }
+      else if (!c.qr && c.aviso) $('#qr').innerHTML = '<span class="mut" style="padding:14px;font-size:13.5px">QR code indisponível</span>';
+    } catch (e) { $('#aviso').textContent = e.message; }
+  };
+  clearInterval(polling); ciclo(); polling = setInterval(ciclo, 3000);
+}
+
+/* ---- tour guiado: mostra a operação por etapas ---- */
+let tourAtivo = false, tourPasso = 0, tourPassos = [], jaTentouTour = false;
+const nUrg = () => [...dados.conversas].sort((a, b) => urgencia(b) - urgencia(a) || a.id - b.id)[0];
+
+function montaPassos() {
+  const g = dados.papel === 'gestor', cs = dados.conversas;
+  const abertas = cs.filter(aberta).length, pend = cs.reduce((n, c) => n + pendV(c).length, 0), esp = cs.filter(espera).length, at = cs.filter(atencao).length, tmr = media(cs.map((c) => c.tmrMinutos));
+  const pior = g ? [...new Set(cs.map((c) => c.vendedor))].map((v) => [v, media(cs.filter((c) => c.vendedor === v).map((c) => c.tmrMinutos))]).filter((x) => x[1] !== null).sort((a, b) => b[1] - a[1])[0] : null;
+  const p = [];
+  p.push({ grupo:'Boas-vindas', alvo:null, titulo: g ? 'Toda a operação comercial num só lugar' : 'Sua carteira, sem perder nenhum follow-up',
+    texto: g ? 'Em cerca de <b>1 minuto</b> você vê como a tela é organizada: <b>três agentes</b>, cada um cuidando de uma parte da operação, sem você ler conversa por conversa.'
+             : 'Em cerca de <b>1 minuto</b> você vê como o painel organiza as suas conversas, com <b>três agentes</b> cuidando de cada parte.' });
+  p.push({ grupo:'Agentes', alvo:'#menu', titulo:'A tela é dividida por agente',
+    texto:'O <b>Vigia</b> entende cada conversa e avisa o que é urgente, o <b>Cronômetro</b> mede o tempo de resposta e o <b>Leitor</b> traz as conversas do WhatsApp. Use o menu lateral para ir direto à área de cada um; o Cronômetro começa recolhido, é só clicar nele para abrir.' });
+  p.push({ grupo:'Vigia', alvo:'#zona-vigia', titulo:'O que precisa de você agora',
+    texto: !g ? 'Esta é a sua lista do <b>que fazer hoje</b>, com o mais urgente primeiro: <b>' + pend + ' pendências</b> suas e <b>' + esp + '</b> cliente(s) esperando retorno. Clique num item para abrir a conversa; ao lado, o funil da sua carteira.' : '<b>' + at + ' negociações</b> pedem atenção: há <b>' + pend + ' pendências</b> do vendedor e <b>' + esp + '</b> cliente(s) esperando retorno. O baralho mostra uma de cada vez, as mais urgentes primeiro, com um <b>resumo</b> e as <b>últimas mensagens</b>. Mais abaixo, o funil e as conversas em cada etapa.' });
+  p.push({ grupo:'Vigia', alvo:'#negociacoes', titulo:'As conversas em cada etapa',
+    texto:'O Vigia (uma IA) identifica a <b>etapa da venda</b> de cada conversa, de prospecção a fechado, sem ninguém preencher CRM. No <b>Quadro</b>, cada coluna é uma etapa e cada cartão é uma conversa, com o canal de origem. Clique numa etapa do funil para filtrar, ou troque para <b>Lista</b>.' });
+  p.push({ grupo:'Detalhe', alvo:'#gaveta', titulo:'Dentro de uma conversa', antes: async () => { await abrir(nUrg().id); },
+    texto:'Ao abrir uma conversa você vê o <b>resumo</b>, o <b>próximo passo sugerido</b>, as <b>pendências</b> de cada lado e as mensagens em balões, com CPF, e-mail e telefone <b>já mascarados</b>. A análise é feita por IA e fica marcada como "a validar".' });
+  p.push({ grupo:'Cronômetro', alvo:'#zona-cronometro', titulo:'Quem responde rápido e quem demora',
+    texto:'Tempo da <b>primeira resposta</b> e <b>tempo médio</b>, calculados sem IA e só em horário comercial (seg–sex, 8h–18h). O tempo médio é <b>' + (tmr === null ? 'indisponível' : fmt(tmr)) + '</b>: verde até 15 min, âmbar até 1 h, vermelho acima.' + (pior ? ' Hoje o maior é de <b>' + esc(pior[0]) + '</b> (' + fmt(pior[1]) + ').' : '') });
+  p.push({ grupo:'Leitor', alvo:'#zona-leitor', titulo: g ? 'De onde vêm as conversas' : 'Só você vê a sua carteira',
+    texto: g ? 'O Leitor lê o WhatsApp de cada vendedor, <b>somente leitura</b>. Aqui você vê quem está conectado e <b>adiciona um vendedor</b> com nome e celular: ele recebe um QR code para conectar o próprio WhatsApp.' : 'O Leitor lê só as suas conversas de trabalho. O gestor acompanha a equipe, mas cada vendedor vê apenas a própria carteira.' });
+  p.push({ grupo:'Acesso', alvo:'#perfil', titulo: g ? 'Cada vendedor vê só a própria carteira' : 'Pronto para começar',
+    texto: g ? 'O gestor vê a equipe inteira; o vendedor, apenas os seus clientes, e isso é garantido pelo próprio banco de dados. Troque em <b>Entrar como</b> para ver pelos olhos de cada um.' : 'Use a busca (atalho <b>/</b>) para achar qualquer conversa.' });
+  p.push({ grupo:'Pronto', alvo:null, titulo:'Tudo pronto', texto:'Use o botão <b>▶ Tour</b> para rever este roteiro quando quiser.' });
+  return p;
+}
+
+function iniciaTour(passo) {
+  tourPassos = montaPassos(); tourPasso = Math.min(passo || 0, tourPassos.length - 1); tourAtivo = true;
+  clearTimeout(dk.timer); dk.manual = true; pintaDeck(false); fechar();
+  $('#tour').classList.add('on'); mostraPasso(0);
+}
+async function mostraPasso(dir) {
+  const p = tourPassos[tourPasso]; if (!p) return;
+  if (p.antes) await p.antes(); else if (dir !== 0 || true) fechar();
+  const alvo = p.alvo ? document.querySelector(p.alvo) : null;
+  if (alvo && p.alvo !== '#gaveta') alvo.scrollIntoView({ block:'center', behavior:'instant' });
+  await new Promise((r) => setTimeout(r, p.antes ? 260 : 40));
+  const foco = $('#foco'), dica = $('#dica'), n = tourPassos.length;
+  dica.innerHTML = '<div class="etapa-tour">Etapa ' + (tourPasso + 1) + ' de ' + n + ' · ' + p.grupo + '<span>← → navega · Esc sai</span></div><h3>' + p.titulo + '</h3><p>' + p.texto + '</p>' +
+    '<div class="barra"><i style="width:' + ((tourPasso + 1) / n * 100) + '%"></i></div><div class="acoes"><button class="pular" id="tpular">' + (tourPasso === n - 1 ? '' : 'Pular tour') + '</button><button class="b" id="tvolta"' + (tourPasso === 0 ? ' disabled' : '') + '>Voltar</button><button class="b p" id="tprox">' + (tourPasso === n - 1 ? 'Concluir ✓' : tourPasso === 0 ? 'Começar →' : 'Próximo →') + '</button></div>';
+  $('#tprox').onclick = () => tourPasso === n - 1 ? fimTour() : (tourPasso++, mostraPasso(1));
+  $('#tvolta').onclick = () => { if (tourPasso > 0) { tourPasso--; mostraPasso(-1); } };
+  $('#tpular').onclick = fimTour;
+  const W = innerWidth, H = innerHeight, pad = 10;
+  // A gaveta desliza ao abrir: usa a posição final dela, não a do meio da animação.
+  const r = !alvo ? null : p.alvo === '#gaveta' ? (() => { const lg = Math.min(480, W); return { top:0, left:W - lg, width:lg, height:H, bottom:H, right:W }; })() : alvo.getBoundingClientRect();
+  if (r) { Object.assign(foco.style, { opacity:1, top:Math.max(4, r.top - pad) + 'px', left:Math.max(4, r.left - pad) + 'px', width:Math.min(W - 8, r.width + pad * 2) + 'px', height:Math.min(H - 8, r.height + pad * 2) + 'px' }); }
+  else { Object.assign(foco.style, { opacity:0, top:H / 2 + 'px', left:W / 2 + 'px', width:'0px', height:'0px' }); }
+  const w = dica.offsetWidth, h = dica.offsetHeight; let top, left;
+  if (!r) { top = (H - h) / 2; left = (W - w) / 2; }
+  else if (r.bottom + h + 24 < H) { top = r.bottom + pad + 14; left = r.left + r.width / 2 - w / 2; }
+  else if (r.top - h - 24 > 0) { top = r.top - pad - 14 - h; left = r.left + r.width / 2 - w / 2; }
+  else if (r.left - w - 24 > 0) { top = Math.max(12, Math.min(H - h - 12, r.top + 20)); left = r.left - pad - 14 - w; }
+  else { top = H - h - 18; left = (W - w) / 2; }
+  dica.style.top = Math.max(12, Math.min(H - h - 12, top)) + 'px'; dica.style.left = Math.max(12, Math.min(W - w - 12, left)) + 'px';
+  $('#tprox').focus({ preventScroll:true });
+}
+function fimTour() {
+  tourAtivo = false; $('#tour').classList.remove('on'); fechar(); dk.manual = false; pintaDeck(false); scrollTo({ top:0, behavior:'smooth' });
+  try { localStorage.setItem('tourVisto', '1'); } catch {}
+}
+document.addEventListener('keydown', (e) => {
+  if (!tourAtivo) return;
+  if (e.key === 'Escape') { e.stopPropagation(); fimTour(); }
+  else if (e.key === 'ArrowRight' || e.key === 'Enter') { e.preventDefault(); $('#tprox').click(); }
+  else if (e.key === 'ArrowLeft') { e.preventDefault(); $('#tvolta').click(); }
+}, true);
+addEventListener('resize', () => { if (tourAtivo) mostraPasso(0); });
+function quandoPronto() {
+  if (jaTentouTour) return; jaTentouTour = true;
+  const forca = new URLSearchParams(location.search).get('tour') === '1';
+  if (tela !== 'painel') return;
+  const q0 = new URLSearchParams(location.search); if (q0.get('abre')) setTimeout(() => irParaZona(q0.get('abre')), 300); if (q0.get('ag') !== null) setTimeout(() => abreAgente(Number(q0.get('ag'))), 500);
+  if (q0.get('tour') === '0') return;
+  if (forca || (dados.papel === 'gestor' && !lerGuardado('tourVisto'))) setTimeout(() => iniciaTour(Number(new URLSearchParams(location.search).get('passo') || 0)), 600);
+}
+$('#btour').onclick = () => iniciaTour(0);
+
+$('#perfil').onchange = entrar;
+entrar();
+</script>
+</body>
+</html>

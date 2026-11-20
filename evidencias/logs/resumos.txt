@@ -1,0 +1,32 @@
+#4: O cliente procura um orçamento mais competitivo para o sistema solar, pois recebeu uma proposta de 16.500 de outra empresa. O vendedor aguarda o envio do orçamento da concorrência para comparar e oferecer uma condição melhor.
+#13: O cliente pediu orçamento para 50 sacos de cimento, 3 metros de areia e 2 metros de brita, totalizando R$ 2.655,00. O cliente vai confirmar a quantidade com o mestre de obras antes de prosseguir.
+#19: O cliente procura informações sobre um curso de inglês para sua filha de 12 anos. O vendedor aguarda a realização do teste de nivelamento para informar o valor e a turma adequada.
+#31: O cliente está interessado em festas infantis, 15 anos e casamento e pediu o catálogo. O vendedor enviou o catálogo e aguarda o retorno do cliente após ele analisar.
+#37: O cliente comprou um sofá retrátil cinza por R$ 2.890,00 e pagou em 10x. O pagamento foi aprovado e a entrega está prevista para terça (10/11), com a transportadora ligando antes.
+#48: O cliente procura informações sobre harmonização facial, especificamente para bigode chinês e olheiras. O vendedor vai confirmar a disponibilidade para uma avaliação gratuita no sábado de manhã.
+#59: O cliente está interessado em uma matrícula no curso de espanhol, mas decidiu adiar para o ano que vem devido a questões financeiras. O vendedor ofereceu segurar o valor promocional até janeiro, mas o cliente optou por não fazer agora.
+#65: O cliente decidiu não fazer festa de casamento e usará o dinheiro para uma viagem. O vendedor se ofereceu para ajudar caso o cliente mude de ideia ou queira um almoço pequeno.
+#72: O cliente procura informações sobre a escolinha para seu filho de 2 anos, incluindo vagas para janeiro e valores. Foi combinado que o cliente confirmará o horário do trabalho na segunda para agendar uma visita.
+#86: O cliente quer 2 mil panfletos coloridos frente única para a inauguração da lanchonete no dia 20. O vendedor aguarda o envio da logo e do endereço para montar o orçamento.
+#97: O cliente procura instalação de um split de 12.000 BTUs, que chega amanhã. O vendedor informou o valor de R$ 450,00 e aguarda o cliente confirmar após a chegada do aparelho.
+#107: O cliente está interessado em informações sobre os serviços da GestorPro. O vendedor agendou um contato para depois das 18h.
+#115: O cliente pediu orçamento para um aniversário de 1 ano com 60 convidados no salão do prédio, tema safari. O vendedor apresentou uma proposta de R$ 3.900,00 e aguarda resposta do cliente após consulta ao marido.
+#126: O cliente está considerando uma obra ou reforma, mas ainda não decidiu. O vendedor vai contatá-lo na próxima segunda-feira para oferecer uma lista de preços.
+#134: O cliente quer 12 camisas polo bordadas com a logo no peito. O vendedor ofereceu por R$ 718,80, com prazo de 10 dias úteis e 50% de entrada, mas o cliente achou o preço alto e está avaliando.
+#143: O cliente quer o quarto do bebê pronto até 05/12 e aceitou a entrega em duas etapas. O vendedor vai confirmar com a fábrica e oferecer um desconto de 5% para pagamento à vista.
+#153: O cliente quer reduzir as aulas de 3 para 2 por semana e saber se o valor diminui proporcionalmente. O vendedor vai recalcular as opções e enviar à tarde.
+#161: O cliente procura um contador para abrir uma empresa de comércio de roupas e recebeu uma proposta de R$ 600 para abertura e R$ 450 de mensalidade. A proposta está reservada até sexta-feira.
+#171: O cliente aprovou o layout e pediu 1.000 cartões de visita por R$ 189,00. O pagamento foi feito via PIX e a entrega está prevista para segunda (09/11).
+#179: O cliente quer comprar um pacote de 10 sessões de drenagem e pediu para parcelar em 6x. O vendedor está aguardando a aprovação da gerente para liberar essa condição.
+#188: O cliente confirmou a contratação de um coffee break para 40 pessoas no dia 12/11 por R$ 1.680,00 e pediu a nota fiscal no CNPJ da empresa. O vendedor vai enviar o boleto ainda hoje e a NF após o evento.
+#195: O cliente está buscando serviços de dedetização, mas optou por não fechar com o vendedor pois um cunhado fará o serviço gratuitamente. O vendedor ofereceu a emissão de certificado caso o cliente precise no futuro.
+#202: O cliente fechou o plano Pro anual com 15 usuários, optando pelo pagamento em 12x no boleto. O contrato já foi assinado e o time de implantação entrará em contato para agendar o onboarding.
+#209: O cliente procura uma cozinha planejada com acabamento amadeirado e branco, e quer saber se cabe uma ilha. A visita técnica para medições ainda precisa ser agendada.
+#220: O cliente quer parcelar a compra das câmeras em 10x sem juros. O vendedor vai consultar o dono sobre a possibilidade e promete dar um retorno ainda hoje.
+#229: O cliente fechou com outra marcenaria por um preço 4 mil mais barato. O vendedor ofereceu rever os valores, mas o cliente já assinou o contrato.
+#236: O cliente queria fechar o orçamento de pintura por R$ 7.800, mas decidiu cancelar o serviço devido a um gasto inesperado. O vendedor se colocou à disposição para futuras oportunidades.
+#246: O cliente comprou 45 m² de porcelanato 60x60 acetinado por R$ 4.195,50 e já fez o pagamento. A entrega está agendada para quinta-feira pela manhã.
+#254: O cliente procura um sistema de roteirização para 18 caminhões. A proposta foi enviada e o cliente apresentará à diretoria na reunião de quinta.
+#264: O cliente está aberto a receber promoções de serviços de climatização. No momento, não há uma solicitação específica de serviços.
+
+30 resumo(s) gerado(s) com resumo-v1.

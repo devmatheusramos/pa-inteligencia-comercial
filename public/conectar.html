@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conectar meu WhatsApp</title>
+<style>
+  :root { --bg:#f4f5f9; --card:#fff; --ink:#141a2a; --mut:#5b6478; --line:#e3e6ee; --brand:#4f46e5; --ok:#16a34a; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0d1020; --card:#171b2e; --ink:#eef0f8; --mut:#9aa3b8; --line:#2a3050; --brand:#8b93ff; --ok:#4ade80; } }
+  * { box-sizing:border-box; } body { margin:0; min-height:100vh; display:grid; place-items:center; background:var(--bg); color:var(--ink); font:16px/1.5 system-ui,"Segoe UI",sans-serif; padding:16px; }
+  main { width:min(440px,100%); background:var(--card); border:1px solid var(--line); border-radius:22px; padding:26px 24px; text-align:center; box-shadow:0 20px 50px -20px #0005; }
+  h1 { font-size:21px; margin:0 0 6px; } p { color:var(--mut); margin:0 0 16px; }
+  .qr { width:260px; height:260px; margin:6px auto 14px; border-radius:16px; background:#fff; display:grid; place-items:center; border:1px solid var(--line); overflow:hidden; } .qr img { width:100%; height:100%; display:block; }
+  ol { text-align:left; color:var(--mut); font-size:14.5px; padding-left:20px; margin:0; } ol b { color:var(--ink); }
+  .ok { display:none; } .ok .check { width:84px; height:84px; margin:6px auto 12px; border-radius:50%; background:var(--ok); color:#fff; display:grid; place-items:center; font-size:46px; animation:pop .5s cubic-bezier(.2,1.4,.4,1); }
+  @keyframes pop { from { transform:scale(0); } } .conectado .ok { display:block; } .conectado .espera { display:none; }
+  .aviso { color:#b45309; font-size:14px; } .mut { color:var(--mut); font-size:12.5px; margin-top:14px; }
+  .spin { width:28px; height:28px; border:3px solid var(--line); border-top-color:var(--brand); border-radius:50%; animation:g 1s linear infinite; } @keyframes g { to { transform:rotate(360deg); } }
+</style>
+</head>
+<body>
+<main id="m">
+  <div class="espera">
+    <h1 id="titulo">Conectar meu WhatsApp</h1>
+    <p>Leia o código abaixo com o celular que você usa para vender.</p>
+    <div class="qr" id="qr"><div class="spin"></div></div>
+    <p class="aviso" id="aviso"></p>
+    <ol>
+      <li>Abra o <b>WhatsApp</b> no celular.</li>
+      <li>Toque em <b>Aparelhos conectados</b> e depois em <b>Conectar um aparelho</b>.</li>
+      <li>Aponte a câmera para este código.</li>
+    </ol>
+    <p class="mut">O sistema apenas lê as conversas de trabalho para o seu gestor acompanhar. Ele nunca envia mensagens por você.</p>
+  </div>
+  <div class="ok"><div class="check">✓</div><h1>Tudo certo!</h1><p>Seu WhatsApp está conectado. Pode fechar esta página e continuar vendendo como sempre.</p></div>
+</main>
+<script>
+const token = location.pathname.split('/').pop();
+const $ = (s) => document.querySelector(s);
+let ultimoQr = '';
+async function ciclo() {
+  try {
+    const r = await fetch('/api/convite/' + token);
+    if (!r.ok) { $('#titulo').textContent = 'Convite inválido ou expirado'; $('#qr').style.display = 'none'; return; }
+    const d = await r.json();
+    $('#titulo').textContent = 'Olá, ' + d.nome + '! Conecte seu WhatsApp';
+    if (d.estado === 'conectado') { $('#m').classList.add('conectado'); return; }
+    $('#aviso').textContent = d.aviso || '';
+    if (d.qr && d.qr !== ultimoQr) { ultimoQr = d.qr; $('#qr').innerHTML = '<img alt="QR code para conectar o WhatsApp" src="' + d.qr + '">'; }
+  } catch {}
+  setTimeout(ciclo, 3000);
+}
+ciclo();
+</script>
+</body>
+</html>

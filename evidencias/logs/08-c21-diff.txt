@@ -1,0 +1,5 @@
++      },
++      {
++        "responsavel": "vendedor",
++        "descricao": "Emitir a nota fiscal após o evento (12/11)",
++        "origem_msg": 5

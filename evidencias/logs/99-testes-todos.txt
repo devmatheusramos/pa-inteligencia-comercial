@@ -1,0 +1,23 @@
+✔ grava mascarada, liga ao vendedor e ignora duplicada (395.9465ms)
+✔ número desconhecido não grava nada (3.4698ms)
+✔ RLS: vendedor só vê a própria carteira; gestor vê todas (163.1196ms)
+✔ token: assinatura inválida ou expirado é recusado (1.1684ms)
+✔ tempo dentro do horário comercial: 10:00 -> 10:12 = 12 min (0.9673ms)
+✔ mensagem fora do expediente começa a contar na abertura seguinte (0.2531ms)
+✔ vários dias úteis: dia cheio = 600 min (0.1836ms)
+✔ turno do cliente: relógio começa na primeira mensagem do turno (0.3166ms)
+✔ turno sem resposta não entra na média e é contado à parte (0.1787ms)
+✔ valida dígitos verificadores (1.2898ms)
+✔ mascara dados pessoais na mensagem (1.5131ms)
+✔ mascara CNPJ, cartão e chave PIX aleatória (0.2968ms)
+✔ não mascara números que não são dado pessoal (0.2068ms)
+✔ Evolution: aceita só o token da instância (0.9143ms)
+✔ Evolution: mensagem do cliente e resposta do vendedor (fromMe) na mesma conversa, mascaradas (2.4743ms)
+✔ Evolution: ignora grupos, status e outros eventos; resolve @lid pelo número real (0.4155ms)
+✔ Meta (plano B): aceita só assinatura HMAC correta (0.3206ms)
+✔ Meta (plano B): normaliza cliente e eco do vendedor (0.434ms)
+✔ rejeita etapa fora da lista fechada (0.3304ms)
+ℹ tests 19
+ℹ pass 19
+ℹ fail 0
+ℹ skipped 0

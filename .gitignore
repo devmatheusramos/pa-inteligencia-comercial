@@ -2,3 +2,10 @@ node_modules/
 .env
 *.log
 evolution-qrcode.png
+
+# Arquivos gerados ao tirar prints / subir servidores locais
+evidencias/_html/
+evidencias/logs/api-*.txt
+evidencias/logs/webhook-server.txt
+evidencias/logs/_ev.mjs
+evidencias/logs/evolution-up.txt

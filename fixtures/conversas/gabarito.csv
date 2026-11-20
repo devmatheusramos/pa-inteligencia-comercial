@@ -19,7 +19,7 @@ c17,v1,escola de idiomas,negociacao,1,false
 c18,v2,contabilidade,proposta,1,true
 c19,v1,gráfica,fechado_ganho,1,false
 c20,v1,clínica de estética,negociacao,1,false
-c21,v2,buffet,fechado_ganho,1,false
+c21,v2,buffet,fechado_ganho,2,false
 c22,v2,dedetização,perdido,0,false
 c23,v2,software B2B,fechado_ganho,1,false
 c24,v1,móveis planejados,qualificacao,1,false

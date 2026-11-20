@@ -1,0 +1,8 @@
+$ vendedor v1 abrindo a PRÓPRIA conversa 13:
+HTTP 200
+$ vendedor v1 tentando abrir conversa 4 do vendedor v2 (Bruno):
+{"erro":"sem acesso a esta conversa (ou ela não existe)"}
+HTTP 403
+$ sem token:
+{"erro":"não autenticado"}
+HTTP 401

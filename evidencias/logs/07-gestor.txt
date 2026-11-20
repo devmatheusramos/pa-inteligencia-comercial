@@ -1,0 +1,13 @@
+$ curl -H "Authorization: Bearer <token GESTOR>" http://localhost:3001/api/conversas
+papel: gestor | conversas visíveis: 30
+por vendedor: {"Bruno":15,"Ana Paula":15}
+┌─────────┬──────┬─────────────┬─────────────────┬─────────┬─────────┬──────────────┐
+│ (index) │ id   │ vendedor    │ etapa           │ tpr_min │ tmr_min │ sem_resposta │
+├─────────┼──────┼─────────────┼─────────────────┼─────────┼─────────┼──────────────┤
+│ 0       │ '4'  │ 'Bruno'     │ 'negociacao'    │ 4       │ 4       │ 0            │
+│ 1       │ '13' │ 'Ana Paula' │ 'proposta'      │ 0       │ 12      │ 0            │
+│ 2       │ '19' │ 'Bruno'     │ 'qualificacao'  │ 4       │ 3       │ 1            │
+│ 3       │ '31' │ 'Ana Paula' │ 'prospeccao'    │ 6       │ 5       │ 0            │
+│ 4       │ '37' │ 'Ana Paula' │ 'fechado_ganho' │ 5       │ 4       │ 1            │
+│ 5       │ '48' │ 'Ana Paula' │ 'prospeccao'    │ 0       │ 0       │ 1            │
+└─────────┴──────┴─────────────┴─────────────────┴─────────┴─────────┴──────────────┘

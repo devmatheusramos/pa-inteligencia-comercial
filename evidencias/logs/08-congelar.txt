@@ -1,0 +1,2 @@
+gabarito congelado: 30 hashes gravados
+gabarito íntegro: 30 conversas conferem com o congelamento (fixtures/conversas/gabarito.sha256)

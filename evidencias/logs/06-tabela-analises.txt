@@ -1,0 +1,12 @@
+ conversa_id | vendedor  |     etapa     | pend |                  proximo_passo                   | tpr | tmr |   modelo    | versao_prompt 
+-------------+-----------+---------------+------+--------------------------------------------------+-----+-----+-------------+---------------
+           4 | Bruno     | negociacao    |    2 | Aguarde o envio da foto do orçamento da concorre |   4 |   4 | gpt-4o-mini | analise-v1
+          13 | Ana Paula | proposta      |    0 | Aguarde a confirmação do cliente sobre a quantid |   0 |  12 | gpt-4o-mini | analise-v1
+          19 | Bruno     | qualificacao  |    1 | Aguardar o cliente informar o resultado do teste |   4 |   3 | gpt-4o-mini | analise-v1
+          31 | Ana Paula | prospeccao    |    0 | Aguarde o retorno da Juliana após ela olhar o ca |   6 |   5 | gpt-4o-mini | analise-v1
+          37 | Ana Paula | fechado_ganho |    0 | Acompanhar a entrega na data prevista.           |   5 |   4 | gpt-4o-mini | analise-v1
+          48 | Ana Paula | prospeccao    |    1 | Confirmar o horário da avaliação gratuita com a  |   0 |   0 | gpt-4o-mini | analise-v1
+          59 | Ana Paula | perdido       |    0 | Acompanhar Mariana no próximo ano para verificar |   0 |   0 | gpt-4o-mini | analise-v1
+          65 | Ana Paula | perdido       |    0 | Acompanhe o cliente em uma futura oportunidade.  |  23 |  13 | gpt-4o-mini | analise-v1
+(8 rows)
+
